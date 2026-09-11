@@ -1,0 +1,6 @@
+﻿advance\_beamlab.estimate\_rank
+===============================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: estimate_rank

@@ -1,0 +1,12 @@
+﻿advance\_beamlab.MCMVScanResult
+===============================
+
+.. currentmodule:: advance_beamlab
+
+.. autoclass:: MCMVScanResult
+   :no-members:
+   :no-inherited-members:
+   :no-special-members:
+
+.. minigallery:: advance_beamlab.MCMVScanResult
+   :add-heading: Examples using ``MCMVScanResult``

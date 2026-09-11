@@ -1,0 +1,12 @@
+﻿advance\_beamlab.MCMVBeamformer
+===============================
+
+.. currentmodule:: advance_beamlab
+
+.. autoclass:: MCMVBeamformer
+   :no-members:
+   :no-inherited-members:
+   :no-special-members:
+
+.. minigallery:: advance_beamlab.MCMVBeamformer
+   :add-heading: Examples using ``MCMVBeamformer``

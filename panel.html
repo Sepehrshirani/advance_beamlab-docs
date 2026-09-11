@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interactive panel &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'panel';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="auto_examples/index.html" />
+    <link rel="prev" title="Which method should I use?" href="choosing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Interactive panel</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="interactive-panel">
+<span id="constraint-panel"></span><h1>Interactive panel<a class="headerlink" href="#interactive-panel" title="Link to this heading">#</a></h1>
+<p>The algebra of a beamformer is short enough to fit on one line and hard enough
+to leave most people none the wiser. An LCMV filter for source <span class="math notranslate nohighlight">\(i\)</span> is the
+one that minimises output power subject to <span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}
+\mathbf{g}_i = 1\)</span>. That constraint fixes one number. It says nothing at all
+about <span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{g}_j\)</span>, the gain the same filter has
+at some <em>other</em> source, and leaving that free is the entire story of what goes
+wrong with correlated sources.</p>
+<p>This page is here so you can watch it happen rather than take it on trust. Put
+sources on a cortex, choose how correlated they are and what kind of activity
+they carry, and read the table of <span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{g}_j\)</span>
+values off the filter that comes back.</p>
+<p>Start with LCMV and the correlation slider at zero. The off-diagonal entry sits
+near zero on its own, because with nothing to cancel there is nothing to gain by
+moving it. Now push the correlation up. The off-diagonal goes sharply negative,
+and the recovered amplitude collapses in step with it. Nothing has gone wrong:
+that large negative gain is the <em>best</em> answer to the question LCMV was asked,
+because subtracting a correlated partner is an efficient way to minimise output
+power. The filter is doing its job, and its job is not quite what you wanted.</p>
+<p>Then switch to MCMV without touching anything else. The off-diagonal pins to
+zero, because MCMV constrains the whole table to the identity rather than one
+diagonal entry, and the amplitude stops moving with the correlation. Switching
+between the two with the correlation high is the clearest thing on this page.</p>
+<p>ReciPSIICOS and ABMC get there differently, and the table shows how. ReciPSIICOS
+never touches the constraint; it edits the covariance the filter is built from,
+so the cancellation has less to work with. ABMC does not trade the
+distortionless constraint away either – its diagonal reads exactly 1.000000 in
+every configuration the panel holds. What flattens its off-diagonal is that it
+solves against a sparse Bayesian estimate of the covariance rather than the
+sample one; the template term is a mild steer on top, not a second constraint.
+Measured over the whole grid its off-diagonal has a median magnitude of 0.03,
+against 0.29 for LCMV and 0.18 for ReciPSIICOS, with MCMV exactly zero by
+construction. Both leave a visible signature in the table.</p>
+<p>The panel opens with the problem each method is solving, the sizes of every
+quantity in it at the current settings, and a note on which head model is in use
+and what that costs. The sizes are there because the algebra never states them
+and readers reasonably ask: with a fixed-orientation model a single point’s
+leadfield is one column of 203 numbers, not three, and the constraint table is
+only as big as the number of sources you have put down.</p>
+<p>That table comes in two parts, and the second changes with the method. The first
+holds what all four share: the recording, the covariance, the leadfields, the
+filters, the reconstruction. The second holds what the selected method adds on
+top, which is where the methods actually differ and where a single fixed table
+said nothing at all. Choose MCMV and it names the <span class="math notranslate nohighlight">\(n \times n\)</span> matrix that
+is inverted, the one whose conditioning fails when two sources are too close to
+tell apart. Choose ReciPSIICOS and it gives the size of the space the projection
+happens in, which is neither the sensor space nor the source space but the space
+of vectorised covariances: <span class="math notranslate nohighlight">\(q^2\)</span> dimensions for <span class="math notranslate nohighlight">\(q\)</span> virtual sensors,
+with a projector <span class="math notranslate nohighlight">\(q^2 \times q^2\)</span> on a side. That is the largest array
+anything on this page touches, and it is why the method reduces 203 channels to
+a few tens of virtual sensors before it starts. Choose ABMC and it names the
+template, the per-point lag search, the trade-off <span class="math notranslate nohighlight">\(P\)</span>, the multiplier, and
+the iteration counts of both the sparse Bayesian covariance it uses and the
+gradient descent it replaces with a closed form. Every one of those numbers is
+written by the build from the functions themselves, so it cannot drift away from
+the code it describes.</p>
+<p>Two terms in that table get explained underneath it, because both are load
+bearing and neither is obvious. A <strong>constrained</strong> source is one the method has
+been told about and writes an equation for, which is exactly what separates the
+first two methods: LCMV builds one filter per source, each knowing only its own
+location, while MCMV builds one system covering all of them. And <strong>fixed</strong> against
+<strong>free</strong> orientation decides whether a point contributes one leadfield column or
+three, which changes the size of every array downstream and is worth choosing
+deliberately: fixed when the cortical normal is a physiological statement you
+trust, free when it is not, as for a volume source that has no normal at all.</p>
+<p>The line that changes between the methods is short. LCMV minimises <span class="math notranslate nohighlight">\(\mathbf{w}_1^{\mathsf T}
+\mathbf{R}\,\mathbf{w}_1\)</span> subject to one scalar equation. MCMV minimises
+<span class="math notranslate nohighlight">\(\operatorname{tr}(\mathbf{W}^{\mathsf T}\mathbf{R}\,\mathbf{W})\)</span> subject
+to <span class="math notranslate nohighlight">\(\mathbf{W}^{\mathsf T}\mathbf{G} = \mathbf{I}\)</span>, which is the same
+objective with the rest of the table nailed down. ReciPSIICOS keeps LCMV’s
+single constraint and replaces <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> with a projected
+<span class="math notranslate nohighlight">\(\tilde{\mathbf{R}}\)</span>. ABMC keeps the distortionless constraint and adds a
+reward for output that resembles a known waveform, traded off by <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<p>ReciPSIICOS carries one free parameter, the projection rank, and it is worth
+knowing where the panel’s came from. <span class="math notranslate nohighlight">\(K^*\)</span> is chosen once by the 45-degree
+criterion of Kuznetsova et al., here <strong>84 out of</strong> <span class="math notranslate nohighlight">\(q^2 = 5625\)</span>.</p>
+<p>The rank has to be chosen in the space it is spent in, and that is easier to get
+wrong than it looks. Both the selection curve and the filter first reduce the
+203 channels to <span class="math notranslate nohighlight">\(q\)</span> virtual sensors by a truncated SVD of the <em>whitened</em>
+leadfield, so anything that changes the whitener changes <span class="math notranslate nohighlight">\(q\)</span>, and a rank
+drawn from one <span class="math notranslate nohighlight">\(q^2\)</span> and spent in another quietly stops meaning what it
+says. This page got it wrong twice. Selecting the rank from the forward alone,
+with no noise covariance, chose at <span class="math notranslate nohighlight">\(q = 49\)</span> and spent at <span class="math notranslate nohighlight">\(q = 78\)</span>.
+Selecting it from a scene that was missing the finer truth forward the rest of
+the grid uses changed which leadfield the interference was projected through,
+and so chose at <span class="math notranslate nohighlight">\(q = 78\)</span> and spent at <span class="math notranslate nohighlight">\(q = 75\)</span> – 168 where the
+criterion wanted 84, a projector of twice the intended rank. The rank and its
+<span class="math notranslate nohighlight">\(q\)</span> are now reported together in the sizes table, because neither number
+says anything on its own.</p>
+<div id="advance-beamlab-panel" class="cp-root"></div>
+<link rel="stylesheet" href="_static/constraint_panel.css?v=8">
+<script src="_static/constraint_panel_data.js?v=5"></script>
+<script src="_static/constraint_panel.js?v=8"></script><section id="the-controls">
+<h2>The controls<a class="headerlink" href="#the-controls" title="Link to this heading">#</a></h2>
+<p><strong>Sources</strong> chooses the scene, and the options come in three groups.</p>
+<p>The <strong>geometry</strong> group is the abstract case, where separation is set directly:
+one source is the control worth starting from, since there is nothing to cancel
+against and every method should keep its amplitude; two at 2 cm and at 6 cm
+bracket the range where cancellation matters; three is the case where a
+two-source constraint is no longer enough.</p>
+<p>The <strong>bilateral</strong> group puts the same structure in both hemispheres:
+hippocampus, amygdala, thalamus, auditory, visual and motor cortex, and lateral
+prefrontal cortex.</p>
+<p>The <strong>circuits</strong> group is the one most likely to match a real question. Each is
+a within-hemisphere pair that computational psychiatry and clinical
+neurophysiology actually study: hippocampus to medial prefrontal cortex, which
+is the classic theta-coupling circuit in memory and anxiety; amygdala to
+ventromedial prefrontal cortex, for emotion regulation; thalamus to motor
+cortex, for thalamocortical drive, spindles and Parkinsonian beta; lateral
+prefrontal to superior parietal, the frontoparietal executive network; anterior
+cingulate to insula, the salience network; and medial prefrontal to precuneus,
+the core of the default mode. Setting the correlation slider on one of these is
+asking exactly the question a coupling analysis asks, and the constraint table
+then shows what your beamformer will do to the answer.</p>
+<p>Cortical targets are the grid point nearest the spatial centroid of the matching
+parcellation label, and the build asserts each representative really falls inside
+the label it is named for. Subcortical targets come from the segmentation.</p>
+<p>The hippocampus needs a word, because a cortical surface has none. The source
+space here is <strong>mixed</strong>: the surface plus discrete sources inside the
+subcortical labels of the subject’s <code class="docutils literal notranslate"><span class="pre">aseg</span></code>, three millimetres apart. That
+volume grid is decimated five to one for the scan, which still leaves 30 points
+in each hippocampus, 15 and 13 in the amygdalae and 59 and 64 in the thalami:
+211 subcortical points against 586 cortical ones. The structures are genuinely
+searchable rather than cortical stand-ins, and they are decimated far less
+aggressively than the surface because they are small.</p>
+<p>That comes with a modelling choice worth stating. A volume source carries no
+surface normal, so a fixed-orientation forward cannot be built from one
+directly. Each subcortical source is given the short principal axis of its own
+structure as an orientation, which for the hippocampus approximates the
+somato-dendritic direction its pyramidal cells are organised along. It is a
+simplification, and a real hippocampal study would want to think harder about
+it.</p>
+<p><strong>Template ABMC seeks</strong> appears only with ABMC selected, because it is the only
+method that has one, and it is that method’s most consequential setting. ABMC
+does not look for power; it is steered to the location whose output best matches
+a waveform you give it, at the best lag. Choosing that waveform is a scientific
+decision: to localise hippocampal theta you hand it theta. The control offers
+the target’s own time course, which no experiment has and which is there only to
+show what a perfect template would be worth; an independent signal from the
+<em>same band</em>, which is the realistic best case and what “looking for theta”
+actually means; and one from a <em>different</em> band, which is what a wrong guess
+costs. In your own analysis this is an argument to
+<a class="reference internal" href="generated/advance_beamlab.make_abmc.html#advance_beamlab.make_abmc" title="advance_beamlab.make_abmc"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_abmc()</span></code></a>: pass an expert-annotated spike, an averaged
+response, or a band-limited signal standing for the rhythm you are after.</p>
+<p>Watch the localiser rather than the constraint table when you move it. At the
+panel’s <span class="math notranslate nohighlight">\(P\)</span> of 0.03 the template barely changes the weights, which is the
+method behaving as designed – it is a mild steer, not a second distortionless
+constraint – so the delivered amplitude hardly moves. The map is a different
+story, because the map <em>is</em> the template match: on hippocampal theta a
+same-band template gives a map correlating 0.66 with the one the target’s own
+waveform produces, and a wrong-band template nothing at all, -0.05. The peak
+often survives that, which is worth knowing too; what a bad template mostly
+costs you is the rest of the picture.</p>
+<p>One caveat that the burst morphology makes obvious. For a rhythm, naming the
+band is most of what a template needs to say. For spike-like activity it is not:
+an independent burst train drawn from the same generator has the same shape and
+the wrong timing, and ABMC’s lag search can only align a template that is
+actually there. Matching the morphology matters more than matching the class it
+came from.</p>
+<p>The rhythms are chosen to go with them. <strong>Activity</strong> switches between theta,
+alpha and beta, or a train of short bursts. The rhythms are band-limited processes rather than modulated sinusoids,
+because a pure tone is not what a rhythm looks like and it makes every trace on
+the page read as a textbook figure rather than a recording. The bursts are the
+regime ABMC was designed for, since its extra term rewards output matching a
+known waveform, and it is worth comparing the four methods there.</p>
+<p><strong>Head model</strong> switches between the two regimes described below, and it is worth
+moving it with LCMV and MCMV in turn.</p>
+<p><strong>Covariance window</strong> appears on the recorded half only, and sets the interval
+the data covariance is estimated over. It is the page’s plainest demonstration
+that a beamformer is tuned by what you show it rather than only by its formula:
+the same recording and the same method give different filters, and different
+distances to the fitted dipoles, depending on the window. Every recorded number
+quoted on this page is for the narrow 80-130 ms response window; the wider
+50-200 ms window admits more of the evoked response and more of the ongoing
+activity along with it.</p>
+<p><strong>Trials averaged</strong> is the signal-to-noise axis, expressed as the thing an
+experimenter actually controls. A single trial of an evoked MEG response sits
+well below unit sensor signal-to-noise; this panel takes 0.2 as the single-trial
+value, and averaging <span class="math notranslate nohighlight">\(N\)</span> trials buys a factor of <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>, so the
+two settings are 0.20 and 2.0.</p>
+<p>This control moves two things in opposite directions, and that is worth sitting
+with rather than explaining away. Averaging always improves <strong>localisation</strong>:
+the median error over the correlated scenes, pooled over every method and
+template the panel holds, falls from 15.6 mm to 0 mm with a matched model, and
+from 20.4 mm to 9.0 mm with a realistic one. But averaging makes LCMV’s
+<strong>cancellation worse</strong>, not better: at <span class="math notranslate nohighlight">\(r = 0.99\)</span> its delivered amplitude
+falls from 0.48 at one trial to 0.03 at a hundred. Nothing
+has broken. Cancellation is a property of the clean covariance, and at one trial
+the noise is large enough that the filter cannot adapt sharply enough to perform
+it. Averaging removes the noise that was accidentally protecting the source.
+More data buys a better answer about <em>where</em>, and a more sharply wrong answer
+about <em>how much</em>, unless the constraint is fixed.</p>
+<p>The correlation is exact for any number of sources. Two sinusoids can be given
+any correlation by a phase shift, but three cannot, so the simulation instead
+mixes one shared factor and one private factor per source, orthonormalised
+first, in proportions <span class="math notranslate nohighlight">\(\sqrt{r}\)</span> and <span class="math notranslate nohighlight">\(\sqrt{1-r}\)</span>. Every pair then
+correlates at exactly <span class="math notranslate nohighlight">\(r\)</span> whatever the rhythm or the count. The
+orthonormalisation is what makes it exact rather than approximate: without it
+the private factors carry some shared variance of their own and the realised
+correlation drifts above <span class="math notranslate nohighlight">\(r\)</span>.</p>
+</section>
+<section id="limitations-of-the-simulation">
+<h2>Limitations of the simulation<a class="headerlink" href="#limitations-of-the-simulation" title="Link to this heading">#</a></h2>
+<p>Two things about it are worth knowing, because they decide whether the numbers
+mean anything.</p>
+<p><strong>The interference is mostly brain, not sensor noise.</strong> Three hundred sources
+spread over the brain carry 1/f activity, and that accounts for three quarters
+of the interference power; white sensor noise is the remaining quarter. This is
+what makes the sensor traces look like resting MEG rather than a clean
+simulation.</p>
+<p>How much it changes the numbers depends entirely on how much data you have. The
+comparison below is again one scene rather than the grid, because the panel does
+not store a background-free variant to read off: a realistic head model, a
+correlated pair 6 cm apart at <span class="math notranslate nohighlight">\(r = 0.9\)</span>, alpha. Rerun with the background
+removed, LCMV’s delivered amplitude at a hundred trials barely moves, 0.19
+against 0.16, because with that much averaging the filter is shaped by the
+sources rather than by the interference. At a single trial it moves a great
+deal, and changes sign: 0.16 without the background against -0.06 with it.
+Structured brain interference is the harder problem, and it is hardest exactly
+where real single-trial work lives.</p>
+<p><strong>The head model control decides whether the sources are where the beamformer
+looks</strong>, and the two settings exist because no single choice can show everything.</p>
+<p>With <strong>matched</strong> selected, the sources sit exactly on points the beamformer
+scans and the data are generated with the very leadfield being inverted. That is
+an inverse crime, and its symptom is unmistakable: LCMV and MCMV localise every
+single matched source to exactly 0 mm, at both signal-to-noise settings. That is
+not a theorem – interference can and does move a localiser’s peak off a node
+the filter was built on – but on this grid, at these separations and
+interference levels, the strongest point of the map lands on the true node in
+every matched configuration. Read those zeros as a property of the simulation,
+not a claim about any method.</p>
+<p>ABMC joins them only when it is handed the target’s own waveform. Its localiser
+scores template match rather than power, so an exact head model is not enough on
+its own: hand it an independent signal from the same band, which is the
+panel’s own realistic best case, and it misses the source in nine of the
+twenty-four single-source configurations, by up to 35 mm, eight of them at one
+trial. What the oracle template buys ABMC is not a better filter but a localiser
+with nothing left to be wrong about.</p>
+<p>ReciPSIICOS misses them too, and it is instructive about something else. It
+misses the same single sources by up to 15 mm, because it does not localise on
+the covariance it was given: it projects that covariance first, and the
+projection moves the peak even when the model is exact. A method that edits the
+covariance gives up the inverse crime’s free lunch along with everything else it
+gives up.</p>
+<p>What the matched setting buys is the only clean view of what the <em>constraint</em>
+does, with everything else held exact. At <span class="math notranslate nohighlight">\(r = 0.99\)</span> and a hundred trials
+LCMV delivers 0.03 of the source amplitude while MCMV delivers 1.00, ReciPSIICOS
+0.95 and ABMC 1.02. That gap is the whole point of the page, and it is a gap
+rather than a ratio: LCMV’s delivered amplitude passes through zero and changes
+sign under strong cancellation, so dividing by it means nothing.</p>
+<p>With <strong>realistic</strong> selected, the sources are taken from the full 9248-point
+forward while the beamformer still scans the decimated 797-point grid, so they
+sit a few millimetres from anything any method can report. The localisation
+error becomes what a localiser actually produces: not one configuration in the
+whole grid reports zero, the median is 11.9 mm, and the tail runs past 120 mm
+where the methods genuinely fail.</p>
+<p>The price is worth understanding, because it is a real result rather than a
+limitation of the panel. Under a mismatched model a beamformer pointed at a
+slightly wrong location does not pass a weakened copy of the source, it actively
+nulls it, and at a hundred trials that costs more amplitude than the entire
+cancellation effect the constraint was protecting against. At <span class="math notranslate nohighlight">\(r = 0.99\)</span>
+MCMV falls from 1.00 to 0.05, which is barely distinguishable from LCMV’s 0.02.
+<strong>The joint constraint only buys you anything if your head model and
+coregistration are good enough to use it.</strong></p>
+<p>The methods do not all fail the same way, though, and that is the most useful
+thing here. ReciPSIICOS holds 0.81 and ABMC 0.57 under the model error that
+takes MCMV from 1.00 to 0.05. Neither is told where the sources are: one edits
+the covariance and the other matches a waveform, and neither writes an equation
+at a location that turns out to be wrong. What a wrong location destroys is the
+methods that needed the location in the first place.</p>
+<p>Read the two head models together rather than picking one. Matched says MCMV’s
+constraint is worth a factor of thirty over LCMV; realistic says you will not
+collect it unless your coregistration earns it, and that a method which never
+names a location keeps more of what it had.</p>
+<p>The background activity is identical in both settings, so switching between them
+changes the source placement and nothing else. Read the realistic errors as a
+lower bound even so: the head model is still exact, the coregistration is still
+perfect, and the noise is still stationary.</p>
+</section>
+<section id="the-four-methods-on-a-recorded-dataset">
+<h2>The four methods on a recorded dataset<a class="headerlink" href="#the-four-methods-on-a-recorded-dataset" title="Link to this heading">#</a></h2>
+<p>Everything above is simulated, which is the only reason any of it can be checked
+against a truth. The <strong>Dataset</strong> control switches to MNE’s <code class="docutils literal notranslate"><span class="pre">sample</span></code> dataset,
+the same 203 gradiometers and the same subject, and runs the identical four
+filters on data that was recorded from a person rather than generated.</p>
+<p>The bilateral auditory N100 is the reason this is worth doing. Left and right
+auditory cortex respond together to a binaural click, which makes them exactly
+the correlated pair the whole page is about, and the correlation is not a
+setting here: it is measured, at <span class="math notranslate nohighlight">\(r = 0.87\)</span> through the joint filter. Read
+it off per-source LCMV traces instead and the same pair reads as <em>uncorrelated</em>,
+through the very filter whose cancellation the correlation is meant to explain,
+which is a good reason to distrust a correlation estimated with a filter that
+cancels.</p>
+<p>What the recording shows, averaged over every epoch, is the effect at full
+strength. LCMV’s off-diagonal reaches <span class="math notranslate nohighlight">\(-1.03\)</span> and it delivers 0.56 of the
+amplitude; MCMV holds the table at zero and delivers 1.00; ReciPSIICOS and ABMC
+control it too, at <span class="math notranslate nohighlight">\(+0.04\)</span> and <span class="math notranslate nohighlight">\(+0.02\)</span>. Nothing here was tuned to
+produce that; it is the published example’s own preprocessing, run through the
+same code path as the simulation.</p>
+<p>The localiser peaks are a good deal messier, and the panel prints both of them
+rather than the better one because of it. Each map is read at its two strongest
+points, and each point is quoted as its distance to whichever of the two fitted
+dipoles is nearer: LCMV 16 and 15 mm, MCMV 6 and 15, ReciPSIICOS 110 and 10,
+ABMC 20 and 6. Quote the smaller of each pair and three of the four look like
+they have found the recorded pair; quote both and the claim shrinks. Only ABMC
+puts a peak by each dipole. LCMV’s two strongest points sit 5 mm apart in the
+left hemisphere and MCMV’s 12 mm apart in the same neighbourhood, so neither
+reports the right auditory source at all, and ReciPSIICOS’s strongest point of
+all is 11 cm from either dipole. The sweep at the foot of the panel plots the
+worse of a method’s two distances for that reason: minimising over the peaks as
+well as over the dipoles would score each method on its best pairing and say
+nothing about the other one.</p>
+<p><strong>There is no truth, and nothing here pretends otherwise.</strong> Three of the panel’s
+readouts need one and are therefore absent: no localisation error, no known
+waveform beside the recovered one, no head-model switch. What survives is what
+never needed a truth in the first place. The constraint table is the filters’
+response to the leadfields of the constrained locations, so it is exact on any
+data at all. In place of the error the panel reports the distance to an
+independent <strong>dipole fit</strong> – two dipoles fitted one after the other, the second
+to what the first leaves behind, with their goodness of fit shown beside them.
+That is a different method with different assumptions, so read the distance as
+two estimates disagreeing rather than as one of them being wrong, and read the
+rings on the cortex as a reference rather than an answer key.</p>
+<p>Three things about how it is computed are worth stating, because each one was
+got wrong first.</p>
+<p><strong>The locations are chosen at full resolution and only then decimated.</strong> The
+simulated half scans a 797-point grid, and on that grid the right auditory peak
+of this recording lands in parietal cortex: the pair stops being correlated and
+LCMV’s off-diagonal reads <span class="math notranslate nohighlight">\(+0.03\)</span>, which is to say the effect disappears
+entirely. Choosing the pair on the undecimated 7498-vertex surface and <em>then</em>
+decimating the scan grid around it changes nothing at all – the constraint
+table is identical to three decimals from 7498 sources down to 627 – because
+LCMV, MCMV and ABMC each build a filter from one leadfield and the covariance,
+and the rest of the grid never enters. Only ReciPSIICOS spans the grid, and it
+is why the grid is decimated at all: its projector needs a factorisation over
+every scan point, which costs 0.6 s at 954 sources and over five minutes at
+7498.</p>
+<p><strong>The preprocessing is the published example’s, exactly.</strong> Shortening the
+baseline and adding amplitude rejection seems harmless and is not: it moved the
+right-hemisphere peak to a different vertex and LCMV’s off-diagonal fell from
+<span class="math notranslate nohighlight">\(-1.03\)</span> to <span class="math notranslate nohighlight">\(-0.15\)</span>. The cancellation is a property of the pair that
+gets selected, so the analysis that selects it has to be one whose result is
+already on the record.</p>
+<p><strong>One noise covariance is pooled over every epoch in the session</strong> rather than
+estimated per scene. That is the better estimate and standard practice, and it
+is also what makes a single ReciPSIICOS rank legitimate: the covariance sets the
+whitener, the whitener sets <span class="math notranslate nohighlight">\(q\)</span>, and the rank is drawn out of
+<span class="math notranslate nohighlight">\(q^2\)</span>. Per-scene estimation would give every scene its own <span class="math notranslate nohighlight">\(q\)</span> and a
+precomputed rank would quietly mean something different in each one.</p>
+<p>The <strong>trials averaged</strong> control is real here in a way it cannot be in the
+simulation: it averages that many actual epochs. Watch it with LCMV selected.
+At one trial the off-diagonal is <span class="math notranslate nohighlight">\(-0.52\)</span> and the filter delivers 0.82; by
+145 trials the off-diagonal has reached <span class="math notranslate nohighlight">\(-1.03\)</span> and the delivered
+amplitude has fallen to 0.56. More data makes the cancellation <em>worse</em> here as
+it does in the simulation, but not by the same route. The covariance is
+estimated from the very epochs being averaged, so at one trial the filter is
+solving against a covariance estimated from a single epoch: it cannot adapt
+because it does not yet know what to adapt to. Adding epochs sharpens the
+estimate, and a filter that can see the correlation is a filter that can cancel
+it. In the simulation the covariance is not the limitation – there the noise
+level itself is what falls – so the two halves reach the same place from
+different directions.</p>
+<p>The <strong>visual</strong> conditions are there as a control, and they behave differently
+rather than identically. LCMV’s off-diagonal comes out <em>positive</em> there, around
+<span class="math notranslate nohighlight">\(+0.47\)</span>: the neighbour is added rather than subtracted. It is the same
+failure to control the off-diagonal, in the other direction.</p>
+<p>What decides that direction is the sign of the correlation between the two
+sources, not how far apart they are. A filter that minimises output power
+subtracts a neighbour whose activity runs with the target and adds one that runs
+against it. Measured on the panel’s own reconstructions in the 80-130 ms window,
+the auditory pair correlates at <span class="math notranslate nohighlight">\(+0.25\)</span> and its off-diagonal is
+<span class="math notranslate nohighlight">\(-1.03\)</span>, while the visual pair correlates at <span class="math notranslate nohighlight">\(-0.79\)</span> and its
+off-diagonal is <span class="math notranslate nohighlight">\(+0.47\)</span>. The separations run the other way – the visual
+sources sit 3.2 cm apart against the auditory pair’s 10.9 cm – so proximity is
+not what flips the sign.</p>
+</section>
+<section id="how-the-panel-is-computed">
+<h2>How the panel is computed<a class="headerlink" href="#how-the-panel-is-computed" title="Link to this heading">#</a></h2>
+<p>Every configuration was computed ahead of time by
+<code class="docutils literal notranslate"><span class="pre">tools/build_constraint_panel.py</span></code>, which calls
+<a class="reference internal" href="generated/advance_beamlab.constraint_demo.html#advance_beamlab.constraint_demo" title="advance_beamlab.constraint_demo"><code class="xref py py-func docutils literal notranslate"><span class="pre">constraint_demo()</span></code></a> for each one. The page only draws the
+results, because the documentation is a static site with no Python behind it.
+The four methods in any one scene are handed byte-identical simulated data, and
+the build asserts that rather than assuming it.</p>
+<p>The constraint table is measured, not read out of the stored weights. Each entry
+comes from passing a scene containing only source <span class="math notranslate nohighlight">\(j\)</span> through the finished
+filter and reading what filter <span class="math notranslate nohighlight">\(i\)</span> returns, which is
+<span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{g}_j\)</span> by definition. The methods keep
+their weights in different spaces, so their stored arrays are not comparable;
+what comes out of the public apply path is.</p>
+<p>Colour means one thing throughout. A <strong>method colour</strong> is always that method’s
+estimate: the crosses on the cortex, the reconstruction trace, its line in the
+sweep. <strong>Grey</strong> is always the reference the estimates are judged against: the rings
+marking the simulated sources and the true waveforms on the simulated half, and
+the independently fitted dipoles on the recorded half, where there is no truth
+to be had and a dipole fit is the closest stand-in. Sources are told apart by
+their row and label rather than by colour, which would otherwise collide.</p>
+<p>The localiser map is normalised to its own range and then compressed by a cube
+root. That combination took two attempts. Colouring by rank was the first, on the
+grounds that the four methods produce value distributions no common scale can
+show at once, and it was wrong: a rank map is a uniform ramp whatever the
+underlying shape, so all four rendered identically. Measured, the fraction of the
+grid above half the display maximum was 0.500 for every method. Normalising
+without compression goes too far the other way and leaves two bright dots on an
+empty brain. The cube root sits between and separates them: averaged over the
+whole grid, that same fraction now reads 10.9 per cent for LCMV, 7.2 for MCMV
+and 16.1 for ReciPSIICOS.</p>
+<p>ABMC has to be quoted per template, and the numbers say something worth
+knowing. Its map covers 34.8 per cent of the grid when it is handed the target’s
+own waveform, 87.1 with an independent signal from the same band, and 96.3 with
+a wrong-band one. The oracle template is what makes ABMC’s localiser look sharp;
+give it the template an experiment can actually supply and the map is much more
+diffuse. That is the honest cost of a method whose localiser scores template
+match rather than power.</p>
+<p>The markers on the simulated sources are drawn as unfilled rings for a related
+reason: a filled marker sitting on a peak hides the one thing you are trying to
+check. They are drawn at the sources’ real positions. Under the realistic head
+model those are not grid points, so a ring will not usually sit under a cross even
+when the method is right; under the matched model they are grid points, and the
+two coincide exactly whenever the method has found the source.</p>
+<p>The sensor panel shows a field map beside the traces. The traces carry all 203
+gradiometers over two and a half seconds: drag to move through channels and
+time, scroll to zoom, or use the sliders. The topography says where on the
+helmet the signal sits, and how little that pattern changes when you move the
+sources a couple of centimetres. Both refer to the same instant: the peak of the
+global field power over the whole trace, chosen once when the panel is built,
+with the vertical line on the traces marking it. It does not follow the zoom, so
+scrolling or zooming past that instant leaves the map showing a moment that is
+no longer on screen – the vertical line is what tells you where it was. The map
+is interpolated in the browser from the array’s own sensor
+positions, drawn with iso-contours because a smooth wash of colour is hard to
+read a gradient from, and it is diverging rather than sequential because the
+field has a sign.</p>
+<p>That recording is rebuilt in the browser rather than stored. It is exactly
+<span class="math notranslate nohighlight">\(\mathbf{G}\mathbf{s} + \sigma\boldsymbol{\varepsilon}\)</span>, and the simulation
+draws <span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon}\)</span> from a generator seeded independently of
+the waveforms, so every scene shares one interference realisation and differs
+only in <span class="math notranslate nohighlight">\(\sigma\)</span>. Storing that field once with the leadfield columns costs
+a few hundred kilobytes where storing 203 channels for every scene would have
+been megabytes of noise, which does not compress. It also makes the comparisons
+paired: switching rhythm or correlation changes the signal and nothing else.</p>
+<p>The true and recovered waveforms are drawn on one shared scale per scene, so a
+reconstruction that lost half its amplitude looks like it lost half its
+amplitude. Normalising each trace to its own peak would have made every method
+look equally good, which is the opposite of the point.</p>
+<p>The <strong>amplitude delivered</strong> readout is what the filter does to the source’s
+amplitude: each source’s gain, weighted by how much of this source’s waveform it
+carries, which for a pair is <span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{g}_i +
+r\,\mathbf{w}_i^{\mathsf T}\mathbf{g}_j\)</span>. There is no noise in it, so it says
+what the filter does rather than how well one short recording measures it.</p>
+<p>The <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> here are the leadfields of the sources <em>as simulated</em>,
+not of the nodes the filter was constrained at, and under the realistic head
+model those are different points. So the readout cannot be recomputed from the
+constraint table displayed above it – that table is the response at the
+constrained nodes, with its diagonal pinned to one by construction. The gap
+between the two is the whole cost of a mismatched head model: measured against
+its scan node LCMV can report delivering the full amplitude of a source whose
+reconstruction holds about seven per cent of it. With a matched model the two
+coincide and the question does not arise.</p>
+<p>Two other definitions were tried and rejected, and the reason is worth stating
+because both look reasonable. The figures below are one scene rather than the
+grid, since neither rejected measure is stored in the panel: a correlated pair
+6 cm apart at <span class="math notranslate nohighlight">\(r = 0.9\)</span>, alpha, one averaged trial.</p>
+<p>The output’s own amplitude over the truth’s is not a recovery measure at all.
+The output is the source plus whatever interference survives the filter, so it
+reads <strong>5.63 for LCMV and 5.79 for MCMV</strong> on that scene, separating the two by
+three per cent where the filters deliver -0.13 and 1.00 respectively. A measure
+that cannot tell apart filters differing in sign, let alone by a factor of
+seven, is measuring the noise and not the recovery. Regressing the output on
+the true waveform is far better behaved and agrees with the delivered amplitude
+in expectation, but it is still estimated from one short noisy recording: on the
+same scene it returns 0.23 where the filter delivers -0.13, which is the right
+size and the wrong sign.</p>
+<p>Read a value below 100 per cent as cancellation and one above it as leakage,
+where a positive off-diagonal adds a correlated neighbour instead of subtracting
+it. Leakage is the minority case, from 7.0 per cent of configurations for LCMV
+and 8.9 for MCMV to 31.7 for ABMC and 32.7 for ReciPSIICOS. Whether averaging
+makes it more or less common depends on the head model, so the two are worth
+quoting apart. With a realistic one every method leaks less as the data improve
+– LCMV in 26.5 per cent of its single-trial configurations against none at all
+of its hundred-trial ones, MCMV 35.5 against none, ReciPSIICOS 43.4 against
+36.5 – because a filter with too little data to adapt degenerates towards a
+non-adaptive one with poor spatial selectivity, while one given enough adapts
+sharply enough to null a source it is pointed slightly to one side of, which
+takes the amplitude below one rather than above it. With a matched model there
+is far less to leak and the direction is no longer uniform: LCMV falls from
+1.5 per cent to none and ReciPSIICOS from 28.9 to 22.1, MCMV never leaks there
+at all, and ABMC alone rises, 18.7 to 49.0, in cases that mostly clear the line
+by very little – their median delivered amplitude is 1.02, five in six stay
+below 1.05, and the largest of them is 1.24. In a small fraction of
+configurations the delivered amplitude comes out <strong>negative</strong>: the filter
+returns an inverted copy of the source, which taking a magnitude would have
+hidden completely. It happens most to LCMV, at 1.3 per cent, and never to MCMV,
+whose constraint forbids it. The readout beside the constraint table carries the
+sign for exactly that reason.</p>
+<p>MCMV delivers exactly 1.000 in every <em>matched</em> configuration, at every
+correlation and every signal-to-noise ratio, because its constraint fixes the
+whole table rather than one entry. Switch the head model to realistic and that
+guarantee is gone: at <span class="math notranslate nohighlight">\(r = 0.99\)</span> the median is 0.85 at one trial and 0.05
+at a hundred, because the table it pins is the table at the wrong locations.</p>
+<p>The last panel sweeps the whole correlation axis at the current settings, for all
+four methods at once, plotting both recovered amplitude and localisation error
+with a marker where the sliders are. The sliders show one point; that chart shows
+the curve those points lie on, which is a fairer way to judge a method than any
+single setting. Two things about that chart are worth knowing: it draws the
+first source only, and its amplitude axis is floored at zero, so where LCMV’s
+delivered amplitude goes negative the curve flattens along the axis instead of
+crossing it. Read the sign off the readout beside the constraint table, which
+carries it.</p>
+<p>If you would rather drive this from Python, with your own forward model and
+without the precomputed grid, <a class="reference internal" href="generated/advance_beamlab.constraint_explorer.html#advance_beamlab.constraint_explorer" title="advance_beamlab.constraint_explorer"><code class="xref py py-func docutils literal notranslate"><span class="pre">constraint_explorer()</span></code></a> opens
+the same views as a Matplotlib window with live sliders, and
+<a class="reference internal" href="generated/advance_beamlab.constraint_demo.html#advance_beamlab.constraint_demo" title="advance_beamlab.constraint_demo"><code class="xref py py-func docutils literal notranslate"><span class="pre">constraint_demo()</span></code></a> returns one scene as plain arrays.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="choosing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Which method should I use?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="auto_examples/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-controls">The controls</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-the-simulation">Limitations of the simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-four-methods-on-a-recorded-dataset">The four methods on a recorded dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-panel-is-computed">How the panel is computed</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/panel.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

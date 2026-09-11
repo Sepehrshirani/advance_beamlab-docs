@@ -1,0 +1,6 @@
+﻿advance\_beamlab.ny\_head\_plot\_indices
+========================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: ny_head_plot_indices

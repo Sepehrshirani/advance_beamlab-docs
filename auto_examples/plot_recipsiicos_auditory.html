@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ReciPSIICOS beamforming of bilateral auditory responses &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/plot_recipsiicos_auditory';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Leakage-free connectivity: pairwise and augmented MCMV" href="plot_apw_mcmv_connectivity.html" />
+    <link rel="prev" title="ReciPSIICOS versus LCMV as source correlation is dialled up" href="plot_recipsiicos_simulation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="plot_mcmv_simulation.html">MCMV versus LCMV for correlated sources: a simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_mcmv_source_discovery.html">Discovering correlated sources with an MCMV scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_mcmv_auditory.html">MCMV joint reconstruction of correlated MEG sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_recipsiicos_simulation.html">ReciPSIICOS versus LCMV as source correlation is dialled up</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ReciPSIICOS beamforming of bilateral auditory responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_apw_mcmv_connectivity.html">Leakage-free connectivity: pairwise and augmented MCMV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_abmc_localization.html">ABMC: localising spike-like sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_abmc_auditory.html">ABMC on a real recording, and where it stops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_fem_head_model.html">Beamforming EEG on a finite-element head model</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ReciPSIICOS beamforming of bilateral auditory responses</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-recipsiicos-auditory-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="recipsiicos-beamforming-of-bilateral-auditory-responses">
+<span id="ex-recipsiicos-auditory"></span><span id="sphx-glr-auto-examples-plot-recipsiicos-auditory-py"></span><h1>ReciPSIICOS beamforming of bilateral auditory responses<a class="headerlink" href="#recipsiicos-beamforming-of-bilateral-auditory-responses" title="Link to this heading">#</a></h1>
+<p>Correlated bilateral sources are the classic failure mode of the LCMV
+beamformer: it minimises output power under a unit-gain constraint, so two
+synchronous sources let it place a null that cancels them. ReciPSIICOS repairs
+the <em>data covariance</em> by projecting out the cross-product (coupling) subspace,
+so that an ordinary LCMV no longer cancels them.</p>
+<p>This example runs ReciPSIICOS end to end on real, mixed-sensor MEG and contrasts
+it with a standard LCMV. The recording is the auditory response of the MNE sample
+dataset, whose left- and right-hemisphere sources are correlated across the N100:
+r = +0.82 between the two traces a joint MCMV filter recovers there, as measured
+in <a class="reference internal" href="plot_mcmv_auditory.html#ex-mcmv-auditory"><span class="std std-ref">MCMV joint reconstruction of correlated MEG sources</span></a>.</p>
+<p>A caveat stated up front, because the example reports it honestly below: on this
+recording a plain LCMV already recovers both hemispheres, so ReciPSIICOS does
+<em>not</em> beat it on hemispheric balance here. Signal cancellation is a high-SNR,
+high-correlation effect that regularisation suppresses. What this example does
+show is the whole real-data pipeline working: the rank curve and its 45-degree
+criterion, the projector, the noise whitening across magnetometers and
+gradiometers, and the virtual-sensor reduction. For the regime where the
+cancellation is dramatic, and where this method demonstrably repairs it, see
+<a class="reference internal" href="plot_recipsiicos_simulation.html#ex-recipsiicos-simulation"><span class="std std-ref">ReciPSIICOS versus LCMV as source correlation is dialled up</span></a>, which runs the same comparison on simulated
+sources placed on this same realistic forward.</p>
+<p>Two practical points, both important on real data. The projector is built from
+the forward and must span where the data covariance’s energy lives, so we use a
+<em>whole-brain</em> grid, not a region. But the <code class="docutils literal notranslate"><span class="pre">whitened</span></code> correlation Gram is
+<span class="math notranslate nohighlight">\(O(N^2)\)</span>, so we decimate that grid to keep it tractable. And the
+covariances are shrinkage-regularised, the correct estimator across the
+magnetometer/gradiometer unit scales.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authors: Sepehr Shirani &lt;sepehrshirani@gmail.com&gt;, &lt;s.shirani@ucl.ac.uk&gt;</span>
+<span class="c1">#          Muzhi Wang &lt;muzhi.wang@ucl.ac.uk&gt;</span>
+<span class="c1">#          Jade Serfaty &lt;jade.serfaty.17@ucl.ac.uk&gt;</span>
+<span class="c1"># License: BSD-3-Clause</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne</span><span class="w"> </span><span class="kn">import</span> <a href="https://mne.tools/stable/generated/mne.Label.html#mne.Label" title="mne.Label" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class"><span class="n">Label</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne.beamformer</span><span class="w"> </span><span class="kn">import</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv.html#mne.beamformer.apply_lcmv" title="mne.beamformer.apply_lcmv" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv_cov.html#mne.beamformer.apply_lcmv_cov" title="mne.beamformer.apply_lcmv_cov" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv_cov</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="mne.beamformer.make_lcmv" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">make_lcmv</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne.forward</span><span class="w"> </span><span class="kn">import</span> <a href="https://mne.tools/stable/generated/mne.forward.restrict_forward_to_label.html#mne.forward.restrict_forward_to_label" title="mne.forward.restrict_forward_to_label" class="sphx-glr-backref-module-mne-forward sphx-glr-backref-type-py-function"><span class="n">restrict_forward_to_label</span></a>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">advance_beamlab</span><span class="w"> </span><span class="kn">import</span> <a href="../generated/advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv" class="sphx-glr-backref-module-advance_beamlab sphx-glr-backref-type-py-function"><span class="n">make_recipsiicos_lcmv</span></a><span class="p">,</span> <a href="../generated/advance_beamlab.recipsiicos_rank_curve.html#advance_beamlab.recipsiicos_rank_curve" title="advance_beamlab.recipsiicos_rank_curve" class="sphx-glr-backref-module-advance_beamlab sphx-glr-backref-type-py-function"><span class="n">recipsiicos_rank_curve</span></a>
+
+<a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_path</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.datasets.sample.data_path.html#mne.datasets.sample.data_path" title="mne.datasets.sample.data_path" class="sphx-glr-backref-module-mne-datasets-sample sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">sample</span><span class="o">.</span><span class="n">data_path</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meg</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_path</span></a> <span class="o">/</span> <span class="s2">"MEG"</span> <span class="o">/</span> <span class="s2">"sample"</span>
+<a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subjects_dir</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_path</span></a> <span class="o">/</span> <span class="s2">"subjects"</span>
+</pre></div>
+</div>
+<p>Load the auditory epochs (left and right stimulation) and shrinkage-
+regularised active and baseline covariances.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw" title="mne.io.Raw" class="sphx-glr-backref-module-mne-io sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">raw</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.io.read_raw_fif.html#mne.io.read_raw_fif" title="mne.io.read_raw_fif" class="sphx-glr-backref-module-mne-io sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_raw_fif</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meg</span></a> <span class="o">/</span> <span class="s2">"sample_audvis_filt-0-40_raw.fif"</span><span class="p">,</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.read_events.html#mne.read_events" title="mne.read_events" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">read_events</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meg</span></a> <span class="o">/</span> <span class="s2">"sample_audvis_filt-0-40_raw-eve.fif"</span><span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw.pick" title="mne.io.Raw.pick" class="sphx-glr-backref-module-mne-io sphx-glr-backref-type-py-method"><span class="n">raw</span><span class="o">.</span><span class="n">pick</span></a><span class="p">(</span><span class="s2">"meg"</span><span class="p">)</span>  <span class="c1"># magnetometers + gradiometers -&gt; whitening is exercised</span>
+<a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class"><span class="n">mne</span><span class="o">.</span><span class="n">Epochs</span></a><span class="p">(</span>
+    <a href="https://mne.tools/stable/generated/mne.io.Raw.html#mne.io.Raw" title="mne.io.Raw" class="sphx-glr-backref-module-mne-io sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">raw</span></a><span class="p">,</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a><span class="p">,</span>
+    <span class="p">{</span><span class="s2">"Auditory/Left"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"Auditory/Right"</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="n">tmin</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">tmax</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">baseline</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+    <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># The active window is the N100 (80-130 ms), where the bilateral auditory</span>
+<span class="c1"># response is genuinely correlated across hemispheres: a joint MCMV filter</span>
+<span class="c1"># recovers the two traces at r = +0.82 over this window, and its source</span>
+<span class="c1"># covariance, which reads the coupling off the single trials rather than off the</span>
+<span class="c1"># average, puts it at r = +0.55. Either way, estimate that correlation with the</span>
+<span class="c1"># joint filter and not with a per-source LCMV, which reads the same pair as</span>
+<span class="c1"># r = -0.09 through the very cancellation the correlation is meant to explain.</span>
+<span class="c1"># The MCMV auditory example prints the joint and the per-source number together.</span>
+<span class="c1">#</span>
+<span class="c1"># Widening the window to 50-200 ms does not decorrelate the pair. Held at the two</span>
+<span class="c1"># auditory vertices that example constrains, the correlation rises rather than</span>
+<span class="c1"># washes out, to r = +0.94. What the wider window moves is the locations: the</span>
+<span class="c1"># single-source LCMV peaks shift, the left one by 25 mm, out of superior temporal</span>
+<span class="c1"># cortex. So the N100 is the active window because it is where the response</span>
+<span class="c1"># lives, not because it is the only window with coupling for a correlated-source</span>
+<span class="c1"># method to work on.</span>
+<a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_cov</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.compute_covariance.html#mne.compute_covariance" title="mne.compute_covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">compute_covariance</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span></a><span class="p">,</span> <span class="n">tmin</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.13</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"shrunk"</span><span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.compute_covariance.html#mne.compute_covariance" title="mne.compute_covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">compute_covariance</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs" title="mne.Epochs" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span></a><span class="p">,</span> <span class="n">tmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"shrunk"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Load the real BEM forward and decimate it to a coarse whole-brain grid, keeping
+both hemispheres so it still spans the head while the whitened Gram stays
+tractable. That Gram is quadratic in the number of sources.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.read_forward_solution.html#mne.read_forward_solution" title="mne.read_forward_solution" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">read_forward_solution</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meg</span></a> <span class="o">/</span> <span class="s2">"sample_audvis-meg-eeg-oct-6-fwd.fif"</span><span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.pick_types_forward.html#mne.pick_types_forward" title="mne.pick_types_forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-function"><span class="n">mne</span><span class="o">.</span><span class="n">pick_types_forward</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meg</span></a><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eeg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a> <span class="o">=</span> <span class="p">[</span>
+    <a href="https://mne.tools/stable/generated/mne.Label.html#mne.Label" title="mne.Label" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class"><span class="n">Label</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">[</span><span class="s2">"src"</span><span class="p">][</span><span class="n">h</span><span class="p">][</span><span class="s2">"vertno"</span><span class="p">][::</span><span class="mi">44</span><span class="p">],</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="s2">"sample"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="s2">"lh"</span><span class="p">,</span> <span class="s2">"rh"</span><span class="p">))</span>
+<span class="p">]</span>
+<a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.forward.restrict_forward_to_label.html#mne.forward.restrict_forward_to_label" title="mne.forward.restrict_forward_to_label" class="sphx-glr-backref-module-mne-forward sphx-glr-backref-type-py-function"><span class="n">restrict_forward_to_label</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<p>Choose the projection rank from the power-vs-correlation curve. The 45-degree
+point (<code class="docutils literal notranslate"><span class="pre">return_optimal=True</span></code>) is where the correlation subspace stops
+emptying faster than the power subspace.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_pwr</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_cor</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kstar</span></a> <span class="o">=</span> <a href="../generated/advance_beamlab.recipsiicos_rank_curve.html#advance_beamlab.recipsiicos_rank_curve" title="advance_beamlab.recipsiicos_rank_curve" class="sphx-glr-backref-module-advance_beamlab sphx-glr-backref-type-py-function"><span class="n">recipsiicos_rank_curve</span></a><span class="p">(</span>
+    <a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.Info.html#mne.Info" title="mne._fiff.meas_info.Info" class="sphx-glr-backref-module-mne-_fiff-meas_info sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span><span class="o">.</span><span class="n">info</span></a><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"whitened"</span><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="o">=</span><a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="p">,</span> <span class="n">return_optimal</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_pwr</span></a><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"power retained"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_cor</span></a><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"correlation retained"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kstar</span></a><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"K* = </span><span class="si">{</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kstar</span></a><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">"projection rank K"</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">"retained energy fraction"</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"ReciPSIICOS rank curve"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Both curves are flat at zero once the rank passes the power cliff, so zoom the</span>
+<span class="c1"># x-axis to the range where power and correlation actually change. Otherwise the</span>
+<span class="c1"># informative part is squeezed into a small fraction of a q^2-wide axis.</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">informative</span></a> <span class="o">=</span> <span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_pwr</span></a> <span class="o">&gt;</span> <span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xmax</span></a> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">informative</span></a><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span> <span class="k">if</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">informative</span><span class="o">.</span><span class="n">size</span></a> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ranks</span></a><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.15</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xmax</span></a><span class="p">)))</span>
+</pre></div>
+</div>
+<img alt="ReciPSIICOS rank curve" class="sphx-glr-single-img only-light" src="../_images/sphx_glr_plot_recipsiicos_auditory_001.png" />
+<img alt="ReciPSIICOS rank curve" class="sphx-glr-single-img only-dark" src="../_images/sphx_glr_plot_recipsiicos_auditory_001_dark.png" />
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(0.0, 588.0)
+</pre></div>
+</div>
+<p>Build a standard LCMV and a ReciPSIICOS beamformer on the same data. Free
+orientation MEG needs <code class="docutils literal notranslate"><span class="pre">reduce_rank=True</span></code> (the radial-silent leadfield is
+rank-deficient).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lcmv</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="mne.beamformer.make_lcmv" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">make_lcmv</span></a><span class="p">(</span>
+    <a href="https://mne.tools/stable/generated/mne.Info.html#mne.Info" title="mne._fiff.meas_info.Info" class="sphx-glr-backref-module-mne-_fiff-meas_info sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span><span class="o">.</span><span class="n">info</span></a><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_cov</span></a><span class="p">,</span>
+    <span class="n">reg</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="o">=</span><a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="p">,</span>
+    <span class="n">pick_ori</span><span class="o">=</span><span class="s2">"max-power"</span><span class="p">,</span>
+    <span class="n">weight_norm</span><span class="o">=</span><span class="s2">"unit-noise-gain"</span><span class="p">,</span>
+    <span class="n">reduce_rank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">recip</span></a> <span class="o">=</span> <a href="../generated/advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv" class="sphx-glr-backref-module-advance_beamlab sphx-glr-backref-type-py-function"><span class="n">make_recipsiicos_lcmv</span></a><span class="p">(</span>
+    <a href="https://mne.tools/stable/generated/mne.Info.html#mne.Info" title="mne._fiff.meas_info.Info" class="sphx-glr-backref-module-mne-_fiff-meas_info sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">epochs</span><span class="o">.</span><span class="n">info</span></a><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Forward.html#mne.Forward" title="mne.Forward" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fwd</span></a><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_cov</span></a><span class="p">,</span>
+    <span class="n">rank</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kstar</span></a><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">"whitened"</span><span class="p">,</span>
+    <a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="o">=</span><a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">noise_cov</span></a><span class="p">,</span>
+    <span class="n">pick_ori</span><span class="o">=</span><span class="s2">"max-power"</span><span class="p">,</span>
+    <span class="n">weight_norm</span><span class="o">=</span><span class="s2">"unit-noise-gain"</span><span class="p">,</span>
+    <span class="n">reduce_rank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc_lcmv</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv_cov.html#mne.beamformer.apply_lcmv_cov" title="mne.beamformer.apply_lcmv_cov" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv_cov</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_cov</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lcmv</span></a><span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc_recip</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv_cov.html#mne.beamformer.apply_lcmv_cov" title="mne.beamformer.apply_lcmv_cov" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv_cov</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.Covariance.html#mne.Covariance" title="mne.Covariance" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_cov</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">recip</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<p>Compare the hemispheric balance: the ratio of the weaker to the stronger
+hemisphere peak. The textbook expectation is that a plain LCMV suppresses one
+side of a correlated pair while ReciPSIICOS retains both.</p>
+<p><strong>That is not what happens on this recording, and it is worth being explicit
+about it.</strong> On the <code class="docutils literal notranslate"><span class="pre">sample</span></code> auditory data, at this SNR and with the usual
+<code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>, a plain LCMV already recovers both hemispheres almost equally, so
+there is essentially no imbalance left for ReciPSIICOS to repair. The
+projection, which necessarily discards part of the covariance, comes at a small
+cost on this particular metric. Signal cancellation is an idealised, high-SNR,
+high-correlation effect: regularisation and sensor noise both push the
+recovered amplitudes back up. <a class="reference internal" href="plot_recipsiicos_simulation.html#ex-recipsiicos-simulation"><span class="std std-ref">ReciPSIICOS versus LCMV as source correlation is dialled up</span></a> dials the
+correlation directly and shows this method holding the amplitude LCMV loses.</p>
+<p>The honest summary is that this dataset demonstrates that ReciPSIICOS <em>runs
+correctly end to end on real, mixed-sensor MEG</em> (the rank curve, the projector,
+the whitening and the virtual-sensor reduction), and that it does not beat LCMV
+<em>on this balance metric</em>. It does recover a substantially larger waveform at
+the auditory peaks, which the last figure of this example shows.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hemi_peaks</span><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc</span></a><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Peak power in the left and right hemisphere of a surface stc."""</span>
+    <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc</span><span class="o">.</span><span class="n">vertices</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">stc</span><span class="o">.</span><span class="n">data</span></a><span class="p">[:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">stc</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+
+<span class="k">for</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">name</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc</span></a> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"LCMV"</span><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc_lcmv</span></a><span class="p">),</span> <span class="p">(</span><span class="s2">"ReciPSIICOS"</span><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc_recip</span></a><span class="p">)]:</span>
+    <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lh</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">rh</span></a> <span class="o">=</span> <span class="n">hemi_peaks</span><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc</span></a><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">name</span></a><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2">  lh peak </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lh</span></a><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">   rh peak </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">rh</span></a><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">   "</span>
+        <span class="sa">f</span><span class="s2">"balance </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lh</span></a><span class="p">,</span><span class="w"> </span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">rh</span></a><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lh</span></a><span class="p">,</span><span class="w"> </span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">rh</span></a><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>LCMV          lh peak 1.28   rh peak 1.21   balance 0.94
+ReciPSIICOS   lh peak 3.37   rh peak 2.85   balance 0.84
+</pre></div>
+</div>
+<p>Plot the ReciPSIICOS source estimate on the inflated cortex.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <a href="https://mne.tools/stable/generated/mne.viz.Brain.html#mne.viz.Brain" title="mne.viz.Brain" class="sphx-glr-backref-module-mne-viz sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">brain</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.plot" title="mne.SourceEstimate.plot" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-method"><span class="n">stc_recip</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span>
+        <span class="n">subject</span><span class="o">=</span><span class="s2">"sample"</span><span class="p">,</span>
+        <a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subjects_dir</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subjects_dir</span></a><span class="p">,</span>
+        <span class="c1"># "split", not "both". With hemi="both" the two inflated surfaces are</span>
+        <span class="c1"># offset along x and a single lateral camera looks straight down that</span>
+        <span class="c1"># axis, so the near hemisphere hides the far one completely. That matters</span>
+        <span class="c1"># here more than most places: the left hemisphere carries this estimate's</span>
+        <span class="c1"># global maximum, so the one figure of an example about hemispheric</span>
+        <span class="c1"># balance was hiding the larger of the two peaks it compares.</span>
+        <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a><span class="o">=</span><span class="s2">"split"</span><span class="p">,</span>
+        <span class="n">views</span><span class="o">=</span><span class="s2">"lateral"</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+        <span class="n">clim</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"percent"</span><span class="p">,</span> <span class="n">lims</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">99</span><span class="p">]),</span>
+        <span class="n">time_viewer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># static image: no interactive picking (offscreen-safe)</span>
+        <span class="c1"># Fewer labels than the default eight, which do not fit the bar's width</span>
+        <span class="c1"># and are drawn butted together, and a title so the numbers on it state</span>
+        <span class="c1"># what they measure.</span>
+        <span class="n">add_data_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">colorbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">n_labels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">%.2f</span><span class="s2">"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"source power (unit-noise-gain)"</span>
+            <span class="p">)</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># 3-D rendering is optional</span>
+    <a href="https://mne.tools/stable/generated/mne.viz.Brain.html#mne.viz.Brain" title="mne.viz.Brain" class="sphx-glr-backref-module-mne-viz sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">brain</span></a> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"3-D brain plot skipped (no working 3-D backend): </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># The rendered surface is screenshotted into a matplotlib axis rather than left</span>
+<span class="c1"># for a 3-D scraper to find. See doc/conf.py for why: it is what makes the</span>
+<span class="c1"># figure appear correctly in the built documentation, and it keeps the window</span>
+<span class="c1"># open, which the CI runner needs.</span>
+<span class="k">if</span> <a href="https://mne.tools/stable/generated/mne.viz.Brain.html#mne.viz.Brain" title="mne.viz.Brain" class="sphx-glr-backref-module-mne-viz sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">brain</span></a> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">shot</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.viz.Brain.html#mne.viz.Brain.screenshot" title="mne.viz.Brain.screenshot" class="sphx-glr-backref-module-mne-viz sphx-glr-backref-type-py-method"><span class="n">brain</span><span class="o">.</span><span class="n">screenshot</span></a><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">shot</span></a><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="c1"># "split" puts one hemisphere in each half of the render, and nothing in the</span>
+    <span class="c1"># image says which. This example's stated subject is hemispheric balance, so</span>
+    <span class="c1"># the figure has to name the sides it is being read for.</span>
+    <span class="k">for</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frac</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">side</span></a> <span class="ow">in</span> <span class="p">((</span><span class="mf">0.25</span><span class="p">,</span> <span class="s2">"Left hemisphere"</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="s2">"Right hemisphere"</span><span class="p">)):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frac</span></a> <span class="o">*</span> <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">shot</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="mf">0.03</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">shot</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">side</span></a><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">va</span><span class="o">=</span><span class="s2">"top"</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<img alt="plot recipsiicos auditory" class="sphx-glr-single-img only-light" src="../_images/sphx_glr_plot_recipsiicos_auditory_002.png" />
+<img alt="plot recipsiicos auditory" class="sphx-glr-single-img only-dark" src="../_images/sphx_glr_plot_recipsiicos_auditory_002_dark.png" />
+<p>Finally, the reconstructed time courses at the two hemispheric peaks: the same
+comparison as the power map, now as a waveform. The ratio in each panel title
+is the ReciPSIICOS peak over the LCMV peak.</p>
+<p>These panels disagree with the balance metric above, and the disagreement is
+the interesting part rather than an inconsistency to smooth over. On
+hemispheric balance the two filters are close, because LCMV already recovers
+both hemispheres. On waveform amplitude at the auditory peaks they are not:
+ReciPSIICOS returns roughly four and a half times the LCMV peak on the left and
+about a third more on the right. That is not an artefact of the two weight
+normalisations, since the pre-stimulus baseline deviations are comparable
+between the two filters, so the peak signal-to-noise improves along with the
+amplitude.</p>
+<p>The two metrics are asking different questions. Balance asks whether each
+hemisphere shows up at all, and LCMV passes. Peak amplitude asks how much of
+the source survived the filter, and that is where cancellation leaves its mark.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray" title="mne.EvokedArray" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evoked</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.Epochs.html#mne.Epochs.average" title="mne.Epochs.average" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-method"><span class="n">epochs</span><span class="o">.</span><span class="n">average</span></a><span class="p">()</span>
+<a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tc_lcmv</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv.html#mne.beamformer.apply_lcmv" title="mne.beamformer.apply_lcmv" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray" title="mne.EvokedArray" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evoked</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lcmv</span></a><span class="p">)</span>
+<a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate" title="mne.SourceEstimate" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tc_recip</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv.html#mne.beamformer.apply_lcmv" title="mne.beamformer.apply_lcmv" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-function"><span class="n">apply_lcmv</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray" title="mne.EvokedArray" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evoked</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.beamformer.Beamformer.html#mne.beamformer.Beamformer" title="mne.beamformer.Beamformer" class="sphx-glr-backref-module-mne-beamformer sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">recip</span></a><span class="p">)</span>
+
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stc_recip</span><span class="o">.</span><span class="n">vertices</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">peaks</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">int</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">argmax</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">stc_recip</span><span class="o">.</span><span class="n">data</span></a><span class="p">[:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a><span class="p">,</span> <span class="mi">0</span><span class="p">])),</span>
+    <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">argmax</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">stc_recip</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_lh</span></a><span class="p">:,</span> <span class="mi">0</span><span class="p">])),</span>
+<span class="p">]</span>
+
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">times</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray.times" title="mne.EvokedArray.times" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">evoked</span><span class="o">.</span><span class="n">times</span></a> <span class="o">*</span> <span class="mf">1e3</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">post</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray.times" title="mne.EvokedArray.times" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">evoked</span><span class="o">.</span><span class="n">times</span></a> <span class="o">&gt;=</span> <span class="mf">0.0</span>
+<span class="n">fig</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">peaks</span></a><span class="p">,</span> <span class="p">(</span><span class="s2">"Left"</span><span class="p">,</span> <span class="s2">"Right"</span><span class="p">),</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">r_peak</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_recip</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">post</span></a><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">l_peak</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_lcmv</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">post</span></a><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">ratio</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">r_peak</span></a> <span class="o">/</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">l_peak</span></a>
+    <span class="c1"># ``pick_ori='max-power'`` makes MNE solve a non-Hermitian eigenproblem, so</span>
+    <span class="c1"># the weights (and hence these time courses) come back complex with a</span>
+    <span class="c1"># negligible imaginary part; take the real part explicitly to plot.</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">times</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_lcmv</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"C0"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"LCMV"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">times</span></a><span class="p">,</span> <a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_recip</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"C3"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"ReciPSIICOS"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a><span class="si">}</span><span class="s2"> auditory peak  (ReciPSIICOS/LCMV = </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">ratio</span></a><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s2">"amplitude (a.u.)"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Lower right, and only on the first panel. In the upper right the keys</span>
+    <span class="c1"># met the descending traces end-to-end, so key and curve read as one line,</span>
+    <span class="c1"># and a curve ran through the legend text; with frameon=False globally there</span>
+    <span class="c1"># is no patch to separate them. The lower right of both panels is empty.</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+    <span class="c1"># Printed as well as drawn, because the paragraph above quotes these two</span>
+    <span class="c1"># numbers and a reader should be able to check them against the run.</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base</span></a> <span class="o">=</span> <a href="https://mne.tools/stable/generated/mne.EvokedArray.html#mne.EvokedArray.times" title="mne.EvokedArray.times" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">evoked</span><span class="o">.</span><span class="n">times</span></a> <span class="o">&lt;</span> <span class="mf">0.0</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hemi</span></a><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> peak: LCMV </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">l_peak</span></a><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">, ReciPSIICOS </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">r_peak</span></a><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">, "</span>
+        <span class="sa">f</span><span class="s2">"ratio </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">ratio</span></a><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">; pre-stimulus SD "</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.std.html#numpy.std" title="numpy.std" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">std</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_lcmv</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">,</span><span class="w"> </span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base</span></a><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">)</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2"> vs "</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.std.html#numpy.std" title="numpy.std" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">std</span></a><span class="p">(</span><a href="https://mne.tools/stable/generated/mne.SourceEstimate.html#mne.SourceEstimate.data" title="mne.SourceEstimate.data" class="sphx-glr-backref-module-mne sphx-glr-backref-type-py-property"><span class="n">tc_recip</span><span class="o">.</span><span class="n">data</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">,</span><span class="w"> </span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">base</span></a><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">)</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">axes</span></a><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"time (ms)"</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="Left auditory peak (ReciPSIICOS/LCMV = 4.42)" class="sphx-glr-single-img only-light" src="../_images/sphx_glr_plot_recipsiicos_auditory_003.png" />
+<img alt="Left auditory peak (ReciPSIICOS/LCMV = 4.42)" class="sphx-glr-single-img only-dark" src="../_images/sphx_glr_plot_recipsiicos_auditory_003_dark.png" />
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span> Left peak: LCMV 0.33, ReciPSIICOS 1.46, ratio 4.42; pre-stimulus SD 0.0827 vs 0.0944
+Right peak: LCMV 1.1, ReciPSIICOS 1.47, ratio 1.34; pre-stimulus SD 0.0885 vs 0.0525
+
+Text(0.5, 36.03039279513889, 'time (ms)')
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 11.094 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-recipsiicos-auditory-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/167e33fc3dd76ff128e9b1a0a20aeaaa/plot_recipsiicos_auditory.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_recipsiicos_auditory.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/c09ff07cc0f624fcc835a22473786084/plot_recipsiicos_auditory.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_recipsiicos_auditory.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/f24000500609cebe221f2248d270fa40/plot_recipsiicos_auditory.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_recipsiicos_auditory.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="plot_recipsiicos_simulation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ReciPSIICOS versus LCMV as source correlation is dialled up</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="plot_apw_mcmv_connectivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Leakage-free connectivity: pairwise and augmented MCMV</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/auto_examples/plot_recipsiicos_auditory.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

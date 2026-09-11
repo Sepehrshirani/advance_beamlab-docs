@@ -1,0 +1,6 @@
+﻿advance\_beamlab.make\_ny\_head\_info
+=====================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: make_ny_head_info

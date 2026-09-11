@@ -1,0 +1,6 @@
+﻿advance\_beamlab.sbl\_covariance
+================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: sbl_covariance

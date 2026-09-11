@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>advance_beamlab.make_mcmv &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/advance_beamlab.make_mcmv';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="advance_beamlab.apply_mcmv" href="advance_beamlab.apply_mcmv.html" />
+    <link rel="prev" title="API reference" href="../api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">advance_beamlab.make_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.apply_mcmv.html">advance_beamlab.apply_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.apply_mcmv_cov.html">advance_beamlab.apply_mcmv_cov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.MCMVBeamformer.html">advance_beamlab.MCMVBeamformer</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.localizer_value.html">advance_beamlab.localizer_value</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.optimal_orientation.html">advance_beamlab.optimal_orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.scan_mcmv.html">advance_beamlab.scan_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.MCMVScanResult.html">advance_beamlab.MCMVScanResult</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_recipsiicos_cov.html">advance_beamlab.make_recipsiicos_cov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html">advance_beamlab.make_recipsiicos_lcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.recipsiicos_rank_curve.html">advance_beamlab.recipsiicos_rank_curve</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.reconstruct_pairwise_mcmv.html">advance_beamlab.reconstruct_pairwise_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.pairwise_mcmv_connectivity.html">advance_beamlab.pairwise_mcmv_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.augmented_pairwise_mcmv_connectivity.html">advance_beamlab.augmented_pairwise_mcmv_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ar1_surrogate_significance.html">advance_beamlab.ar1_surrogate_significance</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.sbl_covariance.html">advance_beamlab.sbl_covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_abmc.html">advance_beamlab.make_abmc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_abmc_dictionary.html">advance_beamlab.make_abmc_dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.abmc_stability_curve.html">advance_beamlab.abmc_stability_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ABMCResult.html">advance_beamlab.ABMCResult</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.fetch_ny_head.html">advance_beamlab.fetch_ny_head</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.read_ny_head_forward.html">advance_beamlab.read_ny_head_forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_montage.html">advance_beamlab.ny_head_montage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_ny_head_info.html">advance_beamlab.make_ny_head_info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_scalp.html">advance_beamlab.ny_head_scalp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_plot_indices.html">advance_beamlab.ny_head_plot_indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_picks.html">advance_beamlab.ny_head_picks</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.power_image.html">advance_beamlab.power_image</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.estimate_rank.html">advance_beamlab.estimate_rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.rank_spectrum.html">advance_beamlab.rank_spectrum</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.permutation_image_test.html">advance_beamlab.permutation_image_test</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.constraint_demo.html">advance_beamlab.constraint_demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.constraint_explorer.html">advance_beamlab.constraint_explorer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ConstraintDemo.html">advance_beamlab.ConstraintDemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.evoked_demo.html">advance_beamlab.evoked_demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.evoked_sources.html">advance_beamlab.evoked_sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.EvokedDemo.html">advance_beamlab.EvokedDemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.resolve_template.html">advance_beamlab.resolve_template</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">advance_beamlab.make_mcmv</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="advance-beamlab-make-mcmv">
+<h1>advance_beamlab.make_mcmv<a class="headerlink" href="#advance-beamlab-make-mcmv" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="advance_beamlab.make_mcmv">
+<span class="sig-prename descclassname"><span class="pre">advance_beamlab.</span></span><span class="sig-name descname"><span class="pre">make_mcmv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unit-gain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#advance_beamlab.make_mcmv" title="Link to this definition">#</a></dt>
+<dd><p>Compute a Multiple Constrained Minimum Variance (MCMV) beamformer.</p>
+<p>The MCMV beamformer <a class="footnote-reference brackets" href="#footcite-moiseev2011" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> reconstructs <code class="docutils literal notranslate"><span class="pre">n</span></code> jointly
+constrained sources with a single weight matrix <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> that
+satisfies, for every pair of constrained sources <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> (Eq. (3)):</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{w}_i^{\mathsf T}\mathbf{h}_i = 1, \qquad
+\mathbf{w}_i^{\mathsf T}\mathbf{h}_j = 0 \;\; (i \ne j).\]</div>
+<p>The zero-gain conditions make the filter insensitive to correlations between
+the constrained sources, removing the leakage and signal cancellation that
+bias single-source LCMV for correlated sources. The closed-form solution
+(Eq. (5)) is <span class="math notranslate nohighlight">\(\mathbf{W} = \mathbf{R}^{-1}\mathbf{H}
+(\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H})^{-1}\)</span>, with
+<span class="math notranslate nohighlight">\(\mathbf{R}\)</span> the data covariance and <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> the joint
+forward matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>info</strong><span class="classifier">instance of mne.Info</span></dt><dd><p>The measurement info; defines the channels used.</p>
+</dd>
+<dt><strong>forward</strong><span class="classifier">instance of mne.Forward</span></dt><dd><p>The forward solution providing the source leadfields. May be a
+fixed- or free-orientation forward (see <code class="docutils literal notranslate"><span class="pre">orientations</span></code>).</p>
+</dd>
+<dt><strong>data_cov</strong><span class="classifier">instance of mne.Covariance</span></dt><dd><p>The data covariance matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>. Compute it with
+<a class="reference external" href="https://mne.tools/stable/generated/mne.compute_covariance.html#mne.compute_covariance" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.compute_covariance()</span></code></a> using any estimator/shrinkage method
+(<code class="docutils literal notranslate"><span class="pre">'empirical'</span></code>, <code class="docutils literal notranslate"><span class="pre">'shrunk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ledoit_wolf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'oas'</span></code>, …); the
+choice is inherited here unchanged.</p>
+</dd>
+<dt><strong>sources</strong><span class="classifier">array-like of int, shape (n_sources,)</span></dt><dd><p>Indices (into the in-use source space of <code class="docutils literal notranslate"><span class="pre">forward</span></code>) of the sources to
+constrain jointly. Must be unique. This sets the beamformer order <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</dd>
+<dt><strong>noise_cov</strong><span class="classifier">instance of mne.Covariance | None</span></dt><dd><p>The noise covariance <span class="math notranslate nohighlight">\(\mathbf{C}_n\)</span>. Used to whiten the leadfield
+and data covariance before the solve, which is what makes the filter
+valid for arrays that mix sensor types (e.g. magnetometers and
+gradiometers). If <code class="docutils literal notranslate"><span class="pre">None</span></code>, an ad-hoc per-sensor-type noise model is
+used (<a class="reference external" href="https://mne.tools/stable/generated/mne.make_ad_hoc_cov.html#mne.make_ad_hoc_cov" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.make_ad_hoc_cov()</span></code></a>); for a single sensor type this is a
+global scaling that leaves the unit-gain filter unchanged.</p>
+</dd>
+<dt><strong>reg</strong><span class="classifier">float</span></dt><dd><p>Diagonal-loading regularisation of <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> as a fraction of the
+mean eigenvalue, applied via the same <a class="reference external" href="https://mne.tools/stable/api/inverse.html#module-mne.beamformer" title="(in MNE v1.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mne.beamformer</span></code></a> inversion
+machinery. <code class="docutils literal notranslate"><span class="pre">reg=0</span></code> uses the unregularised inverse of Eq. (5). This is
+a deliberate, documented departure from the bare equation, never a
+silent fix. It defaults to <code class="docutils literal notranslate"><span class="pre">0.05</span></code> to match <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code>.</p>
+</dd>
+<dt><strong>orientations</strong><span class="classifier">ndarray, shape (n_sources, 3) | None</span></dt><dd><p>Source orientation unit vectors <strong>in head coordinates</strong>, required when
+<code class="docutils literal notranslate"><span class="pre">forward</span></code> has free orientation and ignored (must be <code class="docutils literal notranslate"><span class="pre">None</span></code>) when it is
+fixed-orientation. A <code class="docutils literal notranslate"><span class="pre">surf_ori=True</span></code> forward stores its gain columns in
+each source’s local surface frame; the rotation is applied internally, so
+the same head-coordinate vectors give the same physical dipole for either
+representation of a forward. Take them from the <em>source space</em> –
+<code class="docutils literal notranslate"><span class="pre">forward['src'][hemi]['nn'][vertno]</span></code> – or from
+<a class="reference internal" href="advance_beamlab.optimal_orientation.html#advance_beamlab.optimal_orientation" title="advance_beamlab.optimal_orientation"><code class="xref py py-func docutils literal notranslate"><span class="pre">optimal_orientation()</span></code></a>. Do <strong>not</strong> reach for
+<code class="docutils literal notranslate"><span class="pre">forward['source_nn'][2::3]</span></code>: that holds cortical normals only when
+<code class="docutils literal notranslate"><span class="pre">forward['surf_ori']</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and both
+<a class="reference external" href="https://mne.tools/stable/generated/mne.read_forward_solution.html#mne.read_forward_solution" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.read_forward_solution()</span></code></a> and
+<a class="reference external" href="https://mne.tools/stable/generated/mne.make_forward_solution.html#mne.make_forward_solution" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.make_forward_solution()</span></code></a> hand back <code class="docutils literal notranslate"><span class="pre">surf_ori=False</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">source_nn</span></code> is a tiled identity and <code class="docutils literal notranslate"><span class="pre">[2::3]</span></code> is the head +z axis for
+every source. It is a unit vector of the right shape, so it is accepted
+without complaint, and every source is then constrained to a dipole
+pointing at the top of the head. Data-driven orientation
+estimation (the generalised-eigenvalue localiser of Moiseev et al., 2011)
+is provided by <a class="reference internal" href="advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a>.</p>
+</dd>
+<dt><strong>weight_norm</strong><span class="classifier">‘unit-gain’ | ‘array-gain’ | ‘unit-noise-gain’ | None</span></dt><dd><p>Output normalisation. <code class="docutils literal notranslate"><span class="pre">'unit-gain'</span></code> (and <code class="docutils literal notranslate"><span class="pre">None</span></code>) returns the literal
+Eq. (5) filter (the unit-gain / zero-gain constraint
+<span class="math notranslate nohighlight">\(\mathbf{W}^{\mathsf T}\mathbf{H}=\mathbf{I}\)</span> holds on the raw
+leadfield). <code class="docutils literal notranslate"><span class="pre">'array-gain'</span></code> imposes
+<span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{h}_i =
+\lVert\tilde{\mathbf{h}}_i\rVert\)</span> instead, with
+<span class="math notranslate nohighlight">\(\tilde{\mathbf{h}}_i\)</span> the <em>whitened</em> leadfield, by normalising
+each leadfield before the constraint: the output is the source’s field
+across the array in units of the noise rather than a dipole moment, and
+it does not inherit unit-gain’s bias towards deep sources, which arises
+because a deep leadfield is small and the filter must amplify to reach
+unit gain <a class="footnote-reference brackets" href="#footcite-sekiharanagarajan2008" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The norm has to be the
+whitened one. Summed in the recorded units, squared leadfield entries
+add volts to teslas to teslas per metre whenever the array mixes sensor
+types, so the normalisation is not a physical quantity at all: it is
+fixed by whichever type carries the larger numbers – gradiometers over
+magnetometers, EEG over MEG by orders of magnitude – and it moves if
+the same recording is expressed in T/cm instead of T/m. Whitening puts
+every channel on one dimensionless unit-noise scale, the only scale on
+which the types are commensurable, which is why MNE’s own depth
+weighting offers <code class="docutils literal notranslate"><span class="pre">limit_depth_chs='whiten'</span></code> and advises against the
+raw-unit norm (<a class="reference external" href="https://mne.tools/stable/generated/mne.forward.compute_depth_prior.html#mne.forward.compute_depth_prior" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.forward.compute_depth_prior()</span></code></a>). The price is
+that the amplitudes carry the noise level with them, so they are
+comparable across analyses only while the noise covariance is. It
+remains the depth-neutral choice when no noise covariance was measured:
+the ad-hoc model then merely sets that scale, and for a single sensor
+type it is one number common to every source.
+<code class="docutils literal notranslate"><span class="pre">'unit-noise-gain'</span></code> rescales each filter to unit Euclidean
+norm <em>in the whitened space</em> <a class="footnote-reference brackets" href="#footcite-sekiharanagarajan2008" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, which is
+MNE’s definition and is used by <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a>. That
+equals <span class="math notranslate nohighlight">\(\mathbf{w}_i^{\mathsf T}\mathbf{C}_n\mathbf{w}_i = 1\)</span>
+exactly when the whitener is a single block. <a class="reference external" href="https://mne.tools/stable/generated/mne.cov.compute_whitener.html#mne.cov.compute_whitener" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.cov.compute_whitener()</span></code></a>
+eigendecomposes the noise covariance separately per sensor-type group
+(MEG together, EEG separately), so for a combined MEG+EEG array the
+whitened noise covariance is the identity only up to its cross-type
+blocks and the realised noise gain departs from 1 (by of order one tenth
+in power on the MNE <code class="docutils literal notranslate"><span class="pre">sample</span></code> data). This matches <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> exactly.</p>
+</dd>
+<dt><strong>rank</strong><span class="classifier">None | ‘full’ | ‘info’ | dict</span></dt><dd><p>Rank handling, applied to both the noise-covariance whitener
+(<a class="reference external" href="https://mne.tools/stable/generated/mne.cov.compute_whitener.html#mne.cov.compute_whitener" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.cov.compute_whitener()</span></code></a>) and the data-covariance inverse, using
+MNE’s own convention. The default <code class="docutils literal notranslate"><span class="pre">None</span></code> auto-detects the rank per
+sensor type and drops the null space. That is the correct choice for
+rank-deficient data (e.g. after SSP/ICA), where <code class="docutils literal notranslate"><span class="pre">'full'</span></code> would instead
+invert the near-null directions and give an unstable whitener. Use a dict
+such as <code class="docutils literal notranslate"><span class="pre">{'meg':</span> <span class="pre">60}</span></code> to set the rank of a sensor type explicitly; a
+bare integer is not accepted, because the rank must be resolved per
+sensor type. Note <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a> defaults to <code class="docutils literal notranslate"><span class="pre">'info'</span></code>
+rather than <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool | str | int | None</span></dt><dd><p>Control verbosity of the logging output. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, use the default
+verbosity level. See the <a class="reference external" href="https://docs.python.org/3/tutorial/stdlib2.html#tut-logging" title="(in Python v3.14)"><span class="xref std std-ref">logging documentation</span></a> and
+<a class="reference external" href="https://mne.tools/stable/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a> for details. Should only be passed as a keyword
+argument.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>filters</strong><span class="classifier">instance of MCMVBeamformer</span></dt><dd><p>The MCMV spatial filter and metadata. The weights are under
+<code class="docutils literal notranslate"><span class="pre">filters['weights']</span></code> with shape <code class="docutils literal notranslate"><span class="pre">(n_sources,</span> <span class="pre">n_channels)</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If inputs are inconsistent or mathematically invalid: non-unique or
+out-of-range <code class="docutils literal notranslate"><span class="pre">sources</span></code>; missing/forbidden <code class="docutils literal notranslate"><span class="pre">orientations</span></code> for the
+forward type; no common channels; non-finite covariance; a beamformer
+order exceeding the data rank; a constrained source whose whitened
+leadfield is numerically silent, so that the array cannot see it.</p>
+</dd>
+<dt>RuntimeError</dt><dd><p>If <span class="math notranslate nohighlight">\(\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H}\)</span> is singular:
+the constrained sources are numerically collinear (coincident location
+and orientation), or the beamformer order exceeds the rank of the data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>With a single source (<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">1</span></code>) and <code class="docutils literal notranslate"><span class="pre">weight_norm</span></code> in
+<code class="docutils literal notranslate"><span class="pre">{'unit-gain',</span> <span class="pre">None}</span></code>, this reduces <em>exactly</em> to the unit-gain LCMV filter
+<span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{R}^{-1}\mathbf{h} /
+(\mathbf{h}^{\mathsf T}\mathbf{R}^{-1}\mathbf{h})\)</span>.</p>
+<p class="rubric">References</p>
+<div class="docutils container" id="id4">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-moiseev2011" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Alexander Moiseev, John M. Gaspar, Jennifer A. Schneider, and Anthony T. Herdman. Application of multi-source minimum variance beamformers for reconstruction of correlated neural activity. <em>NeuroImage</em>, 58(2):481–496, 2011. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2011.05.081">doi:10.1016/j.neuroimage.2011.05.081</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-sekiharanagarajan2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Kensuke Sekihara and Srikantan S. Nagarajan. <em>Adaptive Spatial Filters for Electromagnetic Brain Imaging</em>. Series in Biomedical Engineering. Springer, Berlin, Heidelberg, 2008. <a class="reference external" href="https://doi.org/10.1007/978-3-540-79370-0">doi:10.1007/978-3-540-79370-0</a>.</p>
+</aside>
+</aside>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="advance_beamlab.apply_mcmv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">advance_beamlab.apply_mcmv</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advance_beamlab.make_mcmv"><code class="docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/generated/advance_beamlab.make_mcmv.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

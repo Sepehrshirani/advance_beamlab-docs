@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mathematical background &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'background';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameter tuning" href="tuning.html" />
+    <link rel="prev" title="Beamforming EEG on a finite-element head model" href="auto_examples/plot_fem_head_model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Mathematical background</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mathematical-background">
+<h1>Mathematical background<a class="headerlink" href="#mathematical-background" title="Link to this heading">#</a></h1>
+<p>Notation: <span class="math notranslate nohighlight">\(M\)</span> sensors, <span class="math notranslate nohighlight">\(N\)</span> source locations. Bold lowercase are vectors, bold
+uppercase are matrices, <span class="math notranslate nohighlight">\(^{\mathsf T}\)</span> is transpose, <span class="math notranslate nohighlight">\(\langle\cdot\rangle\)</span> is the
+time average. <span class="math notranslate nohighlight">\(\mathbf{I_n}\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> identity.</p>
+<section id="the-measurement-model">
+<h2>1. The measurement model<a class="headerlink" href="#the-measurement-model" title="Link to this heading">#</a></h2>
+<p>At each instant the sensors measure a linear mixture of the active sources plus
+noise:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}(t)=\sum_{i} \mathbf{g_i}\, s_i(t) + \mathbf{n}(t)=\mathbf{G}\,\mathbf{s}(t)+\mathbf{n}(t).\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}(t)\in\mathbb{R}^{M}\)</span> is the sensor reading at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i(t)\)</span> is the (scalar) time course of source <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{g_i}\in\mathbb{R}^{M}\)</span> is the <strong>forward field</strong> (a.k.a. leadfield,
+topography) of source <span class="math notranslate nohighlight">\(i\)</span>: the pattern that source produces across the sensors
+when it has unit amplitude. It is computed once from the head model and sensor
+geometry, and is therefore <em>known</em>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{n}(t)\)</span> is additive noise with covariance
+<span class="math notranslate nohighlight">\(\mathbf{C_n}=\langle\mathbf{n}\mathbf{n}^{\mathsf T}\rangle\)</span>.</p></li>
+</ul>
+<p>For a source at location <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> with <strong>free orientation</strong>, the forward
+field is <span class="math notranslate nohighlight">\(\mathbf{g}=\mathbf{L}(\mathbf{r})\,\mathbf{u}\)</span>, where
+<span class="math notranslate nohighlight">\(\mathbf{L}(\mathbf{r})\in\mathbb{R}^{M\times 3}\)</span> holds the fields of unit
+dipoles along <span class="math notranslate nohighlight">\(x,y,z\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the (unit) orientation. Fixing the
+orientation collapses this to a single column.</p>
+<p>Everything downstream is driven by the <strong>data covariance</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}=\langle\mathbf{x}\,\mathbf{x}^{\mathsf T}\rangle .\]</div>
+<p>If the sources have covariance <span class="math notranslate nohighlight">\(\mathbf{C_s}=\langle\mathbf{s}\mathbf{s}^{\mathsf T}\rangle\)</span>
+and are uncorrelated with the noise, then
+<span class="math notranslate nohighlight">\(\mathbf{R}=\mathbf{G}\,\mathbf{C_s}\,\mathbf{G}^{\mathsf T}+\mathbf{C_n}\)</span>. Keep
+this identity in mind: it is the reason the localizers below peak at the true
+sources, and the reason the ReciPSIICOS decomposition works.</p>
+</section>
+<section id="the-spatial-filter-and-the-lcmv-solution">
+<h2>2. The spatial filter, and the LCMV solution<a class="headerlink" href="#the-spatial-filter-and-the-lcmv-solution" title="Link to this heading">#</a></h2>
+<p>A <strong>spatial filter</strong> is a vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> that estimates one source’s time
+course as a weighted sum of sensors, <span class="math notranslate nohighlight">\(\hat s(t)=\mathbf{w}^{\mathsf T}\mathbf{x}(t)\)</span>.
+We want two things:</p>
+<ol class="arabic simple">
+<li><p><strong>Unit gain on the target</strong>: <span class="math notranslate nohighlight">\(\mathbf{w}^{\mathsf T}\mathbf{g}=1\)</span>, so the
+target passes through untouched.</p></li>
+<li><p><strong>Minimum output power</strong>: minimise
+<span class="math notranslate nohighlight">\(\langle\hat s^2\rangle=\mathbf{w}^{\mathsf T}\mathbf{R}\,\mathbf{w}\)</span>. Since
+the target is pinned by the constraint, minimising <em>total</em> output power
+forces the filter to suppress everything else: other sources and noise.</p></li>
+</ol>
+<p>This is the Linearly Constrained Minimum Variance (LCMV) problem. Minimising
+<span class="math notranslate nohighlight">\(\mathbf{w}^{\mathsf T}\mathbf{R}\mathbf{w}\)</span> subject to
+<span class="math notranslate nohighlight">\(\mathbf{w}^{\mathsf T}\mathbf{g}=1\)</span> with a Lagrange multiplier <span class="math notranslate nohighlight">\(\lambda\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}=\mathbf{w}^{\mathsf T}\mathbf{R}\mathbf{w}-\lambda(\mathbf{w}^{\mathsf T}\mathbf{g}-1),\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial\mathcal{L}}{\partial\mathbf{w}}=2\mathbf{R}\mathbf{w}-\lambda\mathbf{g}=\mathbf{0}\;\Rightarrow\;\mathbf{w}=\tfrac{\lambda}{2}\mathbf{R}^{-1}\mathbf{g}.\]</div>
+<p>Enforcing the constraint <span class="math notranslate nohighlight">\(\mathbf{w}^{\mathsf T}\mathbf{g}=1\)</span> fixes <span class="math notranslate nohighlight">\(\lambda\)</span> and gives the LCMV filter, whose reconstructed power is <span class="math notranslate nohighlight">\(\langle\hat s^2\rangle=1/(\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{g})\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{\;\mathbf{w}=\dfrac{\mathbf{R}^{-1}\mathbf{g}}{\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{g}}\;}\]</div>
+<p>Scanning <span class="math notranslate nohighlight">\(1/(\mathbf{g}(\mathbf{r})^{\mathsf T}\mathbf{R}^{-1}\mathbf{g}(\mathbf{r}))\)</span>
+over <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> is the classic beamformer power map.</p>
+</section>
+<section id="signal-cancellation-with-correlated-sources">
+<h2>3. Signal cancellation with correlated sources<a class="headerlink" href="#signal-cancellation-with-correlated-sources" title="Link to this heading">#</a></h2>
+<p>Suppose two sources with fields <span class="math notranslate nohighlight">\(\mathbf{g_1},\mathbf{g_2}\)</span> have correlation
+<span class="math notranslate nohighlight">\(\rho\)</span>. The LCMV filter for source 1 is free to place a null anywhere except
+along <span class="math notranslate nohighlight">\(\mathbf{g_1}\)</span>. Because source 2 is correlated with source 1, the filter
+can <em>lower its own output power</em> by passing a scaled, sign-flipped copy of
+source 2 that partially cancels source 1 in the average. The constraint on
+<span class="math notranslate nohighlight">\(\mathbf{g_1}\)</span> is still satisfied instant by instant, but the variance is
+reduced by exploiting the correlation. The result is <strong>signal cancellation</strong>:
+the reconstructed power of source 1 is suppressed by roughly a factor
+<span class="math notranslate nohighlight">\((1-\rho^2)\)</span>, collapsing to zero as <span class="math notranslate nohighlight">\(\rho\to 1\)</span>. Amplitudes are underestimated,
+locations are pulled towards each other, and spurious “connectivity” appears
+because each filter leaks a copy of the other source. This single failure mode
+is what MCMV and ReciPSIICOS each remove, in two different ways.</p>
+</section>
+<section id="mcmv-the-joint-constraint">
+<h2>4. MCMV: the joint constraint<a class="headerlink" href="#mcmv-the-joint-constraint" title="Link to this heading">#</a></h2>
+<p>Instead of one filter that only protects its own source, MCMV solves for <span class="math notranslate nohighlight">\(n\)</span>
+filters <strong>at once</strong> and forbids each from responding to the <em>others’</em> fields.
+Collect the <span class="math notranslate nohighlight">\(n\)</span> forward fields as the columns of
+<span class="math notranslate nohighlight">\(\mathbf{H}=[\mathbf{g_1},\dots,\mathbf{g_n}]\in\mathbb{R}^{M\times n}\)</span> and the
+<span class="math notranslate nohighlight">\(n\)</span> filters as the columns of <span class="math notranslate nohighlight">\(\mathbf{W}=[\mathbf{w_1},\dots,\mathbf{w_n}]\)</span>. The
+constraint is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{W}^{\mathsf T}\mathbf{H}=\mathbf{I_n},\qquad\text{i.e.}\qquad \mathbf{w_i}^{\mathsf T}\mathbf{g_j}=\delta_{ij}.\]</div>
+<p>The diagonal (<span class="math notranslate nohighlight">\(i=j\)</span>) is the familiar <strong>unit-gain</strong> condition; the off-diagonal
+(<span class="math notranslate nohighlight">\(i\ne j\)</span>) <strong>zero-gain</strong> conditions are the new ingredient. Filter <span class="math notranslate nohighlight">\(i\)</span> is forced
+to be <em>blind</em> to every other constrained source. A blind filter cannot exploit a
+correlation it cannot see, so the cancellation of Section 3 disappears.</p>
+<p>Minimise the total output power <span class="math notranslate nohighlight">\(\mathrm{Tr}(\mathbf{W}^{\mathsf T}\mathbf{R}\mathbf{W})\)</span>
+subject to <span class="math notranslate nohighlight">\(\mathbf{W}^{\mathsf T}\mathbf{H}=\mathbf{I_n}\)</span>. With a matrix of
+Lagrange multipliers <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}=\mathrm{Tr}(\mathbf{W}^{\mathsf T}\mathbf{R}\mathbf{W})-\mathrm{Tr}\big(\mathbf{\Lambda}(\mathbf{W}^{\mathsf T}\mathbf{H}-\mathbf{I_n})\big),\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial\mathcal{L}}{\partial\mathbf{W}}=2\mathbf{R}\mathbf{W}-\mathbf{H}\mathbf{\Lambda}^{\mathsf T}=\mathbf{0}\;\Rightarrow\;\mathbf{W}=\tfrac12\mathbf{R}^{-1}\mathbf{H}\,\mathbf{\Lambda}^{\mathsf T}.\]</div>
+<p>Substituting into the constraint <span class="math notranslate nohighlight">\(\mathbf{W}^{\mathsf T}\mathbf{H}=\mathbf{I}\)</span>
+fixes <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> and yields the <strong>MCMV weights</strong> (Moiseev et al. 2011,
+Eq. 5):</p>
+<div class="math notranslate nohighlight">
+\[\boxed{\;\mathbf{W}=\mathbf{R}^{-1}\mathbf{H}\,\big(\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H}\big)^{-1}\;}\]</div>
+<p>Reading it line by line: <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\mathbf{H}\)</span> is the stack of ordinary
+inverse-covariance filters; multiplying by
+<span class="math notranslate nohighlight">\((\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H})^{-1}\)</span> mixes them just enough to
+enforce all <span class="math notranslate nohighlight">\(n^2\)</span> gain conditions simultaneously. For <span class="math notranslate nohighlight">\(n=1\)</span> the bracket is a
+scalar and this is <em>exactly</em> the LCMV filter of Section 2. MCMV is a strict
+generalisation. The matrix <span class="math notranslate nohighlight">\(\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H}\)</span> is
+invertible as long as the constrained fields are linearly independent; it
+becomes singular if two sources coincide in both location and orientation (then
+you have asked for two filters to do contradictory things), which the
+implementation detects and reports.</p>
+<p>In this package the joint solve is <code class="docutils literal notranslate"><span class="pre">make_mcmv(...)</span></code>; <code class="docutils literal notranslate"><span class="pre">apply_mcmv(...)</span></code> runs the
+filters on <code class="docutils literal notranslate"><span class="pre">Raw</span></code>/<code class="docutils literal notranslate"><span class="pre">Epochs</span></code>/<code class="docutils literal notranslate"><span class="pre">Evoked</span></code>/arrays.</p>
+</section>
+<section id="whitening-and-why-it-is-mandatory-for-mixed-sensors">
+<h2>5. Whitening, and why it is mandatory for mixed sensors<a class="headerlink" href="#whitening-and-why-it-is-mandatory-for-mixed-sensors" title="Link to this heading">#</a></h2>
+<p>The data covariance mixes sensor types with <em>different physical units</em>:
+magnetometers in tesla (<span class="math notranslate nohighlight">\(\sim10^{-13}\)</span>), gradiometers in T/m, EEG in volts.
+The scalar <span class="math notranslate nohighlight">\(\mathbf{w}^{\mathsf T}\mathbf{R}\mathbf{w}\)</span> then sums
+<span class="math notranslate nohighlight">\(\mathrm{T}^2\)</span>, <span class="math notranslate nohighlight">\((\mathrm{T/m})^2\)</span> and cross terms (literally adding
+incommensurable quantities), and <span class="math notranslate nohighlight">\(\mathbf{R}^{-1}\)</span> is numerically dominated by
+whichever block is largest, making the filter effectively blind to the
+smaller-scale sensor type. This is a <em>correctness</em> problem, not just
+conditioning.</p>
+<p>The fix is a change of coordinates. Build a <strong>whitener</strong> <span class="math notranslate nohighlight">\(\mathbf{W_n}\)</span> from
+the noise covariance so that <span class="math notranslate nohighlight">\(\mathbf{W_n}\mathbf{C_n}\mathbf{W_n}^{\mathsf T}=\mathbf{I}\)</span>,
+from the eigendecomposition
+<span class="math notranslate nohighlight">\(\mathbf{C_n}=\mathbf{U}\mathbf{\Lambda}\mathbf{U}^{\mathsf T}\)</span>,
+<span class="math notranslate nohighlight">\(\mathbf{W_n}=\mathbf{\Lambda_r}^{-1/2}\mathbf{U_r}^{\mathsf T}\)</span> (keeping only
+the <span class="math notranslate nohighlight">\(r\)</span> non-negligible eigenpairs, i.e. the numerical rank, which drops below <span class="math notranslate nohighlight">\(M\)</span>
+after SSS/Maxwell filtering or ICA). Then whiten leadfield and covariance,</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathbf{H}}=\mathbf{W_n}\mathbf{H},\qquad \tilde{\mathbf{R}}=\mathbf{W_n}\mathbf{R}\,\mathbf{W_n}^{\mathsf T},\]</div>
+<p>solve MCMV there, and fold the whitener back into the returned weights so they
+still act on raw sensor data (<span class="math notranslate nohighlight">\(\hat{\mathbf{s}}=\tilde{\mathbf{W}}^{\mathsf T}\mathbf{W_n}\mathbf{x}\)</span>).
+In whitened coordinates every channel is dimensionless with unit noise variance,
+so all sensor types are commensurable.</p>
+<p>Two consequences follow:</p>
+<ul class="simple">
+<li><p><strong>Single sensor type</strong> (e.g. a CTF gradiometer array): with no <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code> the
+ad-hoc model is a <em>scalar</em> multiple of the identity, so the whitener is a
+global scale that cancels out of the unit-gain filter and the result is
+unchanged. A <strong>measured</strong> single-type <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code> is not a global scale, and
+because the <code class="docutils literal notranslate"><span class="pre">reg</span></code> diagonal loading is applied in the whitened space it is not
+equivariant under whitening: at <code class="docutils literal notranslate"><span class="pre">reg=0</span></code> the unit-gain filter is exactly
+invariant to the choice of noise covariance (verified to 1e-13), but at the
+default <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code> the weights change materially, by about 30% on the MNE
+<code class="docutils literal notranslate"><span class="pre">sample</span></code> gradiometer array. Whitening never mixes incommensurable units, but it
+is not a no-op for a single sensor type once <code class="docutils literal notranslate"><span class="pre">reg</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.
+Note also that MNE counts magnetometers and gradiometers as <em>two</em> types, so a
+combined MEG array requires a <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>; <code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code> raises exactly as
+<code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> does if one is not supplied.</p></li>
+<li><p><strong>Per-type rank matters.</strong> A single global eigenvalue threshold would discard
+the smaller-unit type as if it were the null space; the rank must be resolved
+<em>per sensor type</em>. The package uses <code class="docutils literal notranslate"><span class="pre">mne.cov.compute_whitener</span></code>, the same
+routine <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> uses, so a single-source MCMV reproduces MNE’s whitening
+exactly. With no <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>, MNE’s ad-hoc per-type model is used.</p></li>
+</ul>
+</section>
+<section id="weight-normalisation">
+<h2>6. Weight normalisation<a class="headerlink" href="#weight-normalisation" title="Link to this heading">#</a></h2>
+<p>Three normalisations are accepted, and the choice decides what the reconstructed
+numbers <em>mean</em>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">unit-gain</span></code></strong> (<code class="docutils literal notranslate"><span class="pre">weight_norm=&quot;unit-gain&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>): the literal Eq. 5
+filter. The gain constraint <span class="math notranslate nohighlight">\(\mathbf{W}^{\mathsf T}\mathbf{H}=\mathbf{I}\)</span> holds
+on the raw leadfield, so reconstructed amplitudes are in physical source
+units. Use it when amplitudes/units matter.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">array-gain</span></code></strong>: normalise each leadfield column before imposing the
+constraint, so that <span class="math notranslate nohighlight">\(\mathbf{w_i}^{\mathsf T}\mathbf{h_i}=\lVert\tilde{\mathbf{h}}_i\rVert\)</span>
+instead, with <span class="math notranslate nohighlight">\(\tilde{\mathbf{h}}_i\)</span> the <strong>whitened</strong> leadfield column. In
+exchange it sheds unit-gain’s bias towards deep sources: a deep leadfield
+column is small, so a unit-gain filter has to amplify to reach unit gain, and
+the reconstruction is inflated wherever the forward is weak. It is the
+depth-neutral choice when there is no noise covariance to normalise against.
+The norm has to be the whitened one: a norm of the raw leadfield sums squared
+entries across the whole array, and as soon as the array mixes sensor types
+those entries carry different units — <span class="math notranslate nohighlight">\(\mathrm{T}^2\)</span> added to
+<span class="math notranslate nohighlight">\((\mathrm{T/m})^2\)</span> added to <span class="math notranslate nohighlight">\(\mathrm{V}^2\)</span> — so the sum is dominated by
+whichever type happens to carry the larger numbers. The price is that
+array-gain amplitudes are in units of the noise rather than of the array, and
+so are not comparable across analyses that used different noise covariances.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">unit-noise-gain</span></code></strong>: rescale each filter so that
+<span class="math notranslate nohighlight">\(\mathbf{w_i}^{\mathsf T}\mathbf{C_n}\mathbf{w_i}=1\)</span>, i.e. unit output noise.
+Because the solve is in whitened space this is exactly unit Euclidean norm of
+the whitened filter (MNE’s definition). It equalises the noise floor across
+locations, which is what you want for <em>maps</em> (so deep, low-SNR locations are
+not penalised) at the cost of no longer preserving physical amplitude.</p></li>
+</ul>
+</section>
+<section id="the-scanning-localizers-mai-mpz-mer-and-rmer">
+<h2>7. The scanning localizers: MAI, MPZ, MER and rMER<a class="headerlink" href="#the-scanning-localizers-mai-mpz-mer-and-rmer" title="Link to this heading">#</a></h2>
+<p>MCMV needs to know <em>which</em> sources to constrain. The localizers are scalar maps
+that peak at the true sources. They are built from four <span class="math notranslate nohighlight">\(n\times n\)</span> matrices
+(Moiseev et al. 2011, Table 2), each a leadfield sandwiched around a covariance:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{S}=\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{H},\qquad \mathbf{G}=\mathbf{H}^{\mathsf T}\mathbf{C_n}^{-1}\mathbf{H},\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{T}=\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\mathbf{C_n}\mathbf{R}^{-1}\mathbf{H},\qquad \mathbf{E}=\mathbf{H}^{\mathsf T}\mathbf{R}^{-1}\bar{\mathbf{R}}\,\mathbf{R}^{-1}\mathbf{H},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{\mathbf{R}}=\langle\bar{\mathbf{b}}\bar{\mathbf{b}}^{\mathsf T}\rangle\)</span>
+is the covariance of the epoch-<strong>averaged</strong> (evoked) field. The four localizers
+(Table 1) and what each measures:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Localizer</p></th>
+<th class="head"><p>Formula</p></th>
+<th class="head"><p>Reduces at <span class="math notranslate nohighlight">\(n=1\)</span> to</p></th>
+<th class="head"><p>Use it for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>MAI</strong> (activity index)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{Tr}(\mathbf{G}\mathbf{S}^{-1})-n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\zeta-1=\dfrac{\mathbf{g}^{\mathsf T}\mathbf{C_n}^{-1}\mathbf{g}}{\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{g}}-1\)</span></p></td>
+<td><p>robust, broad peaks</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MPZ</strong> (pseudo-Z)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{Tr}(\mathbf{S}\mathbf{T}^{-1})-n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\bar Z-1=\dfrac{\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{g}}{\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{C_n}\mathbf{R}^{-1}\mathbf{g}}-1\)</span></p></td>
+<td><p>sharper localisation</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>MER</strong> (evoked)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{Tr}(\mathbf{E}\mathbf{T}^{-1})\)</span></p></td>
+<td><p>evoked pseudo-Z</p></td>
+<td><p>phase-locked responses</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>rMER</strong> (reduced evoked)</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{Tr}(\mathbf{E}\mathbf{S}^{-1})\)</span></p></td>
+<td><p>reduced evoked pseudo-Z</p></td>
+<td><p>evoked, no clean <span class="math notranslate nohighlight">\(\mathbf{C_n}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Intuition: <span class="math notranslate nohighlight">\(\zeta\)</span> is a <em>(signal+noise)/noise</em> ratio. Here
+<span class="math notranslate nohighlight">\((\mathbf{g}^{\mathsf T}\mathbf{R}^{-1}\mathbf{g})^{-1}\)</span> is the total
+reconstructed power (signal + leaked noise) and
+<span class="math notranslate nohighlight">\((\mathbf{g}^{\mathsf T}\mathbf{C_n}^{-1}\mathbf{g})^{-1}\)</span> is the noise-only power,
+so subtracting <span class="math notranslate nohighlight">\(1\)</span> gives a <em>pure</em> signal-to-noise ratio that is zero where there
+is no source. The multi-source versions generalise this to the whole
+constrained set. Two facts proved in the paper and verified in the tests: both
+power localizers are non-negative and ordered (the MAI value <span class="math notranslate nohighlight">\(\ge\)</span> the MPZ value)
+(MPZ is sharper but noisier), and each localizer’s global maximum is the true
+source configuration (they are <em>unbiased</em> for any <span class="math notranslate nohighlight">\(\mathbf{C_n}\)</span>). The power
+localizers (MAI, MPZ) work for induced/oscillatory activity; the event-related
+ones (MER, rMER) target phase-locked responses and need <span class="math notranslate nohighlight">\(\bar{\mathbf{R}}\)</span>.</p>
+<p>Everything is computed in the whitened space where <span class="math notranslate nohighlight">\(\mathbf{C_n}=\mathbf{I}\)</span>; the
+localizers are <strong>invariant</strong> under whitening, so the values are identical to the
+raw-space formulas above.</p>
+</section>
+<section id="data-driven-orientation-in-closed-form">
+<h2>8. Data-driven orientation in closed form<a class="headerlink" href="#data-driven-orientation-in-closed-form" title="Link to this heading">#</a></h2>
+<p>For a free-orientation forward each candidate location contributes an <span class="math notranslate nohighlight">\(M\times 3\)</span>
+block <span class="math notranslate nohighlight">\(\mathbf{H_k}=[\mathbf{h}^x_k,\mathbf{h}^y_k,\mathbf{h}^z_k]\)</span>, and we must
+pick the orientation <span class="math notranslate nohighlight">\(\mathbf{u_k}\)</span> (so that <span class="math notranslate nohighlight">\(\mathbf{g_k}=\mathbf{H_k}\mathbf{u_k}\)</span>)
+that maximises the localizer, <em>given</em> the sources already found (their fields
+form the reference block <span class="math notranslate nohighlight">\(\mathbf{H_R}\)</span>). Moiseev et al. show the maximiser is
+the top eigenvector of a <span class="math notranslate nohighlight">\(3\times 3\)</span> generalised eigenproblem
+<span class="math notranslate nohighlight">\(\mathbf{D}\,\mathbf{u_k}=\lambda\,\mathbf{F}\,\mathbf{u_k}\)</span> (no scan over angles
+is needed):</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F}=\mathbf{A}_{kk}-\mathbf{A}_{kR}\mathbf{A}_{RR}^{-1}\mathbf{A}_{Rk},\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{D}=\mathbf{A}_{kR}\mathbf{A}_{RR}^{-1}\mathbf{B}_{RR}\mathbf{A}_{RR}^{-1}\mathbf{A}_{Rk}-\mathbf{A}_{kR}\mathbf{A}_{RR}^{-1}\mathbf{B}_{Rk}-\mathbf{B}_{kR}\mathbf{A}_{RR}^{-1}\mathbf{A}_{Rk}+\mathbf{B}_{kk}.\]</div>
+<p>Here <span class="math notranslate nohighlight">\((\mathbf{A},\mathbf{B})\)</span> is the localizer’s (denominator, numerator) pair:
+<span class="math notranslate nohighlight">\((\mathbf{S},\mathbf{G})\)</span> for MAI, <span class="math notranslate nohighlight">\((\mathbf{T},\mathbf{S})\)</span> for MPZ,
+<span class="math notranslate nohighlight">\((\mathbf{T},\mathbf{E})\)</span> for MER, <span class="math notranslate nohighlight">\((\mathbf{S},\mathbf{E})\)</span> for rMER. The
+subscripted blocks are the Table-2 matrices evaluated between <span class="math notranslate nohighlight">\(\mathbf{H_R}\)</span> and
+<span class="math notranslate nohighlight">\(\mathbf{H_k}\)</span>. <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is the Schur complement of the denominator (it
+“conditions out” the already-found sources); <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> is the corresponding
+numerator form. With no references (the first source), it collapses to</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{B}_{kk}\mathbf{u}=\lambda\mathbf{A}_{kk}\mathbf{u}.\]</div>
+<p>Exposed as <code class="docutils literal notranslate"><span class="pre">optimal_orientation(...)</span></code>.</p>
+</section>
+<section id="the-sequential-source-search">
+<h2>9. The sequential source search<a class="headerlink" href="#the-sequential-source-search" title="Link to this heading">#</a></h2>
+<p>The full parameter space of <span class="math notranslate nohighlight">\(n\)</span> sources is far too large to scan jointly, so the
+search is greedy and iterative (Moiseev et al. 2011):</p>
+<ol class="arabic simple">
+<li><p><strong>Find source 1</strong> by scanning the single-source localizer over the grid
+(with the optimal orientation at each location).</p></li>
+<li><p><strong>Fix</strong> it as a reference and scan the <strong>multi-source</strong> localizer for
+source 2. Every candidate is now evaluated <em>jointly</em> with source 1.</p></li>
+<li><p>Repeat, adding one source per iteration. Each new source is added to the
+joint constraint, so the cancellation that hid correlated activity is
+progressively removed and previously masked sources emerge.</p></li>
+</ol>
+<p><strong>Knowing when to stop.</strong> After adding source <span class="math notranslate nohighlight">\(k\)</span>, monitor its pseudo-Z
+<span class="math notranslate nohighlight">\(\bar z_k=(\mathbf{w_k}^{\mathsf T}\mathbf{R}\mathbf{w_k})/(\mathbf{w_k}^{\mathsf T}\mathbf{C_n}\mathbf{w_k})\)</span>,
+where <span class="math notranslate nohighlight">\(\mathbf{w_k}\)</span> is that source’s <strong>row of the joint <span class="math notranslate nohighlight">\(k\)</span>-source MCMV
+filter</strong>, not a single-source (LCMV) filter at the same location, which would
+still suffer the cancellation the joint constraint has just removed.
+Genuine sources have large <span class="math notranslate nohighlight">\(\bar z_k\)</span>; once you start adding noise, <span class="math notranslate nohighlight">\(\bar z_k\)</span>
+drops to a baseline and fluctuates. The baseline is generally <strong>not</strong> <span class="math notranslate nohighlight">\(1\)</span> and
+must be judged from the data, so <code class="docutils literal notranslate"><span class="pre">scan_mcmv</span></code> runs a requested <code class="docutils literal notranslate"><span class="pre">n_sources</span></code> and
+returns the whole <code class="docutils literal notranslate"><span class="pre">pseudo_z</span></code> sequence for you to read the elbow. Note the greedy
+search does not order the sources by strength: each step maximises the <em>joint</em>
+localizer given the sources already fixed, so a later source can carry the larger
+<span class="math notranslate nohighlight">\(\bar z_k\)</span>. Exposed as <code class="docutils literal notranslate"><span class="pre">scan_mcmv(...)</span></code>, which returns the discovered sources,
+their orientations (in head coordinates), the pseudo-Z sequence, the
+per-iteration localizer maps, and a ready-to-apply <code class="docutils literal notranslate"><span class="pre">MCMVBeamformer</span></code>.</p>
+</section>
+<section id="recipsiicos-cleaning-the-covariance-instead-of-constraining-sources">
+<h2>10. ReciPSIICOS: cleaning the covariance instead of constraining sources<a class="headerlink" href="#recipsiicos-cleaning-the-covariance-instead-of-constraining-sources" title="Link to this heading">#</a></h2>
+<p>ReciPSIICOS attacks the same cancellation from the other end: rather than a new
+filter, it <em>repairs the data covariance</em> so that an ordinary LCMV no longer
+cancels correlated sources.</p>
+<p><strong>The vec view.</strong> Stack the columns of the <span class="math notranslate nohighlight">\(M\times M\)</span> covariance into a vector
+<span class="math notranslate nohighlight">\(\mathrm{vec}(\mathbf{R})\in\mathbb{R}^{M^2}\)</span>. Using
+<span class="math notranslate nohighlight">\(\mathbf{R}=\mathbf{G}\mathbf{C_s}\mathbf{G}^{\mathsf T}+\mathbf{C_n}\)</span> and
+<span class="math notranslate nohighlight">\(\mathrm{vec}(\mathbf{g_i}\mathbf{g_j}^{\mathsf T})=\mathbf{g_j}\otimes\mathbf{g_i}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{vec}(\mathbf{R})=\sum_i [\mathbf{C_s}]_{ii}\,\mathrm{vec}(\mathbf{g_i}\mathbf{g_i}^{\mathsf T})+\sum_{i&lt;j}[\mathbf{C_s}]_{ij}\,\mathrm{vec}(\mathbf{g_i}\mathbf{g_j}^{\mathsf T}+\mathbf{g_j}\mathbf{g_i}^{\mathsf T})+\mathrm{vec}(\mathbf{C_n}).\]</div>
+<p>The first sum collects the <strong>auto-products</strong> (the source powers); the second
+collects the symmetric <strong>cross-products</strong> (the source couplings). The couplings
+are <em>exactly</em> what an LCMV beamformer exploits to cancel correlated sources.
+Remove the cross-product part of the covariance and the cancellation has nothing
+to feed on.</p>
+<p><strong>A working space that makes it device-agnostic and tractable.</strong> The original
+study used one MEG array of a single sensor type and built the projector in raw
+sensor space. Two changes are needed for general use. The first is ours, the
+second follows the paper:</p>
+<ul class="simple">
+<li><p><em>Noise whitening.</em> Section 2.6 of the paper discusses whitening only to note
+that it changes the forward operator and would therefore require rebuilding
+the projector in the whitened space; the study did not apply it and worked in
+raw sensor space. Whitening here (via <code class="docutils literal notranslate"><span class="pre">mne.cov.compute_whitener</span></code>, per sensor
+type) is our own addition rather than a step the paper prescribes: it is what
+makes the method valid when magnetometers (T) and gradiometers (T/m) are
+mixed, since otherwise the covariance is dominated by the larger-unit type.</p></li>
+<li><p><em>Virtual sensors.</em> The whitened leadfield is reduced by a truncated SVD to the
+<span class="math notranslate nohighlight">\(q\)</span> directions carrying a chosen fraction of its variance (<code class="docutils literal notranslate"><span class="pre">pct_var</span></code>; the
+paper keeps 90%, or 95% for its real data, while the default here is a more
+conservative 0.99). Because the SVD is taken on the <em>whitened</em> leadfield, <span class="math notranslate nohighlight">\(q\)</span>
+is a property of the noise model as much as of the array, so it is worth
+quoting a configuration rather than a number: on the <code class="docutils literal notranslate"><span class="pre">sample</span></code> MEG array (305
+good channels, the oct-6 free-orientation forward) with the dataset’s own
+<code class="docutils literal notranslate"><span class="pre">sample_audvis-cov.fif</span></code> as <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>, <code class="docutils literal notranslate"><span class="pre">pct_var=0.99</span></code> gives <span class="math notranslate nohighlight">\(q=68\)</span> over the
+102 magnetometers, <span class="math notranslate nohighlight">\(q=74\)</span> over the 203 gradiometers and <span class="math notranslate nohighlight">\(q=85\)</span> over all 305.
+Substituting the ad-hoc noise model (<code class="docutils literal notranslate"><span class="pre">noise_cov=None</span></code>) drops the single-type
+counts to <span class="math notranslate nohighlight">\(q=31\)</span> and <span class="math notranslate nohighlight">\(q=48\)</span>; combined MEG has no ad-hoc case, since it
+refuses to run without a <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code> at all. The <span class="math notranslate nohighlight">\(M^2\times M^2\)</span> correlation
+Gram would be <span class="math notranslate nohighlight">\(93\text{k}\times 93\text{k}\)</span> for a 306-channel array; in the
+<span class="math notranslate nohighlight">\(q\)</span>-dimensional working space it is a few thousand square.</p></li>
+</ul>
+<p>Write <span class="math notranslate nohighlight">\(\mathbf{B}=\mathbf{U_q}^{\mathsf T}\mathbf{W}\)</span> for the composite operator
+(whiten by <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, then keep the <span class="math notranslate nohighlight">\(q\)</span> principal directions <span class="math notranslate nohighlight">\(\mathbf{U_q}\)</span> of
+the whitened leadfield). Everything below lives in this working space: the
+leadfield <span class="math notranslate nohighlight">\(\mathbf{B}\mathbf{G}\)</span>, the covariance
+<span class="math notranslate nohighlight">\(\mathbf{B}\mathbf{R}\mathbf{B}^{\mathsf T}\)</span>, and the projector.</p>
+<p><strong>Building the projector, from the forward model alone.</strong> Enumerate the
+(working-space) auto-product vectors over the source grid as the columns of <span class="math notranslate nohighlight">\(G_p\)</span>
+and the symmetric cross-product vectors as <span class="math notranslate nohighlight">\(G_c\)</span>.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code></strong> (Eq. 10): take the SVD of <span class="math notranslate nohighlight">\(G_p\)</span>, keep the
+top <span class="math notranslate nohighlight">\(K\)</span> left singular vectors <span class="math notranslate nohighlight">\(\mathbf{U_K}\)</span>, and project <em>onto</em> the power
+subspace, <span class="math notranslate nohighlight">\(\mathbf{P}=\mathbf{U_K}\mathbf{U_K}^{\mathsf T}\)</span>. This retains
+power, and whatever of the correlation subspace is (near-)orthogonal to it is
+removed.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">whitened</span></code></strong> (Eqs. 15–17): first <em>whiten by the power subspace</em>, forming
+<span class="math notranslate nohighlight">\(C_p=G_pG_p^{\mathsf T}\)</span>
+and its range-restricted inverse square root
+<span class="math notranslate nohighlight">\(W_p=\mathbf{E}\mathbf{\Lambda}^{-1/2}\mathbf{E}^{\mathsf T}\)</span>
+(the auto-products span at most the symmetric subspace of dimension
+<span class="math notranslate nohighlight">\(q(q{+}1)/2\)</span>, so <span class="math notranslate nohighlight">\(C_p\)</span> is <em>never</em> full rank: its null space is dropped rather
+than ridge-filled, and only the retained eigenvalues are then stabilised by a
+ridge of <code class="docutils literal notranslate"><span class="pre">reg</span></code> times their mean). Then, in that whitened space,
+project <em>away from</em> the top <span class="math notranslate nohighlight">\(K\)</span> correlation directions and unwhiten. Because
+the power directions are flattened to unit scale first, this spares them far
+better than the plain variant. <span class="math notranslate nohighlight">\(W_p\)</span> only spans that symmetric subspace, so a
+rank <span class="math notranslate nohighlight">\(K\ge q(q{+}1)/2\)</span> removes all of it and annihilates the covariance; the
+code warns when a requested rank reaches that bound.</p></li>
+</ul>
+<p><strong>Applying it</strong> (Eq. 11): reshape the projected vector back to a matrix and
+symmetrise,</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathbf{R}}=\tfrac12\big(\mathbf{M}+\mathbf{M}^{\mathsf T}\big),\qquad \mathbf{M}=\mathrm{vec}^{-1}\big(\mathbf{P}\,\mathrm{vec}(\mathbf{B}\mathbf{R}\mathbf{B}^{\mathsf T})\big).\]</div>
+<p>Projecting out a subspace can make <span class="math notranslate nohighlight">\(\tilde{\mathbf{R}}\)</span> indefinite, but a
+covariance used by a beamformer must be positive semi-definite, so we
+<strong>spectral-flip</strong> (Eq. 12): eigendecompose and replace each eigenvalue by its
+absolute value. If a large fraction of the covariance energy sat in negative
+eigenvalues (default warn threshold 20%, Eq. 24), the rank <span class="math notranslate nohighlight">\(K\)</span> was too aggressive
+and the method warns.</p>
+<p><strong>Solving the beamformer in the working space.</strong> Because whitening and the
+virtual-sensor reduction both change the space, the cleaned covariance cannot be
+handed back to <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> (which would whiten a second time and solve against
+the wrong leadfield). Instead the LCMV is solved <em>in the working space</em> by
+reusing MNE’s own filter computation (its orientation selection, weight
+normalisation and rank handling) with an identity whitener there (the
+working-space noise is white by construction). The reduction operator
+<span class="math notranslate nohighlight">\(\mathbf{B}\)</span> is then folded into the returned <code class="docutils literal notranslate"><span class="pre">Beamformer</span></code> as its whitener, so
+<code class="docutils literal notranslate"><span class="pre">apply_lcmv</span></code> applies the whole pipeline to sensor data unchanged.</p>
+<p><strong>Free orientation</strong> (Eqs. 22–23): at each location the local <span class="math notranslate nohighlight">\(M\times 3\)</span>
+leadfield is reduced to its two dominant <em>tangential</em> topographies by a local
+SVD; the power set then expands to three columns per location and the
+correlation set to four columns per location pair.</p>
+<p><strong>The one free parameter is <span class="math notranslate nohighlight">\(K\)</span>.</strong> The projector depends only on the forward model, so it
+is built once and reused across datasets sharing that forward.
+<code class="docutils literal notranslate"><span class="pre">recipsiicos_rank_curve(...)</span></code> returns the retained power/correlation energy
+versus <span class="math notranslate nohighlight">\(K\)</span> (Eqs. 20–21), computed in closed form over all ranks from a single
+decomposition rather than one per rank. With <code class="docutils literal notranslate"><span class="pre">return_optimal=True</span></code> it also
+returns the rank <span class="math notranslate nohighlight">\(K^*\)</span> at the 45° point where the correlation subspace stops
+emptying faster than the power subspace (Section 2.4). The two methods traverse
+the rank axis in <em>opposite</em> directions: the identity is <span class="math notranslate nohighlight">\(K=q^2\)</span> for
+<code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code> and <span class="math notranslate nohighlight">\(K=0\)</span> for <code class="docutils literal notranslate"><span class="pre">whitened</span></code> (which is why Fig. 19 of the paper puts
+the ReciPSIICOS scale in descending order). Both curves therefore rise with <span class="math notranslate nohighlight">\(K\)</span>
+for the former and fall with it for the latter, and <span class="math notranslate nohighlight">\(K^*\)</span> is located
+accordingly. Note <span class="math notranslate nohighlight">\(K\)</span> lives in the <span class="math notranslate nohighlight">\(q^2\)</span>-dimensional working covariance space.
+<code class="docutils literal notranslate"><span class="pre">make_recipsiicos_cov(...)</span></code> returns the cleaned <code class="docutils literal notranslate"><span class="pre">mne.Covariance</span></code> (for
+inspection); <code class="docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv(...)</span></code> builds the beamformer end to end.</p>
+<p><strong>Practical notes for real data.</strong> Three things matter when moving from
+simulations to recordings:</p>
+<ul class="simple">
+<li><p><em>Free-orientation MEG needs <code class="docutils literal notranslate"><span class="pre">reduce_rank=True</span></code>.</em> In a spherical conductor a
+radial source produces no external magnetic field, so a three-orientation MEG
+leadfield is effectively rank two per location and the working-space LCMV is
+singular unless the per-source forward rank is reduced, exactly as in
+<code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code>. Pass <code class="docutils literal notranslate"><span class="pre">reduce_rank=True</span></code>, or use a fixed-orientation forward.</p></li>
+<li><p><em>The correlation Gram is <span class="math notranslate nohighlight">\(O(N^2)\)</span> in the source count.</em> The <code class="docutils literal notranslate"><span class="pre">whitened</span></code>
+projector and both rank curves enumerate every source <em>pair</em>, so a
+full-resolution grid (tens of thousands of vertices) is impractical: build the
+projector on a decimated source space (a few thousand vertices as in the
+paper, or a cortical label), then reuse it across datasets sharing that
+forward. The <code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code> projector uses only the auto-products and stays
+linear in <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
+<li><p><em>Budget memory on <span class="math notranslate nohighlight">\(q\)</span>, and budget for nine Grams rather than one.</em> The
+cross-product columns are accumulated into the Gram in blocks whose size is
+chosen from a 64 MiB budget, so <span class="math notranslate nohighlight">\(G_c\)</span> itself, with its <span class="math notranslate nohighlight">\(O(N^2)\)</span> columns of
+length <span class="math notranslate nohighlight">\(q^2\)</span>, is never held. What is held is a working set of
+<span class="math notranslate nohighlight">\(q^2\times q^2\)</span> operators, and at the peak of the <code class="docutils literal notranslate"><span class="pre">whitened</span></code> build nine of
+them are live at once: the correlation Gram, the power Gram, the power
+whitener and its inverse, the whitened correlation Gram and its eigenvectors,
+the identity of Eq. 17, the rank-<span class="math notranslate nohighlight">\(K\)</span> outer product subtracted from it, and
+the projector being assembled. The number to size <span class="math notranslate nohighlight">\(q\)</span> against is therefore
+<span class="math notranslate nohighlight">\(9\times 8q^4\)</span> bytes, not <span class="math notranslate nohighlight">\(8q^4\)</span>. A single Gram is 99 MiB at <span class="math notranslate nohighlight">\(q=60\)</span> and
+1.5 GiB at <span class="math notranslate nohighlight">\(q=120\)</span>; the measured peak in arrays alone, on a 200-source grid,
+is 0.9 GiB at <span class="math notranslate nohighlight">\(q=60\)</span> and 2.8 GiB at <span class="math notranslate nohighlight">\(q=80\)</span>, with LAPACK’s own workspace on
+top of that. Nor is memory quite independent of <span class="math notranslate nohighlight">\(N\)</span>: the auto-product matrix
+is <span class="math notranslate nohighlight">\(q^2\times 3N\)</span> for a free-orientation forward and is materialised twice as
+it is stacked, which is why the <code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code> projector (whose only large
+array it is) peaks at 135 MiB on 200 sources at <span class="math notranslate nohighlight">\(q=60\)</span> but 1.5 GiB on 3000.
+Even so, <span class="math notranslate nohighlight">\(q\)</span> enters as the fourth power, so it, not <span class="math notranslate nohighlight">\(N\)</span>, is what makes the
+projector unaffordable.</p></li>
+<li><p><em>The rank curve needs a forward with rich leadfield structure.</em> On a
+single-shell sphere model the tangential leadfields are so low-rank that the
+power subspace collapses to a handful of directions and the curve degenerates.
+There is nothing to separate. A realistic BEM forward gives the smooth,
+separable curve the 45° criterion expects; on a degenerate curve <span class="math notranslate nohighlight">\(K^*\)</span> falls
+back to a near-identity rank rather than one that empties the covariance.</p></li>
+</ul>
+</section>
+<section id="connectivity-pairwise-and-augmented-pairwise-mcmv">
+<h2>11. Connectivity: pairwise and augmented-pairwise MCMV<a class="headerlink" href="#connectivity-pairwise-and-augmented-pairwise-mcmv" title="Link to this heading">#</a></h2>
+<p>Functional connectivity asks whether two regions’ time courses are coupled,
+as measured by coherence, phase locking, or amplitude-envelope correlation. Any inverse
+operator that leaks one region into another manufactures coupling that is not
+there, and the correlated-source cancellation of Section 3 can equally <em>hide</em>
+real coupling. Connectivity is therefore exactly where a leakage-free filter
+pays off (Nunes et al. 2020).</p>
+<p><strong>Direct leakage, and PW-MCMV.</strong> Reconstruct a single pair <span class="math notranslate nohighlight">\((a,b)\)</span> with a
+2-source MCMV constraining <span class="math notranslate nohighlight">\(\{a,b\}\)</span>. The zero-gain condition
+<span class="math notranslate nohighlight">\(\mathbf{w}_a^{\mathsf T}\mathbf{g}_b=0\)</span> (Section 4) means <span class="math notranslate nohighlight">\(\hat s_a\)</span> contains no
+copy of source <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(\hat s_b\)</span> none of <span class="math notranslate nohighlight">\(a\)</span>: the pair carries <strong>no direct
+leakage</strong>, so their connectivity is not biased by spatial spread or by the
+mutual cancellation that collapses correlated LCMV estimates. Doing this for
+every pair is <em>pairwise MCMV</em> (<code class="docutils literal notranslate"><span class="pre">pairwise_mcmv_connectivity</span></code>). Note that the
+reconstruction of a given region differs from pair to pair; that is intrinsic to
+the method, since each pair uses its own two-column constraint.</p>
+<p><strong>Indirect leakage, and APW-MCMV.</strong> PW-MCMV nulls the <em>partner</em> but not third
+regions. If <span class="math notranslate nohighlight">\(a\)</span> leaks into a neighbour <span class="math notranslate nohighlight">\(k\)</span> that is genuinely coupled to <span class="math notranslate nohighlight">\(b\)</span>, that
+leaked copy of <span class="math notranslate nohighlight">\(k\)</span> correlates with <span class="math notranslate nohighlight">\(\hat s_b\)</span> and a spurious <span class="math notranslate nohighlight">\(a\)</span>–<span class="math notranslate nohighlight">\(b\)</span> edge
+survives. The sharpest measure of the residual is the leakage coefficient
+<span class="math notranslate nohighlight">\(\alpha_k=\mathbf{w}_a^{\mathsf T}\mathbf{g}_k\)</span>: for a pairwise filter it is
+nonzero (the indirect path), and adding <span class="math notranslate nohighlight">\(k\)</span> to the beamformer drives it to
+<em>machine zero</em> by construction (the new zero-gain row). This is <strong>augmented
+pairwise MCMV</strong>: for every statistically significant pair, add up to two
+neighbouring regions of <em>each</em> source (those within a 4 cm radius that
+themselves carry significant connections, ranked by their number of
+connections), giving a beamformer of order 2 to 6, and re-estimate the pair
+(<code class="docutils literal notranslate"><span class="pre">augmented_pairwise_mcmv_connectivity</span></code>). The order is capped for a concrete
+reason: an <span class="math notranslate nohighlight">\(n\)</span>-source filter spends <span class="math notranslate nohighlight">\(n\)</span> of its <span class="math notranslate nohighlight">\(M\)</span> degrees of freedom on the
+constraints (≈ “losing <span class="math notranslate nohighlight">\(n\)</span> sensors”), and sources sharing a lobe are seen by far
+fewer than <span class="math notranslate nohighlight">\(M\)</span> sensors, so the effective <span class="math notranslate nohighlight">\(n/M_\text{actual}\)</span> degrades SNR well
+before <span class="math notranslate nohighlight">\(n=M\)</span>.</p>
+<p><strong>Two things the paper insists on.</strong> (i) Tune the weights to the analysis band.
+For the resting-state envelope analyses (the setting APW-MCMV targets), the
+sensor data are band-passed (8–12 Hz in the paper) before the covariance and the
+filters are built, so pass band-limited <code class="docutils literal notranslate"><span class="pre">data</span></code>/<code class="docutils literal notranslate"><span class="pre">data_cov</span></code>. The Discussion shows
+why: broadband weights stay near-optimal only where the power concentrates (the
+low end), and for close source pairs they become suboptimal at higher
+frequencies and report spurious connectivity there, which a narrow-band
+covariance removes. (Task coherence/PLV analyses in the paper instead use
+broadband weights with a multitaper spectral estimate.) (ii) Use <em>plain</em>
+connectivity on the MCMV output. MCMV already removes leakage, so applying
+leakage-orthogonalisation as well (the symmetric-orthogonalisation baseline)
+would double-correct and discard the genuine zero-lag coupling MCMV is designed
+to preserve; hence <code class="docutils literal notranslate"><span class="pre">orthogonalize=False</span></code> and a <em>signed</em> envelope correlation
+(<code class="docutils literal notranslate"><span class="pre">absolute=False</span></code>, matching the paper’s Pearson-of-envelopes) are the defaults.</p>
+<p><strong>The envelope metric.</strong> The paper’s amplitude-envelope correlation is
+specified in two steps: “the envelopes of the signals were computed by taking
+the absolute values of the analytic Hilbert transform of the signals and then
+low-pass filtering to 0.5 Hz”, and the correlations are taken on the
+<em>downsampled</em> envelopes. <code class="docutils literal notranslate"><span class="pre">mne_connectivity.envelope_correlation</span></code> takes the
+Hilbert transform internally and correlates the envelopes directly, so the
+0.5 Hz step cannot be applied from outside it; the envelope metric is therefore
+computed in this module (<code class="docutils literal notranslate"><span class="pre">envelope_lowpass=0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">envelope_resample=None</span></code>),
+reducing exactly to <code class="docutils literal notranslate"><span class="pre">envelope_correlation</span></code> when <code class="docutils literal notranslate"><span class="pre">envelope_lowpass=None</span></code>.
+Coherence and the phase measures are still delegated to
+<code class="docutils literal notranslate"><span class="pre">mne_connectivity.spectral_connectivity_epochs</span></code>. The low-pass is not cosmetic:
+it is what makes the surrogate null below correctly sized (see next paragraph).</p>
+<p><strong>Significance.</strong> Edges are tested against an AR(1) surrogate null
+(<code class="docutils literal notranslate"><span class="pre">ar1_surrogate_significance</span></code>): fit a first-order autoregressive model to each
+reconstructed course, generate independent Gaussian surrogates with the same
+temporal smoothness, Fisher-transform their connectivity, and <em>standardise the
+real edges by the null mean and standard deviation</em> (giving z-scores that are
+zero-mean, unit-variance under the null, per Colclough et al. 2015) before
+converting to p-values and thresholding with a False Discovery Rate of 0.05. A
+first-order model captures the temporal smoothness of a reconstruction but not
+the slow amplitude fluctuation of a strongly narrow-band signal, so the null is
+anticonservative if the envelopes still carry their fast sub-band ripple: over
+eight independent 9–11 Hz sources (a complete null) the test rejects 7.5 % of
+edges at <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> without the 0.5 Hz envelope low-pass, and 0.4 % with it.
+Use the same envelope settings for the null as for the matrix being tested. The
+default is <code class="docutils literal notranslate"><span class="pre">method='envelope'</span></code>, which is what the paper prescribes for the
+resting-state envelope correlations. The spectral metrics (<code class="docutils literal notranslate"><span class="pre">'coh'</span></code>, <code class="docutils literal notranslate"><span class="pre">'plv'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'imcoh'</span></code>, <code class="docutils literal notranslate"><span class="pre">'wpli'</span></code>) are supported too, but they need an <em>epoched</em>
+<code class="docutils literal notranslate"><span class="pre">reference_time_courses</span></code> of shape <code class="docutils literal notranslate"><span class="pre">(n_epochs,</span> <span class="pre">n_sources,</span> <span class="pre">n_times)</span></code>: a single
+continuous surrogate segment carries no usable coherence or phase-locking
+estimate. An edge whose null degenerates (zero or non-finite
+spread) is reported as <em>not</em> significant, with a warning, never as an effect.</p>
+</section>
+<hr class="docutils" />
+<section id="abmc-a-bayesian-beamformer-for-spike-like-sources">
+<h2>12. ABMC: a Bayesian beamformer for spike-like sources<a class="headerlink" href="#abmc-a-bayesian-beamformer-for-spike-like-sources" title="Link to this heading">#</a></h2>
+<p>LCMV localises by output <em>power</em>, which fails for the low-power, morphologically
+distinctive transients of interest in epilepsy: interictal epileptiform
+discharges (IEDs) and delayed responses (DRs) to single-pulse electrical
+stimulation. ABMC (Shirani et al., 2024) addresses this in two stages.</p>
+<p><strong>Stage 1: sparse Bayesian learning covariance</strong> (<code class="docutils literal notranslate"><span class="pre">sbl_covariance</span></code>). Model the
+data as <span class="math notranslate nohighlight">\(x(t) = G s(t) + \varepsilon(t)\)</span> with <span class="math notranslate nohighlight">\(x\sim\mathcal N(0,R)\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[ R = G\,\alpha\,G^\mathsf{T} + \Lambda, \]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha=\mathrm{diag}(\alpha_1,\dots)\)</span> are per-source prior variances (one
+per leadfield column) and <span class="math notranslate nohighlight">\(\Lambda=\mathrm{diag}(\lambda_1,\dots,\lambda_M)\)</span> is a
+diagonal sensor-noise covariance. Fitting <span class="math notranslate nohighlight">\((\alpha,\Lambda)\)</span> by type-II maximum
+likelihood, minimising <span class="math notranslate nohighlight">\(F=\mathrm{tr}(CR^{-1})+\log|R|\)</span> over the data covariance
+<span class="math notranslate nohighlight">\(C\)</span>, with the convex-bounding updates</p>
+<div class="math notranslate nohighlight">
+\[ \alpha_n \leftarrow \alpha_n\sqrt{\tfrac{g_n^\mathsf{T}R^{-1}CR^{-1}g_n}{g_n^\mathsf{T}R^{-1}g_n}}, \qquad \lambda_m \leftarrow \lambda_m\sqrt{\tfrac{(R^{-1}CR^{-1})_{mm}}{(R^{-1})_{mm}}}, \]</div>
+<p>yields a <em>model</em> covariance <span class="math notranslate nohighlight">\(R\)</span> that, because the sources are modelled as mutually
+uncorrelated (<span class="math notranslate nohighlight">\(\alpha\)</span> diagonal), does not carry the cross-source correlation that
+makes LCMV cancel correlated sources. The fit runs in a <em>noise-normalised</em> sensor
+space: every channel is divided by its noise standard deviation, from <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>
+when given and otherwise from MNE’s ad-hoc per-type model, with the scaling undone
+on the returned covariance. That is what makes the fit independent of the physical
+units of the data (the paper’s equations are written for single-sensor-type
+intracranial EEG, where an <span class="math notranslate nohighlight">\(O(1)\)</span> initialisation is harmless; against an SI-unit
+MEG leadfield the same initialisation puts <span class="math notranslate nohighlight">\(G\alpha G^\mathsf{T}\)</span> and <span class="math notranslate nohighlight">\(\Lambda\)</span>
+eighteen orders of magnitude apart and <span class="math notranslate nohighlight">\(R\)</span> is singular on the first iteration) and
+what makes a <em>diagonal</em> <span class="math notranslate nohighlight">\(\Lambda\)</span> meaningful across magnetometers (T),
+gradiometers (T/m) and EEG (V). For a single sensor type it is a global scalar and
+changes nothing. Note also that for a free-orientation forward the prior treats
+the x, y and z columns of a grid point as three independent scalar sources, so it
+is not covariant under a rotation of the source frame.</p>
+<p><strong>Stage 2: template-constrained beamformer</strong> (<code class="docutils literal notranslate"><span class="pre">make_abmc</span></code>). Per grid
+point and orientation, solve</p>
+<div class="math notranslate nohighlight">
+\[ \min_W \tfrac12 W^\mathsf{T} R W \quad\text{s.t.}\quad G^\mathsf{T}W=f \;\text{ and }\; \max_W (W^\mathsf{T}X\cdot u), \]</div>
+<p>a distortionless minimum-variance beamformer with an added
+maximum-cross-correlation-to-template constraint, where <span class="math notranslate nohighlight">\(u\)</span> is the <strong>caller-supplied
+template of the target waveform</strong>, passed via the <code class="docutils literal notranslate"><span class="pre">template</span></code> argument. In the
+paper it is an expert-annotated IED or DR, but in general it can be any known
+source morphology. The paper descends the Lagrangian,</p>
+<div class="math notranslate nohighlight">
+\[ W(n{+}1) = W(n) - \mu\big(R W(n) - \beta_1 G - \beta_2 X u^\mathsf{T}\big), \]</div>
+<p>with <span class="math notranslate nohighlight">\(\beta_1\)</span> eliminated via the gain constraint (which the update provably
+maintains at every step) and <span class="math notranslate nohighlight">\(\beta_2 = P\beta_1\)</span>; the template lag <span class="math notranslate nohighlight">\(j^\ast\)</span> is
+seeded from an initial LCMV output and then held fixed, rather than
+re-estimated as the descent runs.</p>
+<p><strong>This implementation solves that descent at its fixed point instead of stepping
+towards it.</strong> Setting the update to zero gives <span class="math notranslate nohighlight">\(RW=(G+P\,Xu^\mathsf{T})\beta_1\)</span>, and
+the consistency of the <span class="math notranslate nohighlight">\(\beta_1\)</span> expression then forces <span class="math notranslate nohighlight">\(G^\mathsf{T}W=f\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[ \boxed{\;W^\ast = f\,\frac{R^{-1}\big(G + P\,Xu^\mathsf{T}\big)}{G^\mathsf{T}R^{-1}\big(G + P\,Xu^\mathsf{T}\big)}\;} \]</div>
+<p>This is the <em>same</em> estimator the iteration converges to (the descent’s own relative
+step evaluated at <span class="math notranslate nohighlight">\(W^\ast\)</span> is <span class="math notranslate nohighlight">\(\sim 2\times10^{-12}\)</span>), but it removes the tuning.
+That matters in practice: on a real gradiometer covariance the descent needed
+several thousand steps, and its stopping rule (on the size of the <em>step</em>) reported
+convergence while the weights were still ~40% away from <span class="math notranslate nohighlight">\(W^\ast\)</span>, moving the
+localised peak by about 9 cm. There is consequently no step size, iteration count or
+tolerance to set; <code class="docutils literal notranslate"><span class="pre">reg</span></code> regularises <span class="math notranslate nohighlight">\(R\)</span> for this solve exactly as it does in
+<code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> and <code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code>.</p>
+<p><strong>Read-out.</strong> Following the paper, the source is localised by the <strong>maximum
+cross-correlation between the beamformer output and the template</strong>,
+<span class="math notranslate nohighlight">\(|\mathrm{corr}(W^\mathsf{T}X,\,u_{j^\ast})|\)</span>, maximised over orientation: the grid
+location whose output best matches the desired morphology at the best lag (LCMV, by
+contrast, localises on output power). The same correlation also picks the
+orientation at each grid point. The output variance <span class="math notranslate nohighlight">\(\tfrac12 W^\mathsf{T}RW\)</span> is the
+beamformer’s minimisation objective, not the localizer; it is returned per grid point
+as a diagnostic only and nothing in the scan reads it.</p>
+<p><strong>What <span class="math notranslate nohighlight">\(j^\ast\)</span> is fixed <em>per</em>.</strong> The paper’s rule, on the confirmed reading, is
+one lag per grid point. Here a separate lag is fixed for each <strong>leadfield
+column</strong>, that is, for each grid point <em>and</em> each orientation: identical to the
+paper for a fixed-orientation forward, which has one column per grid point, and
+an extension of it for a free-orientation one. The extension is what the scan’s
+structure asks for: the three columns of a grid point are seeded and evaluated
+independently, and the orientation is only chosen afterwards, from the template
+match itself, so there is no single “the output” at a grid point to align the
+template against beforehand. The difference is not academic. On a 93-point
+free-orientation sphere fixture, not one grid point had its three orientations
+settle on the same lag, and <code class="docutils literal notranslate"><span class="pre">ABMCResult.lag</span></code> reports the winning orientation’s
+lag at each grid point rather than a lag the three of them shared.</p>
+<p>The ratio <span class="math notranslate nohighlight">\(P\)</span> trades the two constraints: too small and the template term vanishes
+(→ plain LCMV); too large and the weights blow up (the paper’s
+non-convergence regime). ABMC reports the blow-up fraction. For <span class="math notranslate nohighlight">\(P\)</span> to mean
+that, it has to be dimensionless: <span class="math notranslate nohighlight">\(g_n^\mathsf{T}g_n\)</span> carries the units of the
+squared forward model while <span class="math notranslate nohighlight">\(g_n^\mathsf{T}c_n\)</span>, with <span class="math notranslate nohighlight">\(c_n = Xu_{j^\ast}^\mathsf{T}\)</span>,
+carries data × template units, so each <span class="math notranslate nohighlight">\(c_n\)</span> is first rescaled to the norm of its
+leadfield column. Without that rescaling <span class="math notranslate nohighlight">\(P\,g^\mathsf{T}c/g^\mathsf{T}g\)</span> is of
+order <span class="math notranslate nohighlight">\(10^{-10}\)</span>–<span class="math notranslate nohighlight">\(10^{-9}\)</span> on SI-unit MEG at <span class="math notranslate nohighlight">\(P\sim0.01\)</span>–<span class="math notranslate nohighlight">\(0.1\)</span> (measured on the
+<code class="docutils literal notranslate"><span class="pre">sample</span></code> gradiometers: the un-rescaled <span class="math notranslate nohighlight">\(|g^\mathsf{T}c|/g^\mathsf{T}g\)</span> has a
+median near <span class="math notranslate nohighlight">\(2\times10^{-8}\)</span>), so the paper’s second constraint is inert; with it, <span class="math notranslate nohighlight">\(P\sim0.01\)</span>–<span class="math notranslate nohighlight">\(0.1\)</span> gives the template a perceptible but subordinate
+weight regardless of the units. A warning fires if the realised coupling is so small
+that the constraint does nothing.</p>
+<p><strong>Multiple templates.</strong> The paper matches several expert-annotated templates
+per case; <code class="docutils literal notranslate"><span class="pre">make_abmc_dictionary</span></code> runs the ABMC scan for a whole dictionary of
+desired waveforms in one call, estimating the SBL covariance once (it depends
+only on the data) and reusing it for every template.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="auto_examples/plot_fem_head_model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Beamforming EEG on a finite-element head model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tuning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Parameter tuning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-measurement-model">1. The measurement model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-spatial-filter-and-the-lcmv-solution">2. The spatial filter, and the LCMV solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-cancellation-with-correlated-sources">3. Signal cancellation with correlated sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmv-the-joint-constraint">4. MCMV: the joint constraint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whitening-and-why-it-is-mandatory-for-mixed-sensors">5. Whitening, and why it is mandatory for mixed sensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weight-normalisation">6. Weight normalisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scanning-localizers-mai-mpz-mer-and-rmer">7. The scanning localizers: MAI, MPZ, MER and rMER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-driven-orientation-in-closed-form">8. Data-driven orientation in closed form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sequential-source-search">9. The sequential source search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recipsiicos-cleaning-the-covariance-instead-of-constraining-sources">10. ReciPSIICOS: cleaning the covariance instead of constraining sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connectivity-pairwise-and-augmented-pairwise-mcmv">11. Connectivity: pairwise and augmented-pairwise MCMV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abmc-a-bayesian-beamformer-for-spike-like-sources">12. ABMC: a Bayesian beamformer for spike-like sources</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/background.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

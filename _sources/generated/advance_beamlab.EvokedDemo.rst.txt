@@ -1,0 +1,12 @@
+﻿advance\_beamlab.EvokedDemo
+===========================
+
+.. currentmodule:: advance_beamlab
+
+.. autoclass:: EvokedDemo
+   :no-members:
+   :no-inherited-members:
+   :no-special-members:
+
+.. minigallery:: advance_beamlab.EvokedDemo
+   :add-heading: Examples using ``EvokedDemo``

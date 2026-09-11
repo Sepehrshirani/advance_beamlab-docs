@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parameter tuning &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tuning';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API reference" href="api.html" />
+    <link rel="prev" title="Mathematical background" href="background.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Parameter tuning</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parameter-tuning">
+<h1>Parameter tuning<a class="headerlink" href="#parameter-tuning" title="Link to this heading">#</a></h1>
+<section id="make-mcmv-scan-mcmv">
+<h2><code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code> / <code class="docutils literal notranslate"><span class="pre">scan_mcmv</span></code><a class="headerlink" href="#make-mcmv-scan-mcmv" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>What it controls</p></th>
+<th class="head"><p>Effect of changing it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sources</span></code> (make_mcmv)</p></td>
+<td><p>Which grid locations to constrain jointly</p></td>
+<td><p>More sources → more nulls placed, better correlated-source separation, but the constraint uses more of the data rank; too many → ill-conditioning.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">orientations</span></code></p></td>
+<td><p>Source orientations (free-ori forward)</p></td>
+<td><p>If omitted, use <code class="docutils literal notranslate"><span class="pre">scan_mcmv</span></code>/<code class="docutils literal notranslate"><span class="pre">optimal_orientation</span></code> to estimate them from data. Hand-set orientations that are off reduce SNR sharply.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_sources</span></code> (scan_mcmv)</p></td>
+<td><p>Beamformer order reached by the search</p></td>
+<td><p>Increase until <code class="docutils literal notranslate"><span class="pre">pseudo_z</span></code> drops to baseline; extra sources past the real ones add noise-level components.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">localizer</span></code> (scan_mcmv)</p></td>
+<td><p>Which scanning statistic</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mai</span></code> = robust, broad; <code class="docutils literal notranslate"><span class="pre">mpz</span></code> = sharper but noisier; <code class="docutils literal notranslate"><span class="pre">mer</span></code>/<code class="docutils literal notranslate"><span class="pre">rmer</span></code> = phase-locked/evoked (need <code class="docutils literal notranslate"><span class="pre">evoked_cov</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">noise_cov</span></code></p></td>
+<td><p>Whitening model</p></td>
+<td><p>A measured <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code> is essential for <strong>mixed sensor types</strong> and for a meaningful <code class="docutils literal notranslate"><span class="pre">unit-noise-gain</span></code>; <code class="docutils literal notranslate"><span class="pre">None</span></code> uses an ad-hoc per-type model (fine for a single sensor type).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg</span></code></p></td>
+<td><p>Diagonal loading of the (whitened) covariance, as a fraction of its mean eigenvalue</p></td>
+<td><p>Larger <code class="docutils literal notranslate"><span class="pre">reg</span></code> → more stable inverse, smoother maps, lower resolution and slightly biased amplitudes; <code class="docutils literal notranslate"><span class="pre">reg=0</span></code> is the exact but fragile inverse. Default <code class="docutils literal notranslate"><span class="pre">0.05</span></code>, matching <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weight_norm</span></code></p></td>
+<td><p>Output scaling</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unit-gain</span></code> preserves physical amplitude; <code class="docutils literal notranslate"><span class="pre">array-gain</span></code> gives up the dipole moment for units of the noise (the norm is the whitened leadfield’s) but drops unit-gain’s depth bias; <code class="docutils literal notranslate"><span class="pre">unit-noise-gain</span></code> equalises the noise floor (better maps, no amplitude).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rank</span></code></p></td>
+<td><p>Numerical rank of the whitener <strong>and</strong> the covariance inverse</p></td>
+<td><p>Leave at <code class="docutils literal notranslate"><span class="pre">None</span></code> after SSP/ICA/SSS (data are rank-deficient): it auto-detects per sensor type. To pin it, pass a per-type dict such as <code class="docutils literal notranslate"><span class="pre">{'meg':</span> <span class="pre">60}</span></code>; a bare integer raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, because a rank has to be resolved per sensor type. <code class="docutils literal notranslate"><span class="pre">'full'</span></code> assumes full rank and will over-fit noise if the data are not.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="make-recipsiicos-cov-make-recipsiicos-lcmv">
+<h2><code class="docutils literal notranslate"><span class="pre">make_recipsiicos_cov</span></code> / <code class="docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv</span></code><a class="headerlink" href="#make-recipsiicos-cov-make-recipsiicos-lcmv" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>What it controls</p></th>
+<th class="head"><p>Effect of changing it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rank</span></code> (the projection rank <span class="math notranslate nohighlight">\(K\)</span>)</p></td>
+<td><p>Size of the retained power subspace (<code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code>) or removed correlation subspace (<code class="docutils literal notranslate"><span class="pre">whitened</span></code>), in the <span class="math notranslate nohighlight">\(q^2\)</span>-dimensional virtual-sensor space</p></td>
+<td><p>The single most important knob, and it runs in <strong>opposite directions for the two methods</strong>, because <span class="math notranslate nohighlight">\(K\)</span> counts what is kept in one and what is removed in the other. <code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code>: too small → the projector keeps too little of the power subspace and removes real power (over-smoothing, lost sources); too large → correlation leaks back and cancellation returns. <code class="docutils literal notranslate"><span class="pre">whitened</span></code>: the reverse — too small → too little of the correlation subspace is removed and cancellation returns; too large → source power is stripped along with it. Use <code class="docutils literal notranslate"><span class="pre">recipsiicos_rank_curve</span></code> (optionally <code class="docutils literal notranslate"><span class="pre">return_optimal=True</span></code> for the 45° <span class="math notranslate nohighlight">\(K^*\)</span>) and pick <span class="math notranslate nohighlight">\(K\)</span> near that point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">method</span></code></p></td>
+<td><p>Which projector</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">recipsiicos</span></code> (project onto power) is simpler; <code class="docutils literal notranslate"><span class="pre">whitened</span></code> (project away from correlation in power-whitened space) spares source power better and is usually preferred for real data.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pct_var</span></code> / <code class="docutils literal notranslate"><span class="pre">n_virtual</span></code></p></td>
+<td><p>Virtual-sensor count <span class="math notranslate nohighlight">\(q\)</span></p></td>
+<td><p>Fraction of whitened-leadfield variance kept (default 0.99), or an explicit count. Fewer virtual sensors → smaller and faster <span class="math notranslate nohighlight">\(M^2\)</span>-space but coarser subspace separation; too few and the power subspace fills the space, leaving the projector nothing to remove. This is also the memory knob: the projector build holds about nine <span class="math notranslate nohighlight">\(q^2\times q^2\)</span> operators at once, so budget <span class="math notranslate nohighlight">\(9\times 8q^4\)</span> bytes (Section 10).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">noise_cov</span></code></p></td>
+<td><p>Whitening model</p></td>
+<td><p>Whitens per sensor type; <strong>essential for mixed sensor types</strong>. <code class="docutils literal notranslate"><span class="pre">None</span></code> uses an ad-hoc per-type model (a global scaling for a single type, which leaves the projector subspaces unchanged).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">whitener_rank</span></code></p></td>
+<td><p>Numerical rank of the whitener</p></td>
+<td><p>Leave at <code class="docutils literal notranslate"><span class="pre">None</span></code> after SSP/ICA/SSS (data are rank-deficient): it auto-detects per sensor type. To pin it, pass a per-type dict such as <code class="docutils literal notranslate"><span class="pre">{'meg':</span> <span class="pre">60}</span></code>; as for <code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code>, a bare integer raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. <code class="docutils literal notranslate"><span class="pre">'full'</span></code> assumes full rank.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg</span></code></p></td>
+<td><p>Tikhonov loading of the working-space LCMV inverse (and the whitening ridge for <code class="docutils literal notranslate"><span class="pre">whitened</span></code>)</p></td>
+<td><p>Same trade-off as MCMV’s <code class="docutils literal notranslate"><span class="pre">reg</span></code>: stability vs resolution. Default <code class="docutils literal notranslate"><span class="pre">0.05</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pick_ori</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_norm</span></code>, <code class="docutils literal notranslate"><span class="pre">reduce_rank</span></code>, <code class="docutils literal notranslate"><span class="pre">inversion</span></code></p></td>
+<td><p>Orientation and normalisation of the working-space LCMV</p></td>
+<td><p>Reuse MNE’s own filter computation, so they behave exactly as in <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code>, including that <strong>free-orientation MEG needs <code class="docutils literal notranslate"><span class="pre">reduce_rank=True</span></code></strong> (the radial-silent leadfield is rank-deficient).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If a ReciPSIICOS run warns about negative-eigenvalue energy above the threshold,
+do not reach for <code class="docutils literal notranslate"><span class="pre">rank</span></code> first. That fraction is mainly a property of the data
+covariance rather than of the rank: at a fixed forward and a fixed rank it has
+been measured from 0.5% on a real baseline covariance up to 22% on a simulated
+one at 50:1 SNR with correlated sources, falling back to 0% as sensor noise was
+raised — so large values are expected in exactly the regime the method is for.
+Treat it as a diagnostic: compare the source estimate against a plain LCMV and
+see whether the two disagree in a way that matters. Lowering <code class="docutils literal notranslate"><span class="pre">rank</span></code> is not
+reliably an improvement. If you do want to move it, use
+<code class="docutils literal notranslate"><span class="pre">recipsiicos_rank_curve</span></code> to look at the power-versus-correlation trade-off
+rather than guessing.</p>
+</section>
+<section id="pairwise-mcmv-connectivity-augmented-pairwise-mcmv-connectivity">
+<h2><code class="docutils literal notranslate"><span class="pre">pairwise_mcmv_connectivity</span></code> / <code class="docutils literal notranslate"><span class="pre">augmented_pairwise_mcmv_connectivity</span></code><a class="headerlink" href="#pairwise-mcmv-connectivity-augmented-pairwise-mcmv-connectivity" title="Link to this heading">#</a></h2>
+<p>The reconstruction parameters (<code class="docutils literal notranslate"><span class="pre">reg</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_norm</span></code>, <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>, <code class="docutils literal notranslate"><span class="pre">rank</span></code>,
+<code class="docutils literal notranslate"><span class="pre">orientations</span></code>) go straight to <code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code> and behave exactly as in the MCMV
+table above. The connectivity-specific knobs:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>What it controls</p></th>
+<th class="head"><p>Effect of changing it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">method</span></code></p></td>
+<td><p>Connectivity metric</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'envelope'</span></code> (signed amplitude-envelope correlation) for resting-state coupling; <code class="docutils literal notranslate"><span class="pre">'coh'</span></code>, <code class="docutils literal notranslate"><span class="pre">'plv'</span></code>, <code class="docutils literal notranslate"><span class="pre">'imcoh'</span></code>, … for task phase/spectral measures. The spectral metrics require <code class="docutils literal notranslate"><span class="pre">sfreq</span></code>, <code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmax</span></code>. <code class="docutils literal notranslate"><span class="pre">'cohy'</span></code> is refused: coherency is complex and the returned matrix is real. Use <code class="docutils literal notranslate"><span class="pre">'coh'</span></code> (magnitude) or <code class="docutils literal notranslate"><span class="pre">'imcoh'</span></code> (imaginary part).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">radius</span></code> (APW)</p></td>
+<td><p>Neighbour search radius for augmentation</p></td>
+<td><p>Default 0.04 m (4 cm), from the paper’s ~2 cm resolution rule. Larger admits more candidate conductors (higher order → better indirect-leakage suppression but lower SNR); smaller admits fewer.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_neighbours</span></code> (APW)</p></td>
+<td><p>Neighbours added per source of the pair</p></td>
+<td><p>Default 2, capping beamformer order at 2 + 2·<code class="docutils literal notranslate"><span class="pre">max_neighbours</span></code> = 6. Raising it suppresses more indirect leakage but erodes SNR (an <span class="math notranslate nohighlight">\(n\)</span>-source filter spends <span class="math notranslate nohighlight">\(n\)</span> degrees of freedom; see §11), so keep the total order ≲ 8.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">orthogonalize</span></code></p></td>
+<td><p>Leakage-orthogonalisation of the envelopes</p></td>
+<td><p>Default <code class="docutils literal notranslate"><span class="pre">False</span></code> (plain correlation). MCMV already removes leakage; enabling this is the competing symmetric-orthogonalisation baseline and discards genuine zero-lag coupling.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">absolute</span></code></p></td>
+<td><p>Sign of the envelope correlation</p></td>
+<td><p>Default <code class="docutils literal notranslate"><span class="pre">False</span></code> (signed Pearson of envelopes, as in the paper); <code class="docutils literal notranslate"><span class="pre">True</span></code> returns the magnitude. Honoured for both <code class="docutils literal notranslate"><span class="pre">orthogonalize</span></code> settings, unlike <code class="docutils literal notranslate"><span class="pre">mne_connectivity.envelope_correlation</span></code>, which ignores it unless <code class="docutils literal notranslate"><span class="pre">orthogonalize='pairwise'</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">envelope_lowpass</span></code></p></td>
+<td><p>Envelope low-pass before correlating (§11)</p></td>
+<td><p>Default <code class="docutils literal notranslate"><span class="pre">0.5</span></code> Hz, per the paper. <code class="docutils literal notranslate"><span class="pre">None</span></code> correlates the unsmoothed envelopes (exactly <code class="docutils literal notranslate"><span class="pre">envelope_correlation</span></code>) and leaves the AR(1) null anticonservative. Needs <code class="docutils literal notranslate"><span class="pre">sfreq</span></code>, which defaults to <code class="docutils literal notranslate"><span class="pre">info['sfreq']</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">envelope_resample</span></code></p></td>
+<td><p>Envelope downsampling before correlating</p></td>
+<td><p>Default <code class="docutils literal notranslate"><span class="pre">None</span></code>. A target rate (Hz) reproduces the paper’s “downsampled envelope correlations”; it changes the cost, not the expected value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fmin</span></code>, <code class="docutils literal notranslate"><span class="pre">fmax</span></code>, <code class="docutils literal notranslate"><span class="pre">mt_bandwidth</span></code></p></td>
+<td><p>Band and multitaper smoothing (spectral methods)</p></td>
+<td><p>Set the band for <code class="docutils literal notranslate"><span class="pre">coh</span></code>/<code class="docutils literal notranslate"><span class="pre">plv</span></code>/…; the paper uses 2 Hz multitaper smoothing for its task analyses. For resting envelope work, band-pass the data and covariance to the analysis band instead (§11).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">ar1_surrogate_significance</span></code>, <code class="docutils literal notranslate"><span class="pre">n_surrogates</span></code> (default 200) trades null-estimate
+precision against runtime, and <code class="docutils literal notranslate"><span class="pre">alpha</span></code> (default 0.05) is the FDR level; pass the
+same <code class="docutils literal notranslate"><span class="pre">orthogonalize</span></code>, <code class="docutils literal notranslate"><span class="pre">absolute</span></code>, <code class="docutils literal notranslate"><span class="pre">envelope_lowpass</span></code> and <code class="docutils literal notranslate"><span class="pre">envelope_resample</span></code> used
+for the matrix under test, plus its <code class="docutils literal notranslate"><span class="pre">sfreq</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="make-abmc-sbl-covariance">
+<h2><code class="docutils literal notranslate"><span class="pre">make_abmc</span></code> / <code class="docutils literal notranslate"><span class="pre">sbl_covariance</span></code><a class="headerlink" href="#make-abmc-sbl-covariance" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>What it controls</p></th>
+<th class="head"><p>Effect of changing it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cov</span></code></p></td>
+<td><p>The beamformer covariance <span class="math notranslate nohighlight">\(R\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code> (default) estimates the SBL covariance from the data, which is the intended ABMC pipeline. Pass a precomputed <code class="docutils literal notranslate"><span class="pre">sbl_covariance</span></code> result, or any <code class="docutils literal notranslate"><span class="pre">mne.Covariance</span></code>, to override.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">P</span></code></p></td>
+<td><p>Ratio <span class="math notranslate nohighlight">\(\beta_2/\beta_1\)</span> weighting the template constraint</p></td>
+<td><p>The one genuinely free parameter. The paper states it “is empirically adjusted” and reports no value, because the useful setting depends on the recording (its own data is 20–32 subdural contacts). Pass <strong><code class="docutils literal notranslate"><span class="pre">P=&quot;auto&quot;</span></code></strong> to have <code class="docutils literal notranslate"><span class="pre">abmc_stability_curve</span></code> choose it on your data (see below), or set it yourself: the constraint column is rescaled to its leadfield column so <code class="docutils literal notranslate"><span class="pre">P</span></code> is dimensionless, and 0.01–0.1 is the working range. The “numerically inert” warning is not what marks the bottom of it: that fires only when <span class="math notranslate nohighlight">\(P\,g^{\mathsf T}c/g^{\mathsf T}g\)</span> falls below <span class="math notranslate nohighlight">\(10^{-6}\)</span>, which on a realistic fixture means <span class="math notranslate nohighlight">\(P\approx10^{-6}\)</span> — four orders below 0.01 — so everything in between runs silently. Note also that <code class="docutils literal notranslate"><span class="pre">P=&quot;auto&quot;</span></code> on the default <code class="docutils literal notranslate"><span class="pre">P_range</span></code> returns <em>the lowest setting at which the answer is already stable</em>, which is typically below 0.01 (median 0.0075 on the example fixture); pass <code class="docutils literal notranslate"><span class="pre">P_range=(0.01,</span> <span class="pre">1e4)</span></code> if you want a selection inside the recommended range. Above it the localised peak starts to move well before anything blows up: measured on the example fixture, every peak is still on its <span class="math notranslate nohighlight">\(P\to 0\)</span> location up to <span class="math notranslate nohighlight">\(P=0.18\)</span>, but by <span class="math notranslate nohighlight">\(P=1\)</span> half of them have moved and the mean error has risen from 0.85 cm to 2.20 cm, while the first weights only blow up at <span class="math notranslate nohighlight">\(P=2.3\)</span>. So do not read <code class="docutils literal notranslate"><span class="pre">blowup_fraction</span></code> as an all-clear: it is zero again for large <span class="math notranslate nohighlight">\(P\)</span>, where the weights are finite but the answer is wrong. Use <code class="docutils literal notranslate"><span class="pre">result.critical_p</span></code>, the smallest <span class="math notranslate nohighlight">\(P\)</span> at which some column’s gain denominator vanishes, which is predicted before the solve and is never below 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reg</span></code></p></td>
+<td><p>Diagonal loading of <span class="math notranslate nohighlight">\(R\)</span> for the Stage-2 solve</p></td>
+<td><p><strong>Default 0</strong>, which is what the paper does. Its <span class="math notranslate nohighlight">\(R = G\alpha G^{\mathsf T} + \Lambda\)</span> carries an <em>estimated</em> per-channel noise term and is positive definite and full rank <strong>by construction</strong>, so no loading is needed. Do not read that as “the empirical covariance is too ill-conditioned to invert”: <code class="docutils literal notranslate"><span class="pre">examples/plot_abmc_localization.py</span></code> measures the opposite on its own fixture and says so — over the dimensions the segment occupies the empirical covariance is well conditioned, and <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code> inverts that very matrix on the same page. The reason to reach for <span class="math notranslate nohighlight">\(R\)</span> is structural, not numerical: a diagonal <span class="math notranslate nohighlight">\(\alpha\)</span> carries no cross-source correlation for a beamformer to exploit. Raise it only when you supply your own ill-conditioned <code class="docutils literal notranslate"><span class="pre">cov</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">method</span></code></p></td>
+<td><p>How Stage 2 is solved</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;closed-form&quot;</span></code> (default) solves at the fixed point of the paper’s Eqs. 17–19 directly. <code class="docutils literal notranslate"><span class="pre">&quot;iterative&quot;</span></code> runs the paper’s gradient descent verbatim, for exact reproduction; <code class="docutils literal notranslate"><span class="pre">mu</span></code>, <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> and <code class="docutils literal notranslate"><span class="pre">tol</span></code> apply only to that path. The two agree to ~1e-8 when the descent is run to convergence, and a test pins them together. Note the descent’s step count grows with the condition number of <span class="math notranslate nohighlight">\(R\)</span>: on an ill-conditioned covariance it can need 10⁵ steps, which is why it is not the default.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mu</span></code> / <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> / <code class="docutils literal notranslate"><span class="pre">tol</span></code> (<code class="docutils literal notranslate"><span class="pre">method=&quot;iterative&quot;</span></code>)</p></td>
+<td><p>Descent step size, budget and tolerance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mu=None</span></code> uses <span class="math notranslate nohighlight">\(1/\lambda_{\max}(R)\)</span>. <strong><code class="docutils literal notranslate"><span class="pre">tol</span></code> is a distance to the fixed point, not a step size.</strong> Those are not interchangeable: on an ill-conditioned <span class="math notranslate nohighlight">\(R\)</span> the steps go small precisely because the descent is crawling along a shallow direction, so a step-size rule reports convergence while the weights are still far away. Because the fixed point is known in closed form, the honest test is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_lag</span></code></p></td>
+<td><p>Template-lag search window (samples)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code> searches all lags; restrict it when the true delay range is known, to avoid spurious matches.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_iter</span></code> / <code class="docutils literal notranslate"><span class="pre">tol</span></code> (<code class="docutils literal notranslate"><span class="pre">sbl_covariance</span></code>)</p></td>
+<td><p>SBL convergence</p></td>
+<td><p>Iterate the Champagne updates until the Eq. 6 cost changes by less than <code class="docutils literal notranslate"><span class="pre">tol</span></code> (default 1e-5) or <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> (default 100) is reached.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mathematical background</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-mcmv-scan-mcmv"><code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code> / <code class="docutils literal notranslate"><span class="pre">scan_mcmv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-recipsiicos-cov-make-recipsiicos-lcmv"><code class="docutils literal notranslate"><span class="pre">make_recipsiicos_cov</span></code> / <code class="docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pairwise-mcmv-connectivity-augmented-pairwise-mcmv-connectivity"><code class="docutils literal notranslate"><span class="pre">pairwise_mcmv_connectivity</span></code> / <code class="docutils literal notranslate"><span class="pre">augmented_pairwise_mcmv_connectivity</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-abmc-sbl-covariance"><code class="docutils literal notranslate"><span class="pre">make_abmc</span></code> / <code class="docutils literal notranslate"><span class="pre">sbl_covariance</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/tuning.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Which method should I use? &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'choosing';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Interactive panel" href="panel.html" />
+    <link rel="prev" title="Advance Beam Lab" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Which method should I use?</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="which-method-should-i-use">
+<h1>Which method should I use?<a class="headerlink" href="#which-method-should-i-use" title="Link to this heading">#</a></h1>
+<p>Start with <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a>. On most recordings it is not merely
+an acceptable baseline but the right answer, and every method in this package is
+an addition to it under a condition you have to check before you reach for it.
+None is a general-purpose replacement. <a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> at
+<code class="docutils literal notranslate"><span class="pre">n_sources</span> <span class="pre">=</span> <span class="pre">1</span></code>, with <code class="docutils literal notranslate"><span class="pre">weight_norm</span></code> in <code class="docutils literal notranslate"><span class="pre">{'unit-gain',</span> <span class="pre">None}</span></code> and the same
+<code class="docutils literal notranslate"><span class="pre">reg</span></code>, reproduces MNE’s unit-gain LCMV to floating-point precision (measured:
+7e-14 relative on the applied output, 2.9e-13 on the effective sensor-space
+weights). The advanced methods are that same solve with something added; if the
+thing they add is not the thing that is wrong with your data, you have spent
+degrees of freedom, extra inputs and extra failure modes for nothing.</p>
+<p>This repository’s own real-data examples say so directly. On the MNE sample
+auditory recording, <code class="docutils literal notranslate"><span class="pre">examples/plot_recipsiicos_auditory.py</span></code> concludes that
+“a plain LCMV already recovers both hemispheres, so ReciPSIICOS does <em>not</em> beat
+it on hemispheric balance here”; re-running it gives an LCMV
+left/right balance of 0.94 against 0.84 for ReciPSIICOS, so the projection is
+measurably worse on the metric the example chose. In
+<code class="docutils literal notranslate"><span class="pre">examples/plot_mcmv_auditory.py</span></code>, the N100 window (80-130 ms) has the two
+hemispheres correlated at r = +0.82 between their jointly reconstructed traces
+and puts MCMV ahead by 2.21x and 1.48x, but re-running the same file with a
+50-200 ms covariance window collapses those peak-amplitude ratios to 1.02 and
+0.95. The second is MCMV doing marginally <em>worse</em> than LCMV. Not because the
+pair decorrelates: held at the same two vertices over the wider window it reads
+r = +0.94 and MCMV still gains 1.97x and 1.71x. What the wider window moves is
+the LCMV peaks the example constrains, the left one by 25 mm, and it is the
+constraint set that MCMV lives or dies by. The same file declines to claim
+better focality: “It is tempting to add ‘and the beamformer is
+sharper’, and on this recording that is simply not true” (dSPM is the most
+compact of the three at the N100), and it recommends that with no named sources
+a linear method “remains the safer default”.</p>
+<p>Note also what real data cannot tell you. Neither auditory result has a ground
+truth, so a larger recovered amplitude is not evidence of a more correct one,
+and the only real-MEG tests in this package assert finiteness and
+well-formedness, never accuracy. Every quantitative demonstration below is
+either a simulation or a comparison against a nominal truth that the
+simulation itself defines.</p>
+<section id="decision-table">
+<h2>Decision table<a class="headerlink" href="#decision-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 17.0%" />
+<col style="width: 29.0%" />
+<col style="width: 28.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Your data situation</p></th>
+<th class="head"><p>Use this</p></th>
+<th class="head"><p>Why</p></th>
+<th class="head"><p>What it costs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Two or more sources whose reconstructed time courses correlate at
+r ≳ 0.7 <strong>within the exact window</strong> <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> is built from, and whose
+locations you know to a few mm and orientations to a few degrees
+(anatomy, atlas, independent localiser)</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a></p></td>
+<td><p>LCMV lowers its own output variance by passing a sign-flipped copy of the
+correlated partner; recovered amplitude tracks <span class="math notranslate nohighlight">\(\sqrt{1-r^2}\)</span>. The
+zero-gain constraint makes each filter blind to the partner. Measured
+amplitude ratio 3.19x at r = 0.95 on the simulation fixture.</p></td>
+<td><p>The constraint set is the method and is unforgiving: 5 mm of partner
+error cut recovered amplitude from 0.99 to 0.44, 10 mm to 0.33 (LCMV
+0.31). One time course per constrained source, no whole-brain map; each
+source spends a degree of freedom.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Same correlation, but you care about waveform shape rather than peak
+amplitude, including r as low as 0.2-0.3</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a></p></td>
+<td><p>Below r ≈ 0.3 there is little amplitude to recover (peak ratio
+1.03-1.04), but the joint null still removes the partner’s spatial
+leakage: measured waveform RMSE 0.201 (LCMV) against 0.007 (MCMV) at
+r = 0.3.</p></td>
+<td><p>As above. Do not use a near-zero
+<a class="reference internal" href="generated/advance_beamlab.apply_mcmv_cov.html#advance_beamlab.apply_mcmv_cov" title="advance_beamlab.apply_mcmv_cov"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mcmv_cov()</span></code></a> off-diagonal as a licence to drop
+the constraint: it says the amplitude gain is gone, not that there is
+nothing to fix.</p></td>
+</tr>
+<tr class="row-even"><td><p>Correlated sources, MEG, you want <strong>amplitude</strong> at grid points you
+already have, and you cannot name the sources well enough to constrain
+them</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a></p></td>
+<td><p>The projector is built from the forward, so no source list is needed.
+Measured amplitude on the gradiometer sample BEM: LCMV 0.307 against
+ReciPSIICOS 1.019 at r = 0.95, with a gain already material at r = 0.7
+(1.40x).</p></td>
+<td><p>The rank <code class="docutils literal notranslate"><span class="pre">K</span></code> is a real parameter with two failure ends and only
+warnings guarding them. Runtime O(N^2) in sources for <code class="docutils literal notranslate"><span class="pre">'whitened'</span></code>,
+memory 99 MiB at q = 60 and 1.5 GiB at q = 120, rebuilt on every call.
+All quantified benefit here is MEG.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Correlated sources and what you need is <strong>position</strong>, not amplitude</p></td>
+<td><p><a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a></p></td>
+<td><p>No localisation improvement is demonstrated anywhere in this package for
+either correlated-source method, and both were measured mislocalising
+where LCMV was exact (see the closing section).</p></td>
+<td><p>Nothing. Read positions from the LCMV map, not amplitudes: those are
+the quantity the cancellation attacks.</p></td>
+</tr>
+<tr class="row-even"><td><p>Coupling between named ROIs (envelope correlation, coherence, PLV) rather
+than localisation, at good sensor SNR</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.pairwise_mcmv_connectivity.html#advance_beamlab.pairwise_mcmv_connectivity" title="advance_beamlab.pairwise_mcmv_connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairwise_mcmv_connectivity()</span></code></a>,
+<a class="reference internal" href="generated/advance_beamlab.augmented_pairwise_mcmv_connectivity.html#advance_beamlab.augmented_pairwise_mcmv_connectivity" title="advance_beamlab.augmented_pairwise_mcmv_connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">augmented_pairwise_mcmv_connectivity()</span></code></a></p></td>
+<td><p>Independent per-ROI filters each carry a copy of the other region, so a
+third region coupled to one of them manufactures an edge. Measured on the
+repository’s spurious edge (truth -0.151): LCMV +0.100 (wrong sign),
+PW-MCMV -0.093, APW-MCMV -0.151.</p></td>
+<td><p>One MCMV solve and one estimate per ROI <strong>pair</strong>: 22-29 ms/pair at 94
+channels x 24,000 samples, so ~50-65 s per band per subject for a
+68-label atlas, plus ~15 s for the AR(1) screen. PW-MCMV stays the closer
+estimate of the spurious edge down to about 6 dB sensor SNR; by 4.6 dB
+the two are level and its sign is already gone, and below that LCMV is
+the closer of the two.</p></td>
+</tr>
+<tr class="row-odd"><td><p>A low-variance transient with a reproducible morphology you can supply as
+a template (IED, evoked spike), contributing of order 1% of the segment’s
+sensor variance</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.make_abmc.html#advance_beamlab.make_abmc" title="advance_beamlab.make_abmc"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_abmc()</span></code></a></p></td>
+<td><p>LCMV ranks locations by output power, which at that variance share barely
+varies over the grid; ABMC ranks them by agreement with your template at
+the best lag. Measured mean peak error 0.9 cm (ABMC) against 5.5 cm
+(LCMV) over 8 sources at 1.3x-peak noise.</p></td>
+<td><p>You must have the template. A mismatched one gave 4.54 cm against LCMV’s
+5.47 cm, worse than LCMV at 3 of 8 sources. One extra parameter <code class="docutils literal notranslate"><span class="pre">P</span></code>,
+working set O(n_sources x n_times), single continuous segment only.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sustained, oscillatory or induced activity; or a transient whose shape you
+cannot write down</p></td>
+<td><p><a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a></p></td>
+<td><p>With no reproducible waveform there is no template, and at ordinary SNR
+the two agree anyway: a sustained 10 Hz source with its own sinusoid as
+template gave 0.00 cm for both methods at 0.2x and 1.3x noise.</p></td>
+<td><p>Nothing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>EEG only, no subject MRI, no digitised electrodes, a template head model
+is acceptable, and you report absolute dipole moments</p></td>
+<td><p><a class="reference internal" href="generated/advance_beamlab.read_ny_head_forward.html#advance_beamlab.read_ny_head_forward" title="advance_beamlab.read_ny_head_forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_ny_head_forward()</span></code></a></p></td>
+<td><p>A finite-element model represents CSF, the skull split and the skull
+openings that a nested three-surface BEM cannot. Against one fsaverage
+BEM baseline the FEM gains are lower by a median factor of 1.67, and a
+unit-gain amplitude scales as 1/gain.</p></td>
+<td><p>678 MB GPL-v3 download, EEG only, cortical surface only, no labels and no
+morph. The factor is not a constant (1.34 to 1.95 across plausible skull
+conductivities) and no localisation or topography comparison against a
+BEM exists in this repository.</p></td>
+</tr>
+<tr class="row-even"><td><p>Any MEG channel present, or the subject’s own MRI available</p></td>
+<td><p>An ordinary MNE BEM forward</p></td>
+<td><p>No template MEG lead field can exist, because the sensor array moves
+relative to the head every session. For EEG, a better conductivity model
+spent against a centimetre of template-anatomy mismatch is not a
+demonstrated win.</p></td>
+<td><p>Nothing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sources effectively uncorrelated in the covariance window, one source at a
+time, ordinary SNR</p></td>
+<td><p><a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a></p></td>
+<td><p>There is no cancellation to undo and no leakage partner to null.</p></td>
+<td><p>Nothing.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mcmv-an-exact-null-on-sources-you-can-name">
+<h2>MCMV: an exact null on sources you can name<a class="headerlink" href="#mcmv-an-exact-null-on-sources-you-can-name" title="Link to this heading">#</a></h2>
+<p><strong>The LCMV failure it repairs.</strong> LCMV’s null is estimated from the data, so a
+correlated partner can be used to cancel the target: recovered amplitude falls
+as <span class="math notranslate nohighlight">\(\sqrt{1-r^2}\)</span>. MCMV <a class="footnote-reference brackets" href="#footcite-moiseev2011" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> replaces that estimated
+null with an exact one, <code class="docutils literal notranslate"><span class="pre">W.T</span> <span class="pre">&#64;</span> <span class="pre">H</span> <span class="pre">=</span> <span class="pre">I</span></code> (pinned to 1e-10 on the raw
+sensor-space leadfield). That fixes two distinct things: correlated-source
+amplitude cancellation, and spatial leakage of a <em>constrained</em> partner into the
+estimate, which is present even at r = 0. It fixes nothing about sources you
+have not named.</p>
+<p><strong>The condition to check.</strong> Correlate your candidate sources’ LCMV time courses
+over the exact window <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> is built from, and confirm you know both
+locations, not only the target’s. The tolerance is the method’s main practical
+risk.</p>
+<p><strong>What this repository demonstrates.</strong> On the simulation fixture (94-channel
+EEG sphere, 726-point grid, sources 8.1 cm apart, leadfield overlap 0.69, noise
+0.05 of peak) LCMV relative amplitude is 1.000 / 0.956 / 0.867 / 0.716 / 0.601 /
+0.435 / 0.314 / 0.142 at r = 0 / 0.3 / 0.5 / 0.7 / 0.8 / 0.9 / 0.95 / 0.99,
+within 0.003 of <span class="math notranslate nohighlight">\(\sqrt{1-r^2}\)</span> throughout. MCMV, by contrast, stays at
+1.000-1.005, giving ratios 1.40 / 1.67 / 2.30 / 3.19 / 7.10 from r = 0.7
+upward. Judge the method on waveform error rather than on that ratio: at
+r = 0.95 the RMSE against the injected source is 0.661 (LCMV) vs 0.006 (MCMV)
+at 5% noise and 0.205 vs 0.048 at 100% noise, so the accuracy advantage
+survives across the whole noise range even where the amplitude ratio has
+collapsed to ~1.2. For discovery, on a 418-point grid with three sources
+6.0 / 8.2 / 14.2 cm apart (pairwise 0.95 / 0.805 / 0.95) an LCMV power map ranks
+the three true sources #4, #41 and #1 of 418 with two non-sources in its top
+three, whereas <a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">'mai'</span></code> and with
+<code class="docutils literal notranslate"><span class="pre">'mpz'</span></code> returns all three at 0.0 cm and recovers their time courses at
+r = 0.999-1.000. That three-source result is shown only in an example; no test
+pins it. On real mixed-sensor MEG, the sample auditory N100 gives 2.21x (left)
+and 1.48x (right) the LCMV peak at <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>: evidence that the pipeline
+runs and that the effect survives realistic regularisation, not that the
+amplitude is the correct one.</p>
+<p><strong>When it does not help.</strong> When the constraints are wrong, and orientation is
+the tighter of the two tolerances rather than the looser. Measured on the same
+sphere and source pair but on a 5 mm grid (the 726-point grid is spaced at
+15 mm, so a 5 mm displacement cannot be placed on it), with an exactly matched
+forward and <span class="math notranslate nohighlight">\(r = 0.95\)</span> at 5 per cent noise, exact constraints recover
+0.998 of the amplitude. Displacing the <em>partner</em> by 5 mm cuts that to 0.24 and
+by 10 mm to 0.18; tilting the partner’s orientation by 5 degrees cuts it
+further, to 0.15, and by 10 degrees to 0.11, against LCMV’s 0.10. So a few
+degrees of orientation error has already given back almost the whole advantage,
+and it costs more than a displacement of the same nominal size because it
+perturbs the leadfield column more (0.10 relative at 5 degrees against 0.20 at
+10 degrees). How far that transfers to a real oct-6 source
+space is untested here. The repository’s own real-data example takes both
+constrained vertices straight from an LCMV power-map peak with no cross-check.
+The greedy search is also not a general-purpose localiser: on the 231-electrode
+New York Head FEM with a 34 mm, r = 0.95 pair, <a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a>
+and LCMV were both exact at 5% noise, but at 50% noise the scan missed by
+10-24 mm while LCMV stayed at 0.0 mm. <code class="docutils literal notranslate"><span class="pre">pseudo_z</span></code> is a weak stopping rule: in
+the repository’s own three-source demo the sequence is
+[2.9, 1.5, 10.4, 1.1, 1.0], so the genuine buried source scores 1.50 against a
+1.06 floor and any threshold that excludes the two spurious picks also excludes
+a real source. Treat the number of sources as a hypothesis you set. Finally,
+constrained sources closer than ~5 mm warn, near-singular <code class="docutils literal notranslate"><span class="pre">H.T</span> <span class="pre">&#64;</span> <span class="pre">R^-1</span> <span class="pre">&#64;</span> <span class="pre">H</span></code>
+raises, and an order above the rank of the whitened covariance raises. Note the
+evidence asymmetry: every quantitative MCMV demonstration here is either
+simulated EEG on a sphere or real MEG without ground truth; there is no
+real-EEG demonstration anywhere.</p>
+<p><strong>The parameters that matter.</strong> <code class="docutils literal notranslate"><span class="pre">sources</span></code> (and <code class="docutils literal notranslate"><span class="pre">orientations</span></code> for a
+free-orientation forward), and the window <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> is estimated from. Take
+orientations from <a class="reference internal" href="generated/advance_beamlab.optimal_orientation.html#advance_beamlab.optimal_orientation" title="advance_beamlab.optimal_orientation"><code class="xref py py-func docutils literal notranslate"><span class="pre">optimal_orientation()</span></code></a>,
+<a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a> or the source space itself
+(<code class="docutils literal notranslate"><span class="pre">forward['src'][hemi]['nn'][vertno]</span></code>), never by hand. In particular
+<code class="docutils literal notranslate"><span class="pre">forward['source_nn'][2::3]</span></code> is <em>not</em> a shortcut to the cortical normals: on
+the <code class="docutils literal notranslate"><span class="pre">surf_ori=False</span></code> forward MNE returns by default it is the head +z axis for
+every source, and it is accepted silently.
+Use <code class="docutils literal notranslate"><span class="pre">weight_norm='unit-gain'</span></code> when comparing amplitudes with
+<a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a> (<code class="docutils literal notranslate"><span class="pre">weight_norm=None</span></code> there);
+<code class="docutils literal notranslate"><span class="pre">'unit-noise-gain'</span></code> rescales both filters and hides the effect. Two
+practical notes: compare <em>outputs</em>, not <code class="docutils literal notranslate"><span class="pre">filters['weights']</span></code>, since MNE stores
+its weights in the whitened space and <a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> folds
+the whitener in; and although the tuning table advises an integer <code class="docutils literal notranslate"><span class="pre">rank</span></code> after
+SSP/ICA/SSS, <a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> rejects a bare integer, because
+the rank must be resolved per sensor type. One assumption is worth
+discouraging explicitly, because it is the natural one to make:
+<code class="docutils literal notranslate"><span class="pre">pick_ori='max-power'</span></code> does not steer around the cancellation. Measured LCMV
+RMS at r = 0.95 is 0.2192 fixed-orientation and 0.2191 with <code class="docutils literal notranslate"><span class="pre">'max-power'</span></code>.
+Re-optimising one source’s orientation cannot undo a cancellation that comes
+from the other source sitting in the same filter.</p>
+</section>
+<section id="recipsiicos-a-forward-only-projector-when-you-cannot-name-the-sources">
+<h2>ReciPSIICOS: a forward-only projector when you cannot name the sources<a class="headerlink" href="#recipsiicos-a-forward-only-projector-when-you-cannot-name-the-sources" title="Link to this heading">#</a></h2>
+<p><strong>The LCMV failure it repairs.</strong> The same cancellation, attacked from the other
+side: ReciPSIICOS <a class="footnote-reference brackets" href="#footcite-kuznetsovaetal2021" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> deletes the cross-product
+(coupling) part of the data covariance in a noise-whitened virtual-sensor space
+and then runs MNE’s own LCMV solve there, so no source list is required. What
+the repository demonstrates it restoring is <em>amplitude at locations you already
+have</em>, not peak location.</p>
+<p><strong>The condition to check.</strong> MEG; a correlated pair (worth trying from r ≈ 0.5
+upward); light regularisation; a whole-brain, decimated forward; and a
+read-out at positions you already trust.</p>
+<p><strong>What this repository demonstrates.</strong> On the sample BEM forward, gradiometers
+only, two sources 12.1 cm apart, 60 epochs, sensor noise 2% of peak,
+<code class="docutils literal notranslate"><span class="pre">reg=0.01</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_norm=None</span></code>, read out at the <em>true</em> source indices: LCMV
+recovers 0.985 / 0.939 / 0.852 / 0.702 / 0.428 / 0.307 / 0.139 of the injected
+amplitude at r = 0 / 0.3 / 0.5 / 0.7 / 0.9 / 0.95 / 0.99 against ReciPSIICOS’s
+1.000 / 1.000 / 0.991 / 0.986 / 1.012 / 1.019 / 1.027. The ratios are 1.02, 1.06,
+1.16, 1.40, 2.4, 3.3 and 7.4. At r = 0 the two agree to within 2%, with no
+measured penalty for projecting. The exact-removal guarantee (<code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code>
+at full power-subspace rank reproducing the uncorrelated covariance to 1e-8 and
+raising power at the coupled source more than fivefold) is demonstrated only on
+QR-generated orthogonal synthetic topographies, not on any forward model, and
+this package gives you no way to check whether a real pair is close enough to
+orthogonal. The <code class="docutils literal notranslate"><span class="pre">'whitened'</span></code> variant, which both examples and the tuning table
+recommend for real data, carries no such guarantee: it removes only the top-K
+correlation directions, and its test deliberately gives the coupled pair the
+largest topography norms so that its cross-product is the dominant direction.
+No test anywhere asserts that ReciPSIICOS beats LCMV. The contrast with MCMV,
+whose test does assert superiority quantitatively, is deliberate.</p>
+<p><strong>When it does not help.</strong> On real mixed-sensor MEG at <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>: the sample
+auditory N100 gives LCMV a hemispheric balance of 0.94 against ReciPSIICOS’s
+0.84. For localisation: nothing in this repository measures a localisation
+error for ReciPSIICOS, and at exactly the settings the simulation uses to
+advertise its amplitude gain (<code class="docutils literal notranslate"><span class="pre">method='whitened'</span></code>, <code class="docutils literal notranslate"><span class="pre">rank</span></code> = K* = 139,
+<code class="docutils literal notranslate"><span class="pre">weight_norm=None</span></code>, <code class="docutils literal notranslate"><span class="pre">reg=0.01</span></code>) an <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv_cov.html#mne.beamformer.apply_lcmv_cov" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.apply_lcmv_cov()</span></code></a> map
+put LCMV’s top two peaks on both true sources at 0.0 mm while ReciPSIICOS left
+one true source 63 mm from its nearest peak. Under <code class="docutils literal notranslate"><span class="pre">'unit-noise-gain'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'nai'</span></code>, at <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>, or with <code class="docutils literal notranslate"><span class="pre">method='recipsiicos'</span></code>, both localise
+exactly. The miss is setting-specific rather than universal, but it occurs at
+the advertised settings. For EEG there is no quantified benefit at all: EEG
+appears only in well-formedness tests. The default <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code> is itself enough
+diagonal loading to mask the cancellation the method exists to repair.</p>
+<p><strong>The parameters that matter.</strong> <code class="docutils literal notranslate"><span class="pre">rank</span></code> (K), which lives in the
+q^2-dimensional working space, not in sensor space. Take it from
+<a class="reference internal" href="generated/advance_beamlab.recipsiicos_rank_curve.html#advance_beamlab.recipsiicos_rank_curve" title="advance_beamlab.recipsiicos_rank_curve"><code class="xref py py-func docutils literal notranslate"><span class="pre">recipsiicos_rank_curve()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">return_optimal=True</span></code>,
+pass it the <em>same</em> <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code> you will build the filter with, and treat K* as
+the only rank this repository actually demonstrates. Do not read the example’s
+rank sweep as evidence of robustness: on that forward 2K* = 278 and 4K* = 556
+exceed the retained power-Gram rank of 269 and annihilate the cleaned covariance
+to exactly zero, and K*/8 and K*/3 trip the “&gt;20% negative-eigenvalue energy”
+warning; the flat amplitude at high rank is an artefact of a unit-gain read-out
+on a degenerate covariance. Both conditions are only <em>warned</em> about: the sole
+hard error is <code class="docutils literal notranslate"><span class="pre">rank</span></code> above q^2, which on that forward is 1600 (q = 40 virtual
+sensors), not quite six times the 269 at which the covariance is already zero.
+The hard error therefore sits far above the rank that actually binds, and
+clearing it is no evidence the projection left anything behind. Note too that
+the automatic K* is not guaranteed to clear the warning: <code class="docutils literal notranslate"><span class="pre">method='recipsiicos'</span></code>
+at its own K* = 60 trips it (21.7%) on the simulation’s forward at both
+<code class="docutils literal notranslate"><span class="pre">reg=0.01</span></code> and <code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>, so the two criteria can conflict and you must
+lower the rank below the automatic choice. Second parameter: <code class="docutils literal notranslate"><span class="pre">method</span></code>.
+<code class="docutils literal notranslate"><span class="pre">'whitened'</span></code> spares source power and is what the examples use;
+<code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code> is O(N) rather than O(N^2) and carries the orthogonal-case
+guarantee. Budget the cost per call: the projector depends on the forward <em>and</em>
+the channel set, <code class="docutils literal notranslate"><span class="pre">noise_cov</span></code>, <code class="docutils literal notranslate"><span class="pre">pct_var</span></code>/<code class="docutils literal notranslate"><span class="pre">n_virtual</span></code> and (for
+<code class="docutils literal notranslate"><span class="pre">'whitened'</span></code>) <code class="docutils literal notranslate"><span class="pre">reg</span></code>, and no public API accepts or caches a prebuilt one.
+EEG input is refused without an average-reference projector.</p>
+</section>
+<section id="pw-apw-mcmv-connectivity-removing-leakage-instead-of-orthogonalising-it">
+<h2>PW-/APW-MCMV connectivity: removing leakage instead of orthogonalising it<a class="headerlink" href="#pw-apw-mcmv-connectivity-removing-leakage-instead-of-orthogonalising-it" title="Link to this heading">#</a></h2>
+<p><strong>The LCMV failure it repairs.</strong> A plain LCMV reconstructs each ROI with its own
+filter, so every other active region leaks into it and a region coupled to your
+target manufactures an edge that is not there. PW-MCMV <a class="footnote-reference brackets" href="#footcite-nunes2020" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>
+replaces those filters with a joint MCMV that nulls the partner exactly;
+APW-MCMV additionally nulls, for significant edges only, up to
+<code class="docutils literal notranslate"><span class="pre">max_neighbours</span></code> (default 2) regions that are <strong>already in your ROI list</strong>,
+lie within <code class="docutils literal notranslate"><span class="pre">radius</span></code> (default 4 cm, Euclidean) of one member of the pair, and
+themselves carry a significant edge. Leakage from anything outside that set
+(unmodelled, far away, or non-significant) is not removed.</p>
+<p><strong>The condition to check</strong>, in the order the code checks it: is the suspected
+conductor one of the ROIs you pass in; is it within <code class="docutils literal notranslate"><span class="pre">radius</span></code> by Euclidean
+distance; does it carry at least one significant edge in the PW-MCMV matrix.
+Leadfield collinearity explains <em>why</em> the leakage exists but is not what the
+selection rule uses. Use this route when the coupling you care about is at or
+near zero lag (envelope correlation, coherence magnitude, PLV), so that
+leakage-orthogonalisation would discard the coupling along with the leakage;
+the comparison against an orthogonalised baseline is the paper’s, not this
+repository’s.</p>
+<p><strong>What this repository demonstrates.</strong> One simulation: 94-channel 10-20 EEG on a
+sphere, 1409-point 12 mm grid, fixed orientation, 120 s at 200 Hz, sensor SNR
+22.7 dB, three 10 Hz sources, with the conductor 2.4 cm from one ROI (leadfield
+overlap 0.978) and the pair itself 8.65 cm apart (0.657). On the spurious A-B
+edge, truth -0.151: LCMV +0.100 (error 0.251, wrong sign), PW-MCMV -0.093
+(0.058), APW-MCMV -0.151 (~0.000), with the conductor leakage into A’s filter
+falling from 0.171 to 1.2e-16. On the genuine edge, truth 1.000: LCMV 0.992,
+PW-MCMV 0.995, APW-MCMV 1.000. The whole demonstrated advantage is on the
+spurious edge. The test that pins it records the bias dropping 0.0597 to 0.0021;
+the test named <code class="docutils literal notranslate"><span class="pre">test_apw_beats_lcmv</span></code> asserts only a magnitude inequality, not
+an error bound.</p>
+<p><strong>When it does not help.</strong> When the edge is genuine and strong: LCMV was within
+0.008 here. At low SNR: PW-MCMV’s residual conductor leakage is data-adaptive
+and grows with noise, so on the same scenario the spurious edge runs LCMV
++0.097 / +0.122 / +0.188 / +0.240 / +0.348 / +0.410 against PW-MCMV -0.100 /
+-0.030 / +0.166 / +0.336 / +0.658 / +0.847 at 22.7 / 8.7 / 4.6 / 2.7 / -0.9 /
+-5.3 dB. Read that against the truth and the advantage goes in two stages. The
+sign is gone by about 8.7 dB, where the estimate sits on zero – re-measured
+over independent noise draws it straddles it (+0.008, -0.003, -0.008), so the
+crossing is at that point rather than after it. The absolute error is level with
+LCMV’s by 4.6 dB: over five draws, LCMV 0.347-0.362 against PW-MCMV 0.345-0.373,
+with LCMV marginally ahead in four of the five. So PW-MCMV is the better
+estimator down to about 6 dB, a tie at 4.6, and behind below that – not still
+ahead at 4.6 dB. APW-MCMV, whose null is not
+data-adaptive, held -0.14 to -0.17 throughout. Do not import the
+“regularisation pushes LCMV back toward the truth” reasoning
+from the amplitude examples: for connectivity, noise moved LCMV’s spurious edge
+<em>away</em> from the truth and dropped its genuine edge from 0.992 to 0.667. When
+your ROI vertices are uncertain: displacing one ROI by 12 mm turned PW-MCMV’s
+spurious edge from -0.093 to +0.287, an error of 0.437 against LCMV’s 0.251 on
+the same edge, and cost APW-MCMV’s genuine edge 1.000 to 0.937. The same
+mechanism applies to forward-model error, which this package never tests. Every
+zero-gain result here is measured under a perfectly matched fixed-orientation
+forward. When no in-radius neighbour carries a significant edge, APW-MCMV
+rebuilds the identical order-2 filter and returns the PW-MCMV value; conversely
+a false positive in the screen can pull a non-conductor into the augmented set,
+raising the order and the condition number for no bias. The screen has both
+kinds of error in the example itself: it rejected the very A-B edge APW-MCMV
+repairs (the example forces the mask to proceed) and retained A-C, whose
+envelopes are independent. Scope limits: the real-MEG section of
+<a class="reference internal" href="auto_examples/plot_apw_mcmv_connectivity.html#ex-apw-mcmv-connectivity"><span class="std std-ref">Leakage-free connectivity: pairwise and augmented MCMV</span></a> shows the pipeline running but has no ground
+truth, so every quantitative claim above rests on the simulation;
+<a class="reference internal" href="generated/advance_beamlab.ar1_surrogate_significance.html#advance_beamlab.ar1_surrogate_significance" title="advance_beamlab.ar1_surrogate_significance"><code class="xref py py-func docutils literal notranslate"><span class="pre">ar1_surrogate_significance()</span></code></a> supports
+<code class="docutils literal notranslate"><span class="pre">'coh'</span></code>/<code class="docutils literal notranslate"><span class="pre">'plv'</span></code>/<code class="docutils literal notranslate"><span class="pre">'imcoh'</span></code>/<code class="docutils literal notranslate"><span class="pre">'wpli'</span></code> as well as the default
+<code class="docutils literal notranslate"><span class="pre">'envelope'</span></code>, but the spectral ones need an <em>epoched</em>
+<code class="docutils literal notranslate"><span class="pre">reference_time_courses</span></code> of shape <code class="docutils literal notranslate"><span class="pre">(n_epochs,</span> <span class="pre">n_sources,</span> <span class="pre">n_times)</span></code>, since a
+single continuous surrogate segment carries no usable coherence or
+phase-locking estimate; and the spectral metrics are tested only for shape,
+finiteness and symmetry. For low-power transients there is no connectivity route here at
+all: ABMC addresses their <em>localisation</em>, not coupling between them.</p>
+<p><strong>The parameters that matter.</strong> <code class="docutils literal notranslate"><span class="pre">sources</span></code> (and <code class="docutils literal notranslate"><span class="pre">orientations</span></code>): the exact
+null is placed on the leadfield column you name, so prefer a fixed-orientation
+cortical-normal forward and take the vertices from anatomy or an independent
+localiser. And the band: pass <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> both filtered to the
+same analysis band, and leave <code class="docutils literal notranslate"><span class="pre">envelope_lowpass=0.5</span></code>, which is what keeps the
+AR(1) screen correctly sized. The test asserts that the low-pass holds the
+false-rejection rate at or below alpha and at least four times below the
+no-low-pass rate (its docstring records 0.4% against 7.5%, which is not itself
+asserted). Use identical <code class="docutils literal notranslate"><span class="pre">orthogonalize</span></code> / <code class="docutils literal notranslate"><span class="pre">absolute</span></code> / <code class="docutils literal notranslate"><span class="pre">envelope_lowpass</span></code>
+/ <code class="docutils literal notranslate"><span class="pre">envelope_resample</span></code> for the matrix, the significance test and the APW pass.
+Secondary: <code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">max_neighbours</span></code> set the beamformer order; keep the
+total order below about 8.</p>
+</section>
+<section id="abmc-localising-a-transient-that-carries-almost-none-of-the-variance">
+<h2>ABMC: localising a transient that carries almost none of the variance<a class="headerlink" href="#abmc-localising-a-transient-that-carries-almost-none-of-the-variance" title="Link to this heading">#</a></h2>
+<p><strong>The LCMV failure it repairs.</strong> LCMV ranks locations by output power, so a
+short, low-variance transient is outranked by whatever carries the most variance
+in the segment. ABMC <a class="footnote-reference brackets" href="#footcite-shirani2024" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> keeps the distortionless constraint
+and swaps the localiser for the magnitude of the correlation between the filter
+output and a caller-supplied target waveform at the best lag, and replaces the
+empirical covariance with a full-rank sparse-Bayesian model covariance
+(<a class="reference internal" href="generated/advance_beamlab.sbl_covariance.html#advance_beamlab.sbl_covariance" title="advance_beamlab.sbl_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">sbl_covariance()</span></code></a>).</p>
+<p><strong>The condition to check.</strong> Estimate the target’s share of the segment’s sensor
+variance from an averaged prototype. In the example that share is 0.14-1.05%
+(mean 0.50%). Judge by that share, not by whether the LCMV map looks plausible.
+In the use case ABMC is for, you have no expected location to compare it with.</p>
+<p><strong>What this repository demonstrates.</strong> One head-to-head, on a 94-channel EEG
+sphere with a 301-point 20 mm grid, 400 samples at 250 Hz and white sensor noise
+1.3x the spike’s peak sensor amplitude, against
+<a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">weight_norm='unit-noise-gain'</span></code> and
+<code class="docutils literal notranslate"><span class="pre">reg=0.05</span></code>: mean peak error 0.9 cm (ABMC) against 5.5 cm (LCMV) over 8 spike
+locations. It is not a lucky seed: over six noise realisations the means are
+0.71-1.39 cm against 3.86-7.36 cm, with ABMC worse than LCMV at 1 of the 48
+individual sources. The lag search works: three differently-shifted copies of
+the same template return one location with lags +50, 0 and -50 samples, and a
+test recovers a +50-sample lag to within 3 samples. Stage 1 alone is explicitly
+not a localiser. Its own peak sat 15.6 cm from the truth while its variance
+estimates ranked the true source 9 of 301. On waveform recovery the gain is
+real but small: r = 0.40 (ABMC) against 0.34 (LCMV) at the least favourable
+source, on a trace neither filter recovers well.</p>
+<p><strong>When it does not help.</strong> When the variance share is already large: on that
+geometry both methods were exact at sensor noise 0.05x and 0.2x of peak; LCMV
+was 0.60 cm off at 0.5x and 3.20 cm at 0.8x, against ABMC’s 0.00 and 0.25 cm. So
+the crossover is around 0.2x, not higher. When you have no reproducible
+waveform: the reason is the missing template rather than the activity being
+sustained. A sustained 10 Hz source, with its own sinusoid passed as the
+template, was localised at 0.00 cm by both methods at 0.2x and 1.3x noise (and
+better by ABMC, 0.85 vs 4.31 cm, only at 3.0x). When the template is wrong: a
+10 Hz burst template on spike data moved ABMC from 0.85 cm to 4.54 cm, against
+LCMV’s unchanged 5.47 cm, and left ABMC worse than LCMV at 3 of the 8 sources.
+When two sources of the same morphology are simultaneously active: ABMC returns
+one map with one peak and places no null on a second source, and in a check with
+two spikes 6 samples apart at sources 8.9 cm apart the peak landed 4.0 and
+5.7 cm from the two true sources, which ranked 16th and 49th of 301. Use
+<a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> with the indices instead when you know them.
+Finally, read the map, not the argmax: over the example’s 8 sources the winning
+template-match beat the runner-up by 0.000-0.011 in absolute value (0.402 against
+0.402 at the worst source), <code class="docutils literal notranslate"><span class="pre">ABMCResult</span></code> exposes no prominence or significance
+measure, and the peak will move between adjacent grid points across noise
+realisations. Coverage limits worth knowing: ABMC is never run against a
+competing higher-power source, which is the regime its own rationale is about.
+It is now run on a real MEG recording, in <a class="reference internal" href="auto_examples/plot_abmc_auditory.html#ex-abmc-auditory"><span class="std std-ref">ABMC on a real recording, and where it stops</span></a>, and the
+result is a boundary rather than a win. On a single trial ABMC is worse than
+LCMV and highly variable, a median of 31.6 mm over eight disjoint trials against
+11 mm for LCMV, with a range of 5.1 to 45.5 mm. From two trials upwards it is
+never worse, but not uniformly better: 9.0 mm at two, 11.1 mm at four, 9.0 mm at
+eight and 6.8 mm at sixteen, so it wins at two, eight and sixteen and ties with
+LCMV at four. LCMV is given the whole recording throughout, so the comparison
+runs against ABMC and it still comes out ahead at every trial count above one.
+Distance to an anatomical label remains a weak criterion next to a simulated
+ground truth.</p>
+<p><strong>The parameters that matter.</strong> <code class="docutils literal notranslate"><span class="pre">template</span></code> is the load-bearing input rather
+than a tuning knob: only its shape matters (the read-out is exactly invariant to
+its amplitude) and its lag is searched, so supply an expert-marked or averaged
+prototype. Bound the search with <code class="docutils literal notranslate"><span class="pre">max_lag</span></code>: the default spans plus or minus
+the whole segment with zero padding, so at large lags the correlation is taken
+against a mostly empty template, and the per-column lag is seeded from an
+LCMV-type distortionless output and never re-estimated, so it inherits the
+statistic ABMC exists to improve on. <code class="docutils literal notranslate"><span class="pre">P</span></code> trades the distortionless constraint
+against the template constraint; the default is 0.03 and the documented working
+range is 0.01-0.1: below it the constraint is inert, and above it the peak
+starts to move long before any weight blows up. On the example fixture every
+peak is still where a vanishing <code class="docutils literal notranslate"><span class="pre">P</span></code> puts it up to <code class="docutils literal notranslate"><span class="pre">P</span></code> = 0.18, but by
+<code class="docutils literal notranslate"><span class="pre">P</span></code> = 1 half of the eight have moved and the mean error has gone from 0.85 cm
+to 2.20 cm, while the first weights blow up only at <code class="docutils literal notranslate"><span class="pre">P</span></code> = 2.3. Choose it on
+your own data with <code class="docutils literal notranslate"><span class="pre">P='auto'</span></code> or
+<a class="reference internal" href="generated/advance_beamlab.abmc_stability_curve.html#advance_beamlab.abmc_stability_curve" title="advance_beamlab.abmc_stability_curve"><code class="xref py py-func docutils literal notranslate"><span class="pre">abmc_stability_curve()</span></code></a>, which picks the widest run of
+<code class="docutils literal notranslate"><span class="pre">P</span></code> over which the peak does not move rather than the <code class="docutils literal notranslate"><span class="pre">P</span></code> that maximises the
+match (the match rises with <code class="docutils literal notranslate"><span class="pre">P</span></code> by construction). Then read the diagnostics:
+heed the “numerically inert” warning (<code class="docutils literal notranslate"><span class="pre">P</span></code> too small, ABMC has degenerated to an
+LCMV), keep <code class="docutils literal notranslate"><span class="pre">blowup_fraction</span></code> below 0.05, and treat a one-point plateau as a
+warning that the localisation is parameter-sensitive. Costs: one <code class="docutils literal notranslate"><span class="pre">template</span></code>
+array of exactly the data length, a single continuous segment (<code class="docutils literal notranslate"><span class="pre">Epochs</span></code> are
+refused), and a working set of O(n_sources x n_times), against
+O(n_sources x n_channels) for an LCMV scan. It is the source count that bites on
+a full-resolution source space. Runtime is not the issue at moderate size:
+0.045 s for <a class="reference internal" href="generated/advance_beamlab.make_abmc.html#advance_beamlab.make_abmc" title="advance_beamlab.make_abmc"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_abmc()</span></code></a> at the default <code class="docutils literal notranslate"><span class="pre">P</span></code> against
+0.056 s for <code class="docutils literal notranslate"><span class="pre">compute_covariance</span></code> plus <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a> and
+<a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.apply_lcmv_cov.html#mne.beamformer.apply_lcmv_cov" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.apply_lcmv_cov()</span></code></a>, and 0.114 s for <code class="docutils literal notranslate"><span class="pre">P='auto'</span></code>. Keep
+<code class="docutils literal notranslate"><span class="pre">method='closed-form'</span></code>; the two solvers are pinned to each other only on the
+EEG sphere fixture, and the report that the iterative descent’s step-size rule
+stopped ~40% short of the fixed point and moved the peak by about 9 cm on a real
+gradiometer covariance is documentation prose with no test or example behind it.</p>
+</section>
+<section id="the-new-york-head-fem-forward-a-different-forward-not-a-different-beamformer">
+<h2>The New York Head FEM forward: a different forward, not a different beamformer<a class="headerlink" href="#the-new-york-head-fem-forward-a-different-forward-not-a-different-beamformer" title="Link to this heading">#</a></h2>
+<p><strong>What it repairs.</strong> Nothing about LCMV. It replaces the forward model that LCMV
+consumes <a class="footnote-reference brackets" href="#footcite-huangetal2016" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>, which changes reconstructed amplitudes and,
+in principle, topographies. This repository never demonstrates that it changes
+where LCMV peaks.</p>
+<p><strong>The condition to check.</strong> EEG-only data (no template MEG lead field can exist,
+because the sensor array moves relative to the head every session), channels
+that can be matched by name, an average reference, and no subject MRI. The
+alternative being weighed is a <em>template</em> BEM, not the subject’s own anatomy. If
+you have the subject’s MRI, or digitised electrodes that differ materially from
+the template, a better conductivity model is being spent against a centimetre of
+anatomical mismatch, and this package contains no evidence that trade is
+favourable: the montage agrees with MNE’s <code class="docutils literal notranslate"><span class="pre">standard_1005</span></code> to a median of
+9.6 mm (90th percentile 15.0 mm, max 19.6 mm) over the shared electrodes.</p>
+<p><strong>What this repository demonstrates.</strong> One measurement: median gain magnitude
+binned by depth below the nearest electrode, FEM against a three-layer fsaverage
+BEM built for the same electrodes. The BEM gains are higher by 1.750, 1.862,
+1.646, 1.768, 1.674, 1.671, 1.616, 1.565 and 1.456 at 18 to 50 mm (median 1.671;
+overall median 18.9 V/(A m) FEM against 31.8 BEM). That factor is not a property
+of “a three-layer BEM”: it is joint with the skull conductivity the example
+hard-codes at 0.006 S/m, and re-running the identical comparison at 0.0125 S/m
+gives a median of 1.95 and at 0.0033 S/m 1.34. The two forwards also use
+different anatomies and different source spaces: minimum electrode-to-source
+distance 11.9 mm (FEM) against 16.8 mm (BEM), and the shallowest bin compares 756
+FEM sources against 47 BEM ones. The comparison therefore cannot separate
+conductivity from anatomy, and nothing here establishes which model is the more
+accurate. The practical consequence is confined to amplitude: a unit-gain
+reconstruction scales as 1/gain. The measured ratio is depth-dependent (1.86 at
+22 mm to 1.46 at 50 mm), so a <code class="docutils literal notranslate"><span class="pre">unit-noise-gain</span></code> or NAI map, being invariant to
+per-source rescaling, cannot move on this difference alone, whereas an
+unnormalised power map can. What <em>would</em> move a normalised map is a change in
+the direction of each lead-field column, and that is never measured anywhere in
+this repository.</p>
+<p><strong>When it does not help.</strong> For localisation. There is no FEM-versus-BEM
+localisation or topography comparison in the package, and the beamforming
+demonstrations that do exist generate the sensor data from the same gain matrix
+they then invert, on sources sitting on grid nodes: they establish
+self-consistency, not robustness to head-model error. They are still
+informative about the <em>beamformers</em>: on this 231-electrode array, with two
+sources 34 mm apart (the example requests a 45 mm offset; the nearest mesh node
+is 34.5 mm away and the example prints the achieved value) and time courses
+correlated at r = 0.999 (the example measures that correlation from the
+simulated waveforms and prints it; the 0.95 that appears in the code above it is
+the mixing coefficient generating them, which is not the resulting r), LCMV’s
+two highest-power vertices are exactly the two true source indices, 0.0 and
+0.0 mm error, and
+<a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> given those indices returns 20.2 and
+19.8 nA m against 20 and 19 simulated. <a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a> on the
+same data, by contrast, returns vertices 8.9 and 23.6 mm off, contradicting the
+example’s own framing of this as “the regime that defeats a single-source LCMV”.</p>
+<p><strong>The parameters that matter</strong>, neither of them a beamformer parameter. First,
+the reference and the channel matching. Build the info with
+<a class="reference internal" href="generated/advance_beamlab.make_ny_head_info.html#advance_beamlab.make_ny_head_info" title="advance_beamlab.make_ny_head_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_ny_head_info()</span></code></a>, or otherwise attach an
+average-reference projector, because the lead field is supplied in common
+average reference. Every entry point here that takes an <code class="docutils literal notranslate"><span class="pre">info</span></code> refuses a
+wrongly referenced one, raising MNE’s own message verbatim:
+<a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> and <a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a>,
+<a class="reference internal" href="generated/advance_beamlab.make_abmc.html#advance_beamlab.make_abmc" title="advance_beamlab.make_abmc"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_abmc()</span></code></a> and <a class="reference internal" href="generated/advance_beamlab.sbl_covariance.html#advance_beamlab.sbl_covariance" title="advance_beamlab.sbl_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">sbl_covariance()</span></code></a>,
+all three ReciPSIICOS entry points
+(<a class="reference internal" href="generated/advance_beamlab.make_recipsiicos_cov.html#advance_beamlab.make_recipsiicos_cov" title="advance_beamlab.make_recipsiicos_cov"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_cov()</span></code></a>,
+<a class="reference internal" href="generated/advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a>,
+<a class="reference internal" href="generated/advance_beamlab.recipsiicos_rank_curve.html#advance_beamlab.recipsiicos_rank_curve" title="advance_beamlab.recipsiicos_rank_curve"><code class="xref py py-func docutils literal notranslate"><span class="pre">recipsiicos_rank_curve()</span></code></a>) and the connectivity route
+through <a class="reference internal" href="generated/advance_beamlab.pairwise_mcmv_connectivity.html#advance_beamlab.pairwise_mcmv_connectivity" title="advance_beamlab.pairwise_mcmv_connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairwise_mcmv_connectivity()</span></code></a>. It is the LCMV
+comparison you have to check yourself: <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a> accepts
+an info with no average-reference projector and returns a filter without
+complaint, so on that path a wrongly referenced dataset gives a silently wrong
+result. Note
+also that of the 231 positions only 160 are extended 10-05 names; the rest are
+face, neck and fiducial positions carried as EEG channels. Every conventional
+scalp cap therefore uses <code class="docutils literal notranslate"><span class="pre">picks</span></code>, always drops roughly a third of the array,
+and always drops it from below the equator,
+so the “a subset’s columns no longer sum to zero” approximation applies to every
+realistic use rather than only to small caps, and its topography error is never
+quantified here. Second, <code class="docutils literal notranslate"><span class="pre">resolution</span></code>: <code class="docutils literal notranslate"><span class="pre">'10K'</span></code> is the default and <code class="docutils literal notranslate"><span class="pre">'5K'</span></code>
+is ample for EEG beamforming, the meshes being strict nested subsets; at
+<code class="docutils literal notranslate"><span class="pre">'75K'</span></code> the normal-orientation lead field is 137 MB and the free-orientation
+one 412 MB. Other costs: a one-off 678 MB download of a GPL-v3 model that is
+never redistributed with this BSD-3 package, the <code class="docutils literal notranslate"><span class="pre">h5py</span></code> and <code class="docutils literal notranslate"><span class="pre">pooch</span></code> extra,
+and a rank of exactly 230 of 231 by construction, so any covariance estimated
+from these data is singular and the rank must be resolved rather than inverted.
+Capability limits: the source space is cortical surface only (no volume or
+subcortical sources), and it is not a FreeSurfer subject, so there are no
+labels (<code class="docutils literal notranslate"><span class="pre">read_labels_from_annot</span></code> raises), no morph to <code class="docutils literal notranslate"><span class="pre">fsaverage</span></code> for group
+statistics, and <code class="docutils literal notranslate"><span class="pre">dist</span></code>/<code class="docutils literal notranslate"><span class="pre">patch_inds</span></code>/<code class="docutils literal notranslate"><span class="pre">pinfo</span></code> are all <code class="docutils literal notranslate"><span class="pre">None</span></code>. On this grid
+the only decimation knob is <code class="docutils literal notranslate"><span class="pre">resolution</span></code>, which matters because ReciPSIICOS is
+O(N^2) in sources and its one free parameter is hand-set in the only test that
+runs it here. One measured convenience: the free-orientation lead field is
+genuinely rank 3 per source (median third-to-first singular value 0.52), so
+<code class="docutils literal notranslate"><span class="pre">reduce_rank</span></code> is unnecessary, unlike free-orientation MEG.</p>
+</section>
+<section id="when-plain-lcmv-is-the-better-choice">
+<h2>When plain LCMV is the better choice<a class="headerlink" href="#when-plain-lcmv-is-the-better-choice" title="Link to this heading">#</a></h2>
+<p><strong>You need position, and your sources are strongly correlated.</strong> On
+231-electrode average-referenced EEG with two sources 34 mm apart correlated at
+r = 0.95, plain LCMV localised both at 0.0 mm error while
+<a class="reference internal" href="generated/advance_beamlab.scan_mcmv.html#advance_beamlab.scan_mcmv" title="advance_beamlab.scan_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">scan_mcmv()</span></code></a> and ReciPSIICOS each missed by 20-40 mm. The
+same miss reproduced on an MNE BEM forward with a matched source space, so it is
+a property of those methods and not of the head model, and
+<a class="reference internal" href="generated/advance_beamlab.make_mcmv.html#advance_beamlab.make_mcmv" title="advance_beamlab.make_mcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_mcmv()</span></code></a> given the true indices was fine on the same
+data (20.2 and 19.8 nA m against 20 and 19 simulated). The failure is in the
+search, not the estimator. The shipped FEM example reproduces the pattern: LCMV
+exact at both sources, the greedy scan 8.9 and 23.6 mm off. Use LCMV to find the
+sources and a constrained method to read them out; do not read amplitudes off
+the localiser, since those are exactly what the cancellation attacks.</p>
+<p><strong>Your sources are not correlated within the covariance window.</strong> Over the
+sample auditory 50-200 ms window the MCMV/LCMV amplitude ratios are 1.02 and
+0.95, on the pair that window’s own LCMV peaks pick out: jointly reconstructed
+they correlate at r = +0.33, too little for there to be much cancellation left
+to undo. One qualification: if what you need is waveform shape rather than
+peak amplitude, the joint constraint still pays at low correlation by removing
+the partner’s spatial leakage (RMSE 0.201 against 0.007 at r = 0.3), so use the
+recovered source covariance to decide about <em>amplitude</em>, not about whether MCMV
+has anything to fix.</p>
+<p><strong>Real mixed-sensor MEG at ordinary SNR and ``reg=0.05``.</strong> On the sample
+auditory N100, ReciPSIICOS’s hemispheric balance is 0.84 against LCMV’s 0.94.
+The projection discards part of the covariance and costs a little on that
+metric. The example’s own conclusion is that the dataset shows the pipeline
+runs correctly end to end “rather than that it beats LCMV here”.</p>
+<p><strong>You want a sharper map.</strong> On the sample auditory data the beamformer is not
+the most compact of the three methods compared (dSPM is), and with no named
+sources a linear method remains the safer default.</p>
+<p><strong>Your target already carries the variance, or is sustained.</strong> ABMC and LCMV
+were both exact on the transient geometry once sensor noise was at or below 0.2x
+the peak, and a sustained 10 Hz source was localised at 0.00 cm by both at 0.2x
+and 1.3x noise.</p>
+<p><strong>Your connectivity question is whether a strong genuine edge exists, or your
+sensor SNR is moderate.</strong> On the repository’s genuine edge (truth 1.000) LCMV
+returned 0.992 against PW-MCMV’s 0.995. Below about 3 dB sensor SNR PW-MCMV’s
+data-adaptive residual leakage makes it the worse estimator of the spurious edge
+as well (+0.658 against LCMV’s +0.348 at -0.9 dB, truth -0.151), and its sign
+has gone wrong by 4.6 dB, a step earlier; only APW-MCMV’s explicit null held.</p>
+<p><strong>You cannot meet a method’s precondition.</strong> Constrained locations known only to
+a centimetre, ROI vertices you cannot place to better than a grid step, a
+template you cannot write down, a rank curve that warns at its own K*, or a
+recording whose reference you cannot make average: in each case the advanced
+method degrades to LCMV at best and below it at worst, and LCMV is the honest
+result to report.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id6">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-moiseev2011" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Alexander Moiseev, John M. Gaspar, Jennifer A. Schneider, and Anthony T. Herdman. Application of multi-source minimum variance beamformers for reconstruction of correlated neural activity. <em>NeuroImage</em>, 58(2):481–496, 2011. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2011.05.081">doi:10.1016/j.neuroimage.2011.05.081</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-kuznetsovaetal2021" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Aleksandra Kuznetsova, Yulia Nurislamova, and Alexei Ossadtchi. Modified covariance beamformer for solving MEG inverse problem in the environment with correlated sources. <em>NeuroImage</em>, 228:117677, 2021. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2020.117677">doi:10.1016/j.neuroimage.2020.117677</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-nunes2020" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Adonay S. Nunes, Alexander Moiseev, Nataliia Kozhemiako, Teresa Cheung, Urs Ribary, and Sam M. Doesburg. Multiple constrained minimum variance beamformer (MCMV) performance in connectivity analyses. <em>NeuroImage</em>, 208:116386, 2020. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2019.116386">doi:10.1016/j.neuroimage.2019.116386</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-shirani2024" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Sepehr Shirani, Bahman Abdi-Sargezeh, Antonio Valentin, Gonzalo Alarcon, Jordan Bird, and Saeid Sanei. Do interictal epileptiform discharges and brain responses to electrical stimulation come from the same location? An advanced source localization solution. <em>IEEE Transactions on Biomedical Engineering</em>, 71(9):2771–2780, 2024. <a class="reference external" href="https://doi.org/10.1109/TBME.2024.3392603">doi:10.1109/TBME.2024.3392603</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-huangetal2016" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Yu Huang, Lucas C. Parra, and Stefan Haufe. The New York Head – a precise standardized volume conductor model for EEG source localization and tES targeting. <em>NeuroImage</em>, 140:150–162, 2016. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2015.12.019">doi:10.1016/j.neuroimage.2015.12.019</a>.</p>
+</aside>
+</aside>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advance Beam Lab</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="panel.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interactive panel</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-table">Decision table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mcmv-an-exact-null-on-sources-you-can-name">MCMV: an exact null on sources you can name</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recipsiicos-a-forward-only-projector-when-you-cannot-name-the-sources">ReciPSIICOS: a forward-only projector when you cannot name the sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pw-apw-mcmv-connectivity-removing-leakage-instead-of-orthogonalising-it">PW-/APW-MCMV connectivity: removing leakage instead of orthogonalising it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abmc-localising-a-transient-that-carries-almost-none-of-the-variance">ABMC: localising a transient that carries almost none of the variance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-new-york-head-fem-forward-a-different-forward-not-a-different-beamformer">The New York Head FEM forward: a different forward, not a different beamformer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-plain-lcmv-is-the-better-choice">When plain LCMV is the better choice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/choosing.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

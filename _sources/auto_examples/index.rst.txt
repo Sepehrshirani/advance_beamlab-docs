@@ -1,0 +1,219 @@
+:orphan:
+
+.. _examples-gallery:
+
+Examples
+========
+
+Worked examples demonstrating the advance_beamlab beamformers end to end. Several run
+on the MNE ``sample`` dataset, downloaded on first run via
+:func:`mne.datasets.sample.data_path`, and show a beamformer on real MEG data.
+Two are self-contained simulations that need no download and isolate, in
+controlled settings, the correlated-source cancellation that MCMV overcomes and
+the signal leakage that pairwise and augmented MCMV remove from connectivity
+estimates.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two temporally correlated sources are the textbook failure mode of the LCMV beamformer. Because LCMV minimises output power under a unit-gain constraint, a second source that is correlated with the target lets the filter place a null that cancels the target itself: the recovered amplitude of a source shrinks by a factor of 1 - \rho^2 (in root-mean-square, \sqrt{1 - \rho^2}) as its correlation \rho with the neighbour approaches one. At \rho = 0.95 more than 90% of the power is lost.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_mcmv_simulation_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_mcmv_simulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MCMV versus LCMV for correlated sources: a simulation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The other MCMV examples reconstruct sources whose locations you already know. This one finds them.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_mcmv_source_discovery_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_mcmv_source_discovery`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Discovering correlated sources with an MCMV scan</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A single-source LCMV reconstructs each location with its own filter. When two sources are temporally correlated (as the left and right auditory cortices are during binaural stimulation), each filter treats the other source as interference and partially nulls it, so the recovered time courses are attenuated and mutually contaminated.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_mcmv_auditory_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_mcmv_auditory`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MCMV joint reconstruction of correlated MEG sources</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An LCMV beamformer minimises output power under a unit-gain constraint. When two sources are correlated that is a trap: the filter can lower its own output power by passing a scaled copy of the other source, which cancels the target it was supposed to pass. The recovered amplitude collapses as the correlation rises.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_recipsiicos_simulation_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_recipsiicos_simulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReciPSIICOS versus LCMV as source correlation is dialled up</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Correlated bilateral sources are the classic failure mode of the LCMV beamformer: it minimises output power under a unit-gain constraint, so two synchronous sources let it place a null that cancels them. ReciPSIICOS repairs the data covariance by projecting out the cross-product (coupling) subspace, so that an ordinary LCMV no longer cancels them.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_recipsiicos_auditory_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_recipsiicos_auditory`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ReciPSIICOS beamforming of bilateral auditory responses</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Functional connectivity is confounded by the spatial spread of the inverse operator: a beamformer that leaks one region into another manufactures coupling that is not there. This example shows, on a controlled simulation, how pairwise MCMV (PW-MCMV) and augmented pairwise MCMV (APW-MCMV) remove that confound, following Nunes et al. (2020).">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_apw_mcmv_connectivity_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_apw_mcmv_connectivity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Leakage-free connectivity: pairwise and augmented MCMV</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The adaptive Bayesian beamformer with multiple constraints (ABMC) targets low-power, spike-like sources that a power-based beamformer localises poorly: epileptic interictal discharges and delayed responses to stimulation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_abmc_localization_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_abmc_localization`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ABMC: localising spike-like sources</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every other ABMC demonstration in this package is a simulation, which is a fair criticism of it: simulations are where a method is guaranteed to meet its own assumptions. This example runs ABMC Shirani2024 on real MEG, the auditory response of the MNE sample dataset, and reports the result whether or not it flatters the method.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_abmc_auditory_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_abmc_auditory`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ABMC on a real recording, and where it stops</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every forward solution MNE-Python can compute uses the boundary element method: nested, closed, homogeneous surfaces for scalp, outer skull and inner skull. That model has no way to represent the cerebrospinal fluid, the split of the skull into compact and spongy bone, or the openings at the orbits and the auditory meatus. For EEG those omissions bias the forward field, because current has to flow through all of it to reach the electrodes. The finite element method (FEM) discretises the whole head volume instead and gives every tetrahedron its own conductivity. MNE-Python has no FEM solver.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_fem_head_model_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/plot_fem_head_model`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Beamforming EEG on a finite-element head model</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_mcmv_simulation
+   /auto_examples/plot_mcmv_source_discovery
+   /auto_examples/plot_mcmv_auditory
+   /auto_examples/plot_recipsiicos_simulation
+   /auto_examples/plot_recipsiicos_auditory
+   /auto_examples/plot_apw_mcmv_connectivity
+   /auto_examples/plot_abmc_localization
+   /auto_examples/plot_abmc_auditory
+   /auto_examples/plot_fem_head_model
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

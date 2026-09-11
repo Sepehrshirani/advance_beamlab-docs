@@ -1,0 +1,6 @@
+﻿advance\_beamlab.ar1\_surrogate\_significance
+=============================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: ar1_surrogate_significance

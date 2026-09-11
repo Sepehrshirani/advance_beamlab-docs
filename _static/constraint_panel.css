@@ -1,0 +1,791 @@
+/* Styling for the interactive constraint panel. Colours follow the pydata
+   theme, which stamps data-theme on <html>, so the panel changes with the rest
+   of the page rather than staying stubbornly light. */
+
+.cp-root {
+  --cp-bg: #ffffff;
+  --cp-panel: #f7f7f9;
+  --cp-border: #868c96;
+  --cp-text: #202124;
+  --cp-muted: #63666e;
+  --cp-grid: #868c96;
+  --cp-chip: #ffffff;
+  --cp-chip-edge: #82888f;
+  --cp-true: #6b7078;
+  --cp-accent: #0072b2;
+  --cp-warm: #c8452e;
+  --cp-cool: #2166ac;
+  margin: 1.5rem 0;
+  color: var(--cp-text);
+}
+
+/* Both attributes, and the media query.
+
+   The theme carries the user's *setting* in data-theme (auto, light or dark)
+   and the *resolved* mode in data-mode. The default setting is "auto", so on a
+   dark page data-theme is still "auto" and a rule keyed on data-theme="dark"
+   never matches: the panel kept its light palette on a dark page, which is why
+   the text and the card borders had no contrast and why anything drawn on a
+   canvas -- the sensor traces especially -- vanished into the background. The
+   media query covers a host that resolves the mode without saying so. */
+html[data-theme="dark"] .cp-root,
+html[data-mode="dark"] .cp-root,
+.cp-root.cp-dark {
+  --cp-bg: #14181c;
+  --cp-panel: #1c2128;
+  --cp-border: #64707e;
+  --cp-text: #e6e8eb;
+  --cp-muted: #9aa0aa;
+  --cp-grid: #6d7887;
+  --cp-chip: #2b323b;
+  --cp-chip-edge: #6f7c8a;
+  /* Distinct from --cp-muted: the reference markers and true waveforms have to
+     be told apart from ordinary muted chrome, and in dark mode the two tokens
+     were the same colour. */
+  --cp-true: #c5ccd6;
+  --cp-accent: #4aa3df;
+  --cp-warm: #e2705a;
+  --cp-cool: #6b9fd4;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] .cp-root,
+  html:not([data-theme]):not([data-mode]) .cp-root {
+    --cp-bg: #14181c;
+    --cp-panel: #1c2128;
+    --cp-border: #64707e;
+    --cp-text: #e6e8eb;
+    --cp-muted: #9aa0aa;
+    --cp-grid: #6d7887;
+    --cp-chip: #2b323b;
+    --cp-chip-edge: #6f7c8a;
+    --cp-true: #9aa0aa;
+    --cp-accent: #4aa3df;
+    --cp-warm: #e2705a;
+    --cp-cool: #6b9fd4;
+  }
+}
+
+
+.cp-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--cp-panel);
+  border: 1px solid var(--cp-border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.cp-control {
+  flex: 1 1 190px;
+  min-width: 170px;
+}
+
+/* The source list carries ten entries, several with long names. Given a normal
+   control's width they wrapped into a tall stack and the last few were easy to
+   miss entirely. */
+.cp-control.cp-control-wide {
+  flex: 3 1 460px;
+}
+
+.cp-control > label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cp-muted);
+  margin-bottom: 0.35rem;
+}
+
+.cp-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.cp-methods button {
+  flex: 1 1 auto;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--cp-text);
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cp-methods button[aria-pressed="true"] {
+  background: var(--cp-accent);
+  border-color: var(--cp-accent);
+  color: #fff;
+}
+
+.cp-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--cp-accent);
+}
+
+.cp-value {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  color: var(--cp-text);
+}
+
+/* Two equal columns wherever there is room. Cards stretch to the tallest in
+   their row, so a short card no longer leaves a ragged edge beside a tall one. */
+.cp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Each card is as tall as its own contents. Stretching them to a common
+     height looks tidy while the pair is a similar length, but these rows pair a
+     figure with several paragraphs of commentary, and the shorter card then
+     carries a few hundred pixels of empty panel below its legend. A card that
+     ends where its content ends reads as deliberate; one padded out with a void
+     reads as broken. */
+  align-items: start;
+  gap: 1rem;
+}
+
+@media (max-width: 780px) {
+  .cp-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.cp-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--cp-panel);
+  border: 1px solid var(--cp-border);
+  border-radius: 8px;
+  padding: 0.75rem 0.85rem 0.85rem;
+}
+
+/* The hint does not grow. It used to, so that the canvases in a row started at
+   the same height, and that works while the two cards are a similar length. It
+   stops working when they are not: beside a card carrying several paragraphs of
+   explanation the hint absorbed some three hundred pixels of slack, which reads
+   as a hole punched between the caption and the controls rather than as
+   alignment. Cards still stretch to a common height, so the slack now collects
+   at the bottom of the shorter one, where it looks like padding. */
+.cp-card p.cp-hint {
+  flex: 0 0 auto;
+}
+
+.cp-half {
+  grid-column: span 1;
+}
+
+.cp-card h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+}
+
+.cp-card p.cp-hint {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--cp-muted);
+}
+
+.cp-card canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  touch-action: none;
+}
+
+.cp-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+.cp-table th,
+.cp-table td {
+  border: 1px solid var(--cp-border);
+  padding: 0.5rem 0.4rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.cp-table th {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--cp-muted);
+  background: var(--cp-bg);
+}
+
+.cp-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.cp-readout div {
+  flex: 1 1 120px;
+}
+
+.cp-readout span {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cp-muted);
+}
+
+.cp-readout strong {
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cp-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--cp-muted);
+}
+
+.cp-legend .cp-ramp {
+  flex: 1 1 auto;
+  height: 9px;
+  border-radius: 5px;
+  border: 1px solid var(--cp-border);
+}
+
+.cp-status {
+  padding: 1rem;
+  border: 1px dashed var(--cp-border);
+  border-radius: 8px;
+  color: var(--cp-muted);
+  font-size: 0.9rem;
+}
+
+/* A card that should run the full width of the grid rather than share a row:
+   the source view, the sensor pair and the sweep all need the space. */
+.cp-wide {
+  grid-column: 1 / -1;
+}
+
+/* The equations block. Deliberately plain HTML rather than typeset maths, so it
+   renders the same in the documentation and in a standalone preview, with no
+   dependency on the page's maths engine. */
+.cp-eq {
+  margin-bottom: 1rem;
+}
+
+.cp-eq-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.cp-eq-main {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: 5px;
+}
+
+.cp-eq-sub {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cp-muted);
+}
+
+.cp-eq-sol {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  color: var(--cp-muted);
+  margin-bottom: 0.5rem;
+}
+
+.cp-eq-live {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  border-left: 3px solid var(--cp-accent);
+  background: var(--cp-bg);
+  border-radius: 0 5px 5px 0;
+  font-size: 0.88rem;
+}
+
+.cp-eq-live b {
+  font-variant-numeric: tabular-nums;
+}
+
+.cp-views {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.cp-views button {
+  padding: 0.2rem 0.55rem;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--cp-muted);
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cp-views button:hover {
+  color: var(--cp-text);
+  border-color: var(--cp-accent);
+}
+
+/* Field map beside the traces: the map says where on the helmet the signal is,
+   the traces say what it does over time. */
+.cp-sensor-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(260px, 2.4fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.cp-scrollers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--cp-muted);
+}
+
+.cp-scrollers label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1 1 140px;
+}
+
+.cp-scrollers input[type="range"] {
+  flex: 1 1 auto;
+  accent-color: var(--cp-accent);
+}
+
+.cp-control input[type="range"]:disabled {
+  opacity: 0.4;
+}
+
+.cp-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.cp-key i {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+
+/* Grey, not a method colour: the ring is the truth, and the truth is the same
+   whichever method is selected. */
+.cp-ring {
+  border: 2px solid var(--cp-true);
+  border-radius: 50%;
+}
+
+.cp-cross {
+  position: relative;
+}
+
+.cp-cross::before,
+.cp-cross::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 11px;
+  height: 2px;
+  /* Set from the selected method's colour, so the key matches the plot. */
+  background: var(--cp-cross-colour, var(--cp-text));
+}
+
+.cp-cross::before {
+  transform: rotate(45deg);
+}
+
+.cp-cross::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 560px) {
+  .cp-sensor-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Shown when the head model is deliberately wrong, so a reader does not read
+   the collapsed amplitude contrast as a property of the methods. */
+.cp-eq-note {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  border-left: 3px solid var(--cp-warm);
+  background: var(--cp-bg);
+  border-radius: 0 5px 5px 0;
+  font-size: 0.85rem;
+  color: var(--cp-text);
+}
+
+/* Group headings inside the source control, so seventeen entries read as three
+   kinds of question rather than one wall of buttons. */
+.cp-group-label {
+  flex: 0 0 100%;
+  margin: 0.35rem 0 0.1rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cp-muted);
+}
+
+.cp-group-label:first-child {
+  margin-top: 0;
+}
+
+/* The sizes table under the equation. Readers ask what every symbol actually is
+   far more often than they ask what the equation means. */
+.cp-eq h5 {
+  margin: 0.9rem 0 0.35rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cp-muted);
+}
+
+.cp-dims {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+.cp-dims th {
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cp-muted);
+  border-bottom: 1px solid var(--cp-border);
+  padding: 0.2rem 0.5rem 0.2rem 0;
+}
+
+.cp-dims td {
+  padding: 0.22rem 0.5rem 0.22rem 0;
+  border-bottom: 1px solid var(--cp-border);
+  vertical-align: top;
+  color: var(--cp-muted);
+}
+
+.cp-dims td.cp-sym {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  color: var(--cp-text);
+  white-space: nowrap;
+}
+
+.cp-dims td.cp-size {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--cp-text);
+}
+
+.cp-provenance {
+  margin: 0.75rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--cp-border);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--cp-muted);
+}
+
+.cp-provenance code {
+  font-size: 0.95em;
+}
+
+/* Prose that explains the terms used in the sizes table. Kept inside the same
+   card, because the question it answers is raised by the table itself. */
+.cp-note-block {
+  margin: 0.7rem 0 0;
+  padding: 0.55rem 0.7rem;
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: 5px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--cp-muted);
+}
+
+.cp-note-block b {
+  color: var(--cp-text);
+}
+
+/* The two halves of the panel share one control strip. Whichever dataset is
+   showing, the other's controls are hidden rather than disabled: a greyed-out
+   "Source correlation" beside recorded data invites the reader to look for a
+   correlation they can set, and there is none.
+
+   ``display: contents`` on the visible group, not ``block``. The strip is a
+   flex row of controls, and a wrapper that stayed a flex item would put its
+   whole group into one cell instead of letting the controls flow. */
+.cp-sim-only {
+  display: contents;
+}
+
+.cp-real-only {
+  display: none;
+}
+
+.cp-root.cp-showing-real .cp-sim-only {
+  display: none;
+}
+
+.cp-root.cp-showing-real .cp-real-only {
+  display: contents;
+}
+
+/* The template belongs to ABMC alone, so the control only appears with it.
+   Shown for the other three it would suggest they use one, which is the
+   misunderstanding this control exists to prevent. */
+.cp-abmc-only {
+  display: none;
+}
+
+.cp-root.cp-showing-abmc .cp-abmc-only {
+  display: contents;
+}
+
+/* ---------------------------------------------------------------------------
+   Living inside the documentation theme.
+
+   The panel is developed against a plain standalone page and then embedded in
+   the pydata theme, which is a much more opinionated host: it constrains the
+   article to a prose-width column, and it styles tables, buttons and headings
+   for documentation rather than for a control surface. Dropped in unprotected
+   the panel came out narrower and looser than it was designed to be -- cards
+   squeezed into a column meant for text, table rows striped and padded on the
+   theme's terms, and control chips inheriting documentation button spacing.
+
+   Two things fix it. The panel takes the width available to the article rather
+   than the width of a paragraph, and everything inside it is scoped away from
+   the theme's element styles. Scoped under .cp-root, so nothing here can affect
+   the surrounding documentation.
+   --------------------------------------------------------------------------- */
+
+.cp-root {
+  /* Wider than the prose column where the viewport allows, centred, and never
+     wider than the article itself. 100% keeps it inside its container on narrow
+     screens; the vw term lets it use the margins the theme leaves on wide ones. */
+  width: min(100%, 1180px);
+  margin-inline: auto;
+}
+
+/* No wider than the column it sits in. An earlier version pulled the panel out
+   of the prose column on wide screens with a negative inline margin, to win back
+   the space the theme leaves as margin. That space is not empty: the sidebars
+   are in it. At a 1500 px viewport the rule made the panel 1180 px wide inside a
+   752 px article, so it reached 198 px past the left edge and 230 px past the
+   right, and both sidebars painted over the overhang -- which cut the first chip
+   off every row and ran the cards under "On this page". The theme widens the
+   article itself on larger screens, so the panel gets its extra width there
+   anyway, and inside the column it can never collide. */
+
+/* The theme styles every table in the article: borders, striping, block
+   display, its own margins. The constraint table and the sizes tables are
+   layout, not documentation tables, so they opt out. */
+.cp-root table {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  background: none;
+  box-shadow: none;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.cp-root table tr,
+.cp-root table tbody tr,
+.cp-root table tbody tr:nth-child(odd),
+.cp-root table tbody tr:hover {
+  background: none;
+  box-shadow: none;
+}
+
+.cp-root th,
+.cp-root td {
+  vertical-align: top;
+  background: none;
+}
+
+/* Buttons.
+
+   The chips were styled with a single class selector, which the theme's own
+   button rules match or beat, so in the documentation they lost their border
+   and fill and rendered as bare text -- a row of words with no indication that
+   any of them could be clicked, and a selected state that read only as bold.
+   Restating them here, under .cp-root, wins on specificity, and appearance:none
+   takes the browser's native control chrome out of the argument entirely.
+
+   Every visual property is set rather than inherited, so nothing about how they
+   look depends on what the surrounding page happens to do to a <button>. */
+.cp-root button {
+  font-family: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  box-shadow: none;
+  transition: none;
+}
+
+/* Both selectors, and !important on the properties that decide whether a chip
+   reads as a control.
+
+   This is not the way to write CSS for a page you own, and it is the way to
+   write it for a widget dropped into someone else's theme. Two rounds of
+   correct-looking, correctly-deployed rules still rendered as floating words,
+   and without a browser to inspect computed styles there is no way to find
+   which of the theme's several hundred rules is winning. Taking the argument
+   off the table costs nothing here: these five properties are the whole visual
+   identity of a chip, and nothing in the surrounding documentation has any
+   business setting them on our buttons. */
+.cp-root .cp-methods button,
+.cp-root button.cp-chip {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Sized to their text, not stretched to fill the row. Stretching made a
+     four-option group span the full width with ragged gaps, which reads as
+     four unrelated labels rather than one choice. */
+  flex: 0 0 auto !important;
+  margin: 0;
+  padding: 0.32rem 0.7rem !important;
+  font: inherit;
+  font-size: 0.82rem;
+  line-height: 1.25;
+  color: var(--cp-text);
+  /* Raised off the strip rather than matching it. An unselected chip used the
+     page background with a low-contrast border, which in dark mode left it very
+     nearly invisible: the whole strip read as a list of words with no sign that
+     any of them was a control. A chip has to look clickable before it is
+     clicked. */
+  background: var(--cp-chip, #fff) !important;
+  border: 1px solid var(--cp-chip-edge, #82888f) !important;
+  border-radius: 999px !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cp-root .cp-methods button:hover,
+.cp-root button.cp-chip:hover {
+  border-color: var(--cp-accent);
+}
+
+.cp-root .cp-methods button[aria-pressed="true"],
+.cp-root button.cp-chip[aria-pressed="true"] {
+  background: var(--cp-accent, #0072b2) !important;
+  border-color: var(--cp-accent, #0072b2) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.cp-root button.cp-chip:focus-visible {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+}
+
+/* Paragraph and heading rhythm inside a card is the card's business. The theme
+   sets generous documentation margins, which is right for prose and leaves a
+   control surface looking gappy and unaligned. */
+.cp-root p,
+.cp-root h4,
+.cp-root h5 {
+  margin-block: 0;
+}
+
+.cp-root p + p {
+  margin-top: 0.6rem;
+}
+
+.cp-root canvas {
+  max-width: 100%;
+}
+
+/* The control strip is the first thing a reader meets, so its alignment matters
+   more than anywhere else. Each control is a column with its label above its
+   chips, and the columns share a baseline whatever the label wraps to. */
+/* The control strip. A flex row of controls of wildly different widths left
+   large ragged gaps between groups, which is what made the panel read as
+   scattered. A grid gives every control a column of its own, so labels line up
+   down the strip and the chips underneath them start at the same place. */
+.cp-controls {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(210px, auto));
+  justify-content: start;
+  align-items: start;
+  gap: 0.85rem 1.6rem;
+  /* Restated here, and enforced. The strip is meant to read as one panel that
+     the controls sit inside; without the card it is a set of words on the page
+     background, which is most of why the whole thing looked unstructured. */
+  padding: 0.9rem 1.1rem !important;
+  background: var(--cp-panel, #f7f7f9) !important;
+  border: 1px solid var(--cp-border, #d5d7de) !important;
+  border-radius: 8px !important;
+}
+
+/* The group headings inside the source control sat on the same line as the
+   chips when the container became a grid item. They span the row. */
+.cp-root .cp-group-label {
+  grid-column: 1 / -1;
+  flex-basis: 100%;
+}
+
+.cp-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.cp-control > label {
+  line-height: 1.2;
+}
+
+/* The wide control -- the source layout, with its three sub-groups -- needs the
+   whole strip rather than one column. */
+.cp-control-wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .cp-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* The shape check reads as an argument rather than a lookup, so the arithmetic
+   column carries the emphasis and the middle columns stay quiet. */
+.cp-shapes td.cp-size {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--cp-muted);
+}
+
+.cp-shapes td.cp-size + td.cp-size {
+  color: var(--cp-text);
+  font-weight: 600;
+}

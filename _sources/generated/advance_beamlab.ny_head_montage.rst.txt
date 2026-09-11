@@ -1,0 +1,6 @@
+﻿advance\_beamlab.ny\_head\_montage
+==================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: ny_head_montage

@@ -1,0 +1,6 @@
+﻿advance\_beamlab.resolve\_template
+==================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: resolve_template

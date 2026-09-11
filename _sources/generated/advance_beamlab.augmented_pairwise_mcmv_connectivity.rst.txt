@@ -1,0 +1,6 @@
+﻿advance\_beamlab.augmented\_pairwise\_mcmv\_connectivity
+========================================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: augmented_pairwise_mcmv_connectivity

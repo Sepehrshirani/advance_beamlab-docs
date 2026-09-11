@@ -1,0 +1,6 @@
+﻿advance\_beamlab.recipsiicos\_rank\_curve
+=========================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: recipsiicos_rank_curve

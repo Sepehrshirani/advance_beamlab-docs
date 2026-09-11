@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advance Beam Lab &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Which method should I use?" href="choosing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advance-beam-lab">
+<h1>Advance Beam Lab<a class="headerlink" href="#advance-beam-lab" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">advance_beamlab</span></code> — advanced minimum-variance beamformers for MEG/EEG source reconstruction, built
+to be fully compatible with <a class="reference external" href="https://mne.tools">MNE-Python</a> and to its
+contribution standards, so that each algorithm can be upstreamed into
+<code class="docutils literal notranslate"><span class="pre">mne.beamformer</span></code>.</p>
+<p>Every algorithm is implemented exactly from its peer-reviewed source, cites the
+official paper, uses the algorithm’s published name, and mirrors the
+<code class="docutils literal notranslate"><span class="pre">mne.beamformer</span></code> API. This README is written to be <strong>self-contained</strong>: the
+<a class="reference external" href="https://sepehrshirani.github.io/advance_beamlab-docs/background.html">Mathematical background</a>
+section below derives every equation from first principles, so you can
+understand and tune each method without reading the papers.</p>
+<section id="implemented-algorithms">
+<h2>Implemented algorithms<a class="headerlink" href="#implemented-algorithms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Multiple Constrained Minimum Variance (MCMV)</strong> is a multi-source beamformer
+that constrains several sources <em>jointly</em>, which removes the signal
+cancellation that biases single-source LCMV when sources are correlated. It
+comes with the four <strong>scanning localizers</strong> (MAI, MPZ, MER, rMER) and the
+<strong>sequential source search</strong> that turn it into a discovery tool. After
+Moiseev et al. (2011).</p></li>
+<li><p><strong>ReciPSIICOS</strong> makes an <em>ordinary</em> LCMV beamformer robust to correlated
+sources by cleaning the data covariance before the beamformer is built, with
+noise-whitening and virtual-sensor reduction so it applies to real,
+mixed-sensor MEG arrays. After Kuznetsova, Nurislamova &amp; Ossadtchi (2021).</p></li>
+<li><p><strong>Pairwise &amp; Augmented Pairwise MCMV (PW-/APW-MCMV) connectivity</strong> provides
+leakage-free functional connectivity built on MCMV: each region pair is
+reconstructed with a 2-source MCMV (removing <em>direct</em> leakage between them),
+and every statistically significant pair is re-estimated with neighbouring
+regions added to the beamformer (suppressing <em>indirect</em> leakage through them).
+Coherence and the phase measures are delegated to <code class="docutils literal notranslate"><span class="pre">mne-connectivity</span></code>; the
+amplitude-envelope metric follows the paper’s own definition, including the
+0.5 Hz envelope low-pass that <code class="docutils literal notranslate"><span class="pre">mne-connectivity</span></code> does not expose. After
+Nunes et al. (2020).</p></li>
+<li><p><strong>Adaptive Bayesian beamformer with multiple constraints (ABMC)</strong> localises
+low-power, spike-like transients (epileptic IEDs and delayed responses to
+single-pulse electrical stimulation) that ordinary LCMV localises poorly. It
+pairs a sparse Bayesian learning (Champagne) covariance that strips
+correlated-source structure with a template-constrained beamformer
+that locks the output onto the known spike morphology. After Shirani et al.
+(2024).</p></li>
+<li><p><strong>A finite-element head model for EEG</strong>. MNE-Python computes forward
+solutions with the boundary element method only, which cannot represent the
+cerebrospinal fluid, the layered skull, or the openings at the orbits and the
+auditory meatus; for EEG those omissions bias the forward field.
+<code class="docutils literal notranslate"><span class="pre">read_ny_head_forward</span></code> wraps the precomputed six-tissue FEM lead field of the
+New York Head (Huang, Parra &amp; Haufe, 2016) as an ordinary <code class="docutils literal notranslate"><span class="pre">mne.Forward</span></code>, so
+<code class="docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv</span></code> and every method above run on a FEM forward
+unchanged. EEG only (see the caveat below). The model is downloaded on demand
+and is <strong>not</strong> redistributed with this package (its licence is GPL v3).</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">".[dev]"</span><span class="w">     </span><span class="c1"># from a clone, for development (tests + docs + lint)</span>
+<span class="c1"># or the runtime install only:</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Requires Python ≥ 3.10 and MNE-Python ≥ 1.10. The FEM head model additionally
+needs <code class="docutils literal notranslate"><span class="pre">h5py</span></code> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&quot;.[fem]&quot;</span></code>), because the model ships as a MATLAB
+v7.3/HDF5 file; everything else works without it.</p>
+<section id="the-new-york-head-fem-forward-model">
+<h3>The New York Head FEM forward model<a class="headerlink" href="#the-new-york-head-fem-forward-model" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">advance_beamlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_ny_head_forward</span><span class="p">,</span> <span class="n">make_ny_head_info</span>
+
+<span class="n">fwd</span> <span class="o">=</span> <span class="n">read_ny_head_forward</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s2">"10K"</span><span class="p">)</span>  <span class="c1"># fetches 678 MB on first use</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">make_ny_head_info</span><span class="p">(</span><span class="n">sfreq</span><span class="o">=</span><span class="mf">250.0</span><span class="p">)</span>  <span class="c1"># 231 electrodes, average reference</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fwd</span></code> is an ordinary <code class="docutils literal notranslate"><span class="pre">mne.Forward</span></code>: pass it to <code class="docutils literal notranslate"><span class="pre">make_lcmv</span></code>, <code class="docutils literal notranslate"><span class="pre">make_mcmv</span></code>,
+<code class="docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv</span></code> or <code class="docutils literal notranslate"><span class="pre">make_abmc</span></code> exactly as you would a BEM forward. Two
+things are worth knowing. The lead field is supplied in <strong>common average
+reference</strong>, so it is rank deficient by exactly one (230 of 231) and the data
+must carry an average-reference projector. <code class="docutils literal notranslate"><span class="pre">make_ny_head_info</span></code> builds an info
+that does. And the approach is <strong>EEG-only</strong>, not by omission: EEG electrodes
+follow a standardised layout, so a template head can be solved once and reused,
+whereas MEG sensor positions relative to the brain differ every session
+(<code class="docutils literal notranslate"><span class="pre">info['dev_head_t']</span></code>), so no template MEG array exists to solve for. This costs
+little, because the tissues a BEM misrepresents are the ones MEG is least
+sensitive to. BEM is a reasonable model for MEG, and the weak link for EEG.</p>
+</section>
+</section>
+<section id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p><strong>Discover correlated sources with MCMV</strong> (no need to know where they are):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">advance_beamlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">scan_mcmv</span><span class="p">,</span> <span class="n">apply_mcmv</span>
+
+<span class="c1"># info, forward (free orientation), data_cov, noise_cov as usual in MNE</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">scan_mcmv</span><span class="p">(</span>
+    <span class="n">info</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="n">data_cov</span><span class="p">,</span> <span class="n">noise_cov</span><span class="o">=</span><span class="n">noise_cov</span><span class="p">,</span> <span class="n">localizer</span><span class="o">=</span><span class="s2">"mpz"</span><span class="p">,</span> <span class="n">n_sources</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"sources"</span><span class="p">])</span>  <span class="c1"># discovered grid indices</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"pseudo_z"</span><span class="p">])</span>  <span class="c1"># per-source pseudo-Z (judge how many are real)</span>
+<span class="c1"># ndarray, (n_epochs, n_sources, n_times) -- not a SourceEstimate</span>
+<span class="n">source_tcs</span> <span class="o">=</span> <span class="n">apply_mcmv</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s2">"filters"</span><span class="p">])</span>  <span class="c1"># jointly-optimal filters</span>
+</pre></div>
+</div>
+<p><strong>Make LCMV robust to correlation with ReciPSIICOS</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">advance_beamlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_recipsiicos_lcmv</span><span class="p">,</span> <span class="n">recipsiicos_rank_curve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mne.beamformer</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_lcmv</span>
+
+<span class="c1"># The projector is built from the forward model alone; K lives in the</span>
+<span class="c1"># (whitened, reduced) virtual-sensor space. Let the 45-degree criterion pick it.</span>
+<span class="n">ranks</span><span class="p">,</span> <span class="n">p_pwr</span><span class="p">,</span> <span class="n">p_cor</span><span class="p">,</span> <span class="n">k_opt</span> <span class="o">=</span> <span class="n">recipsiicos_rank_curve</span><span class="p">(</span>
+    <span class="n">forward</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"whitened"</span><span class="p">,</span> <span class="n">noise_cov</span><span class="o">=</span><span class="n">noise_cov</span><span class="p">,</span> <span class="n">return_optimal</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">filters</span> <span class="o">=</span> <span class="n">make_recipsiicos_lcmv</span><span class="p">(</span>
+    <span class="n">info</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="n">data_cov</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="n">k_opt</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"whitened"</span><span class="p">,</span> <span class="n">noise_cov</span><span class="o">=</span><span class="n">noise_cov</span>
+<span class="p">)</span>
+<span class="n">stc</span> <span class="o">=</span> <span class="n">apply_lcmv</span><span class="p">(</span><span class="n">evoked</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Estimate leakage-free connectivity with PW-/APW-MCMV</strong> (resting-state alpha):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">advance_beamlab</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">pairwise_mcmv_connectivity</span><span class="p">,</span>
+    <span class="n">augmented_pairwise_mcmv_connectivity</span><span class="p">,</span>
+    <span class="n">ar1_surrogate_significance</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># rois: grid indices of the regions of interest. Band-pass the data to the</span>
+<span class="c1"># analysis band (e.g. 8-12 Hz) and estimate data_cov from the *same* band, so</span>
+<span class="c1"># the weights are tuned to it (broadband weights invent spurious connectivity).</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">pairwise_mcmv_connectivity</span><span class="p">(</span>
+    <span class="n">band_data</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="n">data_cov</span><span class="p">,</span> <span class="n">rois</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"envelope"</span><span class="p">,</span> <span class="n">noise_cov</span><span class="o">=</span><span class="n">noise_cov</span>
+<span class="p">)</span>
+
+<span class="c1"># keep the significant edges, then re-estimate them with neighbour augmentation</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">ar1_surrogate_significance</span><span class="p">(</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">reference_time_courses</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"envelope"</span><span class="p">,</span> <span class="n">sfreq</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">"sfreq"</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">conn_apw</span> <span class="o">=</span> <span class="n">augmented_pairwise_mcmv_connectivity</span><span class="p">(</span>
+    <span class="n">band_data</span><span class="p">,</span>
+    <span class="n">info</span><span class="p">,</span>
+    <span class="n">forward</span><span class="p">,</span>
+    <span class="n">data_cov</span><span class="p">,</span>
+    <span class="n">rois</span><span class="p">,</span>
+    <span class="n">conn</span><span class="p">,</span>
+    <span class="n">sig</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">"envelope"</span><span class="p">,</span>
+    <span class="n">noise_cov</span><span class="o">=</span><span class="n">noise_cov</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="where-to-go-next">
+<h1>Where to go next<a class="headerlink" href="#where-to-go-next" title="Link to this heading">#</a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Which method should I use?</div>
+<p class="sd-card-text">A decision guide keyed on the data you have, with what this package
+actually demonstrates for each method, including the cases where a
+plain LCMV is the better answer.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="choosing.html"><span class="doc">Which method should I use?</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Interactive panel</div>
+<p class="sd-card-text">An interactive panel. Put one, two or three sources on a cortex, pick a
+rhythm and how correlated they are, and watch the constraint table: LCMV’s
+off-diagonal gain runs away and takes the amplitude with it, MCMV’s stays
+pinned at zero.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="panel.html"><span class="doc">Interactive panel</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Examples</div>
+<p class="sd-card-text">Nine worked examples, from the correlated-source problem in isolation
+through to real MEG recordings and a finite-element EEG head model. Every
+figure is produced by the code on the page.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="auto_examples/index.html"><span class="doc">Examples</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mathematical background</div>
+<p class="sd-card-text">Every equation derived from first principles, so each method can be
+understood and tuned without reading the papers first.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="background.html"><span class="doc">Mathematical background</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Parameter tuning</div>
+<p class="sd-card-text">What each parameter controls and what changes when you move it, per
+algorithm.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="tuning.html"><span class="doc">Parameter tuning</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+API reference</div>
+<p class="sd-card-text">Every public function and class, documented from its in-code docstring.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="api.html"><span class="doc">API reference</span></a></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="choosing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Which method should I use?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

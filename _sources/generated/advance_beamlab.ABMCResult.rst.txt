@@ -1,0 +1,12 @@
+﻿advance\_beamlab.ABMCResult
+===========================
+
+.. currentmodule:: advance_beamlab
+
+.. autoclass:: ABMCResult
+   :no-members:
+   :no-inherited-members:
+   :no-special-members:
+
+.. minigallery:: advance_beamlab.ABMCResult
+   :add-heading: Examples using ``ABMCResult``

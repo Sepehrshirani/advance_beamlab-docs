@@ -1,0 +1,6 @@
+﻿advance\_beamlab.make\_abmc\_dictionary
+=======================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: make_abmc_dictionary

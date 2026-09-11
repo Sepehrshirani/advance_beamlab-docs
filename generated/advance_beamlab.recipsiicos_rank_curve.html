@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>advance_beamlab.recipsiicos_rank_curve &#8212; Advance Beam Lab 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f8da66d0" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/advance_beamlab.recipsiicos_rank_curve';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="advance_beamlab.reconstruct_pairwise_mcmv" href="advance_beamlab.reconstruct_pairwise_mcmv.html" />
+    <link rel="prev" title="advance_beamlab.make_recipsiicos_lcmv" href="advance_beamlab.make_recipsiicos_lcmv.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Advance Beam Lab 1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../choosing.html">
+    Which method should I use?
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../panel.html">
+    Interactive panel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../background.html">
+    Mathematical background
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tuning.html">
+    Parameter tuning
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Sepehrshirani/advance_beamlab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://mne.tools" title="MNE-Python" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-brain fa-lg" aria-hidden="true"></i><span class="visually-hidden">MNE-Python</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_mcmv.html">advance_beamlab.make_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.apply_mcmv.html">advance_beamlab.apply_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.apply_mcmv_cov.html">advance_beamlab.apply_mcmv_cov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.MCMVBeamformer.html">advance_beamlab.MCMVBeamformer</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.localizer_value.html">advance_beamlab.localizer_value</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.optimal_orientation.html">advance_beamlab.optimal_orientation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.scan_mcmv.html">advance_beamlab.scan_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.MCMVScanResult.html">advance_beamlab.MCMVScanResult</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_recipsiicos_cov.html">advance_beamlab.make_recipsiicos_cov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html">advance_beamlab.make_recipsiicos_lcmv</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">advance_beamlab.recipsiicos_rank_curve</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.reconstruct_pairwise_mcmv.html">advance_beamlab.reconstruct_pairwise_mcmv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.pairwise_mcmv_connectivity.html">advance_beamlab.pairwise_mcmv_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.augmented_pairwise_mcmv_connectivity.html">advance_beamlab.augmented_pairwise_mcmv_connectivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ar1_surrogate_significance.html">advance_beamlab.ar1_surrogate_significance</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.sbl_covariance.html">advance_beamlab.sbl_covariance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_abmc.html">advance_beamlab.make_abmc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_abmc_dictionary.html">advance_beamlab.make_abmc_dictionary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.abmc_stability_curve.html">advance_beamlab.abmc_stability_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ABMCResult.html">advance_beamlab.ABMCResult</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.fetch_ny_head.html">advance_beamlab.fetch_ny_head</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.read_ny_head_forward.html">advance_beamlab.read_ny_head_forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_montage.html">advance_beamlab.ny_head_montage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.make_ny_head_info.html">advance_beamlab.make_ny_head_info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_scalp.html">advance_beamlab.ny_head_scalp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_plot_indices.html">advance_beamlab.ny_head_plot_indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ny_head_picks.html">advance_beamlab.ny_head_picks</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.power_image.html">advance_beamlab.power_image</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.estimate_rank.html">advance_beamlab.estimate_rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.rank_spectrum.html">advance_beamlab.rank_spectrum</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.permutation_image_test.html">advance_beamlab.permutation_image_test</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.constraint_demo.html">advance_beamlab.constraint_demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.constraint_explorer.html">advance_beamlab.constraint_explorer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.ConstraintDemo.html">advance_beamlab.ConstraintDemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.evoked_demo.html">advance_beamlab.evoked_demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.evoked_sources.html">advance_beamlab.evoked_sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.EvokedDemo.html">advance_beamlab.EvokedDemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advance_beamlab.resolve_template.html">advance_beamlab.resolve_template</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">advance_beamlab.recipsiicos_rank_curve</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="advance-beamlab-recipsiicos-rank-curve">
+<h1>advance_beamlab.recipsiicos_rank_curve<a class="headerlink" href="#advance-beamlab-recipsiicos-rank-curve" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="advance_beamlab.recipsiicos_rank_curve">
+<span class="sig-prename descclassname"><span class="pre">advance_beamlab.</span></span><span class="sig-name descname"><span class="pre">recipsiicos_rank_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'recipsiicos'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whitener_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pct_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_virtual</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_optimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#advance_beamlab.recipsiicos_rank_curve" title="Link to this definition">#</a></dt>
+<dd><p>Power-vs-correlation retention as a function of projection rank.</p>
+<p>Computes, for every projection rank <code class="docutils literal notranslate"><span class="pre">k</span></code> in the working space, the fraction
+of the power- and correlation-subspace energy that survives the projection
+(Eqs. 20-21). The useful rank is the one beyond which the correlation
+subspace stops being depleted faster than the power subspace; plotting
+<code class="docutils literal notranslate"><span class="pre">p_cor</span></code> against <code class="docutils literal notranslate"><span class="pre">p_pwr</span></code> makes this trade-off visible and its 45-degree
+point (Section 2.4) is the recommended rank.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function takes <code class="docutils literal notranslate"><span class="pre">(forward,</span> <span class="pre">info)</span></code> positionally, with <code class="docutils literal notranslate"><span class="pre">data_cov</span></code>
+keyword-only. Its two companions differ:
+<a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a> takes <code class="docutils literal notranslate"><span class="pre">(info,</span> <span class="pre">forward,</span> <span class="pre">data_cov)</span></code>,
+following <a class="reference external" href="https://mne.tools/stable/generated/mne.beamformer.make_lcmv.html#mne.beamformer.make_lcmv" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.beamformer.make_lcmv()</span></code></a>, and
+<a class="reference internal" href="advance_beamlab.make_recipsiicos_cov.html#advance_beamlab.make_recipsiicos_cov" title="advance_beamlab.make_recipsiicos_cov"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_cov()</span></code></a> takes <code class="docutils literal notranslate"><span class="pre">(data_cov,</span> <span class="pre">forward,</span> <span class="pre">info)</span></code>. Pass
+the three by keyword in any script that uses more than one of these
+functions. A swapped call raises rather than returning a wrong answer,
+because each of the three is checked against its own class, but the
+message names the parameter and not the swap.</p>
+</div>
+<p>The returned <code class="docutils literal notranslate"><span class="pre">K*</span></code> is that 45-degree point, unmodified. Pass <code class="docutils literal notranslate"><span class="pre">data_cov</span></code>
+to also have the negative-eigenvalue energy of the modified covariance
+(Eq. 24) reported at <code class="docutils literal notranslate"><span class="pre">K*</span></code>, so that the diagnostic
+<a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a> reports at build time is visible while the
+rank is being chosen. It costs one extra <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">x</span> <span class="pre">q</span></code> eigendecomposition, and
+it changes neither the curves nor <code class="docutils literal notranslate"><span class="pre">K*</span></code>.</p>
+<p>Note that the two methods traverse the rank axis in opposite directions:
+<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">q^2</span></code> is the least restrictive end for <code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">0</span></code>
+the least restrictive end for <code class="docutils literal notranslate"><span class="pre">'whitened'</span></code>. <code class="docutils literal notranslate"><span class="pre">p_pwr</span></code> and <code class="docutils literal notranslate"><span class="pre">p_cor</span></code>
+therefore rise with <code class="docutils literal notranslate"><span class="pre">k</span></code> for the former and fall with it for the latter,
+and the returned <code class="docutils literal notranslate"><span class="pre">K*</span></code> is located accordingly (Fig. 19 of the paper puts
+the ReciPSIICOS scale in descending order for exactly this reason). Neither
+end is the identity, so the top of a <code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code> curve must not be
+read as “no modification”; see the Notes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>forward</strong><span class="classifier">instance of mne.Forward</span></dt><dd><p>The forward solution.</p>
+</dd>
+<dt><strong>info</strong><span class="classifier">instance of mne.Info</span></dt><dd><p>Measurement info, used to whiten and reduce to the working space so that
+the curve matches the space the beamformer is built in.</p>
+</dd>
+<dt><strong>method</strong><span class="classifier">‘recipsiicos’ | ‘whitened’</span></dt><dd><p>Which projector family to characterise.</p>
+</dd>
+<dt><strong>data_cov</strong><span class="classifier">instance of mne.Covariance | None</span></dt><dd><p>Used to intersect channels and, when given, to report the
+negative-eigenvalue energy at <code class="docutils literal notranslate"><span class="pre">K*</span></code> (Eq. 24), warning above the same
+one-fifth limit the beamformer entry points use. Its values affect
+neither <code class="docutils literal notranslate"><span class="pre">p_pwr</span></code>, <code class="docutils literal notranslate"><span class="pre">p_cor</span></code> nor <code class="docutils literal notranslate"><span class="pre">K*</span></code>, which are functions of the
+forward alone.</p>
+</dd>
+<dt><strong>noise_cov</strong><span class="classifier">instance of mne.Covariance | None</span></dt><dd><p>Noise covariance used to whiten (see <a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a>).</p>
+</dd>
+<dt><strong>whitener_rank</strong><span class="classifier">None | ‘info’ | ‘full’ | dict</span></dt><dd><p>Rank handling passed to <a class="reference external" href="https://mne.tools/stable/generated/mne.cov.compute_whitener.html#mne.cov.compute_whitener" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.cov.compute_whitener()</span></code></a>, which takes
+exactly these four forms. A bare integer is rejected: MNE resolves the
+rank per sensor type, and a single number does not say which type it
+belongs to. Use a dict, e.g. <code class="docutils literal notranslate"><span class="pre">{'grad':</span> <span class="pre">60,</span> <span class="pre">'mag':</span> <span class="pre">55}</span></code>, to fix one or
+more types by hand and leave the rest to be estimated. The default
+<code class="docutils literal notranslate"><span class="pre">None</span></code> estimates the rank of the noise covariance itself, per sensor
+type, and drops its null space; <code class="docutils literal notranslate"><span class="pre">'info'</span></code> instead takes the rank
+<code class="docutils literal notranslate"><span class="pre">info</span></code> implies (the channel count less the projectors, or the
+Maxwell-filtering header when there is one). Leave it at <code class="docutils literal notranslate"><span class="pre">None</span></code> unless
+the rank is already known: <code class="docutils literal notranslate"><span class="pre">'full'</span></code> inverts the near-null directions
+that SSP/SSS or ICA leave behind, and that unstable whitener propagates
+into every virtual sensor, hence into the projector and the filters.</p>
+</dd>
+<dt><strong>pct_var</strong><span class="classifier">float</span></dt><dd><p>Fraction of whitened-leadfield variance kept by the virtual-sensor
+reduction. Ignored if <code class="docutils literal notranslate"><span class="pre">n_virtual</span></code> is given.</p>
+</dd>
+<dt><strong>n_virtual</strong><span class="classifier">int | None</span></dt><dd><p>Explicit number of virtual sensors. Overrides <code class="docutils literal notranslate"><span class="pre">pct_var</span></code>.</p>
+</dd>
+<dt><strong>reg</strong><span class="classifier">float</span></dt><dd><p>Ridge for the whitened-projector power subspace.</p>
+</dd>
+<dt><strong>return_optimal</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, also return the automatically selected rank <code class="docutils literal notranslate"><span class="pre">K*</span></code>.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool | str | int | None</span></dt><dd><p>Control verbosity of the logging output. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, use the default
+verbosity level. See the <a class="reference external" href="https://docs.python.org/3/tutorial/stdlib2.html#tut-logging" title="(in Python v3.14)"><span class="xref std std-ref">logging documentation</span></a> and
+<a class="reference external" href="https://mne.tools/stable/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a> for details. Should only be passed as a keyword
+argument.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>ranks</strong><span class="classifier">ndarray, shape (n_ranks,)</span></dt><dd><p>The projection ranks evaluated (1 .. q^2).</p>
+</dd>
+<dt><strong>p_pwr</strong><span class="classifier">ndarray, shape (n_ranks,)</span></dt><dd><p>Fraction of power-subspace energy retained at each rank (Eq. 20).</p>
+</dd>
+<dt><strong>p_cor</strong><span class="classifier">ndarray, shape (n_ranks,)</span></dt><dd><p>Fraction of correlation-subspace energy retained at each rank (Eq. 21).</p>
+</dd>
+<dt><strong>optimal</strong><span class="classifier">int</span></dt><dd><p>The selected rank <code class="docutils literal notranslate"><span class="pre">K*</span></code> (only if <code class="docutils literal notranslate"><span class="pre">return_optimal=True</span></code>). This is the
+45-degree point of Section 2.4 exactly as that criterion defines it. It
+is never capped or nudged to satisfy the negative-eigenvalue limit; the
+single exception is a degenerate curve, where a floor on the retained
+power backs <code class="docutils literal notranslate"><span class="pre">K*</span></code> off toward the least restrictive end, and that
+back-off is logged whenever it happens.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Equation numbers refer to Kuznetsova et al. (2021).</p>
+<p>The negative-eigenvalue energy reported when <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> is given is a
+property of the covariance far more than of the rank. Measured on a fixed
+forward at a fixed rank it ran from 0.005 on a real baseline covariance to
+0.22 on a simulated one at 50:1 SNR with correlated sources, and dropped
+back to zero as the simulated sensor noise was raised, so a large value
+flags the high-SNR, strongly correlated regime the method exists for rather
+than a bad rank. It is reported here because a number worth checking should
+be visible when the rank is chosen; it is not a reason to override <code class="docutils literal notranslate"><span class="pre">K*</span></code>.
+On the one simulation in this package that trips the limit, <code class="docutils literal notranslate"><span class="pre">K*</span></code> is one of
+only two ranks that put both peaks on the true sources, and every rank that
+clears the limit misses by 13 to 64 mm on an 8.7 mm grid.</p>
+<p>The least restrictive end of the rank axis is not the identity. The
+<code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code> projector at rank <code class="docutils literal notranslate"><span class="pre">k</span></code> spans the <code class="docutils literal notranslate"><span class="pre">k</span></code> leading singular
+directions of the auto-product matrix, which carries one column per source
+(three per free-orientation source); once <code class="docutils literal notranslate"><span class="pre">k</span></code> reaches that column count
+the projector stops growing. On any grid with fewer columns than <code class="docutils literal notranslate"><span class="pre">q^2</span></code> –
+the decimated grids this module recommends, where <code class="docutils literal notranslate"><span class="pre">q</span></code> is a few tens – the
+axis therefore saturates below the full space, and the curves are flat from
+the cap upward. Measured on a 186-source grid at <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">=</span> <span class="pre">20</span></code>, the top of the
+axis is a rank-186 projector out of a possible 400, and <code class="docutils literal notranslate"><span class="pre">p_cor</span></code> there is
+0.998 rather than 1. The
+<code class="docutils literal notranslate"><span class="pre">'whitened'</span></code> end is no more the identity: that projector is confined at
+every rank, <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">0</span></code> included, to the retained range of the power Gram.
+Read the ends as directions of travel, not as no-ops.</p>
+<p>There is deliberately no <code class="docutils literal notranslate"><span class="pre">label</span></code> parameter here, although
+<a class="reference internal" href="advance_beamlab.make_recipsiicos_lcmv.html#advance_beamlab.make_recipsiicos_lcmv" title="advance_beamlab.make_recipsiicos_lcmv"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_recipsiicos_lcmv()</span></code></a> has one. <code class="docutils literal notranslate"><span class="pre">label</span></code> does not reach the
+projector or the working space in that function either: the projector is
+built from the whole forward and the restriction is applied afterwards, to
+the source rows the filters are solved for. The curve and the <code class="docutils literal notranslate"><span class="pre">K*</span></code>
+computed here are therefore already the ones a labelled call uses, and a
+rank chosen in one call is spent in the same space in the other. Building
+the curve on a label-restricted forward would be the actual mistake – the
+power subspace would stop spanning the sources outside the label, so <code class="docutils literal notranslate"><span class="pre">K*</span></code>
+would be chosen for a projector that is never built.</p>
+<p>What <em>does</em> have to match is the channel set. The working space is the
+<span class="math notranslate nohighlight">\(q^2\)</span> space of vectorised covariances over the <code class="docutils literal notranslate"><span class="pre">q</span></code> virtual sensors,
+and <code class="docutils literal notranslate"><span class="pre">q</span></code> follows from the channels the call ends up with. Given
+<code class="docutils literal notranslate"><span class="pre">data_cov</span></code>, that is the intersection of <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">forward</span></code> and the
+covariance; without it, only <code class="docutils literal notranslate"><span class="pre">info</span></code> and <code class="docutils literal notranslate"><span class="pre">forward</span></code> are intersected. A
+covariance missing channels the other two have therefore yields a different
+<code class="docutils literal notranslate"><span class="pre">q</span></code>, and a <code class="docutils literal notranslate"><span class="pre">K*</span></code> chosen here would be spent in a space it was not chosen
+for. Pass the same <code class="docutils literal notranslate"><span class="pre">data_cov</span></code> you will pass to the beamformer whenever the
+two channel sets could differ.</p>
+<p>How much the curve needs a forward with rich leadfield structure depends on
+the method, and the two differ sharply on a single-shell sphere. Measured on
+a 60-channel EEG sphere with 1258 fixed-orientation sources,
+<code class="docutils literal notranslate"><span class="pre">method='recipsiicos'</span></code> does collapse as described: at <code class="docutils literal notranslate"><span class="pre">K*</span></code> it retains
+0.99 of the power subspace but also 0.87 of the correlation subspace, a
+separation of 0.12, so there is almost nothing for the 45-degree criterion
+to lock onto. <code class="docutils literal notranslate"><span class="pre">method='whitened'</span></code> does not: on the same sphere it retains
+0.83 of the power against 0.16 of the correlation, a separation of 0.67, and
+<code class="docutils literal notranslate"><span class="pre">K*</span></code> is perfectly well defined. So a degenerate curve is a reason to
+distrust <code class="docutils literal notranslate"><span class="pre">'recipsiicos'</span></code> on a smooth forward, not a blanket property of
+spheres. On a degenerate curve <code class="docutils literal notranslate"><span class="pre">K*</span></code> falls back toward the least
+restrictive end. Both curves build a correlation
+Gram over every source pair (<span class="math notranslate nohighlight">\(O(N^2)\)</span> in runtime), so decimate the
+source space for real forwards; peak memory is instead the
+<span class="math notranslate nohighlight">\(q^2 \times q^2\)</span> Gram, so keep <code class="docutils literal notranslate"><span class="pre">q</span></code> modest as well.</p>
+<p class="rubric">References</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="advance_beamlab.make_recipsiicos_lcmv.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">advance_beamlab.make_recipsiicos_lcmv</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="advance_beamlab.reconstruct_pairwise_mcmv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">advance_beamlab.reconstruct_pairwise_mcmv</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advance_beamlab.recipsiicos_rank_curve"><code class="docutils literal notranslate"><span class="pre">recipsiicos_rank_curve()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/generated/advance_beamlab.recipsiicos_rank_curve.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Sepehr Shirani, Muzhi Wang and Jade Serfaty.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
