@@ -1,0 +1,6 @@
+﻿advance\_beamlab.evoked\_sources
+================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: evoked_sources

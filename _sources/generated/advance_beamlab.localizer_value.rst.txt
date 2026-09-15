@@ -1,0 +1,6 @@
+﻿advance\_beamlab.localizer\_value
+=================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: localizer_value

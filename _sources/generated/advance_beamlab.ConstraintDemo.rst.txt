@@ -1,0 +1,12 @@
+﻿advance\_beamlab.ConstraintDemo
+===============================
+
+.. currentmodule:: advance_beamlab
+
+.. autoclass:: ConstraintDemo
+   :no-members:
+   :no-inherited-members:
+   :no-special-members:
+
+.. minigallery:: advance_beamlab.ConstraintDemo
+   :add-heading: Examples using ``ConstraintDemo``

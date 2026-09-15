@@ -1,0 +1,6 @@
+﻿advance\_beamlab.fetch\_ny\_head
+================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: fetch_ny_head

@@ -1,0 +1,6 @@
+﻿advance\_beamlab.abmc\_stability\_curve
+=======================================
+
+.. currentmodule:: advance_beamlab
+
+.. autofunction:: abmc_stability_curve
